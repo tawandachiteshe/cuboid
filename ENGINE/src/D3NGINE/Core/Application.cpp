@@ -1,7 +1,6 @@
 #include "Application.h"
 #include <D3NGINE/Renderer/Renderer.h>
 #include <imgui_impl_sdl.h>
-#include <D3NGINE/Renderer/Renderer2D.h>
 
 namespace D3G
 {
@@ -24,7 +23,6 @@ namespace D3G
 
 	Application::~Application()
 	{
-		delete m_Window;
 
 	}
 
@@ -59,10 +57,11 @@ namespace D3G
 			if(isPolling)
 			{
 				ImGui_ImplSDL2_ProcessEvent(event);
-				this->OnEvent(*event);
-				m_Running = m_Window->OnEvent(*event);
+				this->OnEvent(event);
+				m_Running = m_Window->OnEvent(event);
 			}
 
+			this->OnUnHandledEvent(event);
 
 			int w, h = 0;
 			SDL_GetWindowSize(m_Window->GetWindow(), &w, &h);
@@ -71,7 +70,7 @@ namespace D3G
 		}
 	}
 
-	void Application::OnEvent(SDL_Event& e)
+	void Application::OnEvent(SDL_Event* e)
 	{
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
@@ -80,6 +79,14 @@ namespace D3G
 		}
 
 	}
+
+    void Application::OnUnHandledEvent(SDL_Event* e)
+    {
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+        {
+            (*--it)->OnUnHandledEvent(e);
+        }
+    }
 
 	void Application::PushLayer(Layer* layer)
 	{

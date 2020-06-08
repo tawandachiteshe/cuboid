@@ -3,13 +3,13 @@
 
 #include "Application.h"
 #include <D3NGINE/Input/D3GINPUT.h>
-#include "D3NGINE/Layer.h"
+#include "Layer.h"
 #include "LayerStack.h"
 #include "SDL_events.h"
 #include "D3NGINE/ImGui/ImGuiLayer.h"
 #include <D3NGINE/utils/IO/FileSystem.h>
 
-#include <D3NGINE/Core.h>
+#include <D3NGINE/Core/Core.h>
 
 #include <D3NGINE/Renderer/Texture.h>
 #include <D3NGINE/Renderer/VertexArray.h>

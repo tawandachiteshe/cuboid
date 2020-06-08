@@ -1,5 +1,5 @@
-#include <D3NGINE/D3G.h>
-#include <D3NGINE/EntryPoint.h>
+#include <D3NGINE/Core/D3G.h>
+#include <D3NGINE/Core/EntryPoint.h>
 #include "SandBox2D.h"
 
 using namespace D3G;

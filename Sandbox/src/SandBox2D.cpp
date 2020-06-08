@@ -106,7 +106,7 @@ void SandBox2D::OnImGuiRender()
 
 }
 
-void SandBox2D::OnEvent(SDL_Event &event)
+void SandBox2D::OnEvent(SDL_Event *event)
 {
     m_Camera2DController.OnEvent(event);
 }

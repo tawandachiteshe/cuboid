@@ -6,7 +6,7 @@
 #define D3NGINE_SANDBOX2D_H
 
 #include <string>
-#include <D3NGINE/D3G.h>
+#include <D3NGINE/Core/D3G.h>
 #include <lua.hpp>
 class SandBox2D : public D3G::Layer
 {
@@ -21,7 +21,7 @@ class SandBox2D : public D3G::Layer
 
     void OnImGuiRender() override;
 
-    void OnEvent(SDL_Event &event) override;
+    void OnEvent(SDL_Event *event) override;
 
     ~SandBox2D() override;
 

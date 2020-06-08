@@ -1,6 +1,6 @@
 #include "D3GINPUT.h"
 #include "SDL_events.h"
-#include "D3NGINE/Application.h"
+#include "D3NGINE/Core/Application.h"
 
 namespace D3G{
 
@@ -10,7 +10,7 @@ namespace D3G{
 
 	bool D3GINPUT::IsKeyPressedImpl(SDL_Keycode KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->key.state == SDL_PRESSED)
 		{
 			if (event->key.keysym.scancode == SDL_GetScancodeFromKey(KeyCode) && event->key.repeat == 0)
@@ -25,7 +25,7 @@ namespace D3G{
 
 	bool D3GINPUT::IsKeyDownImpl(SDL_Keycode KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->key.state == SDL_PRESSED)
 		{
 			if (event->key.keysym.scancode == SDL_GetScancodeFromKey(KeyCode))
@@ -41,7 +41,7 @@ namespace D3G{
 
 	bool D3GINPUT::IsKeyReleasedImpl(SDL_Keycode KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->key.state == SDL_PRESSED)
 		{
 			if (event->key.keysym.scancode == SDL_GetScancodeFromKey(KeyCode) && event->key.repeat <= 0)
@@ -57,7 +57,7 @@ namespace D3G{
 
 	int D3GINPUT::GetMouseXImpl()
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->motion.type == SDL_MOUSEMOTION)
 		{
 			return event->motion.x;
@@ -67,7 +67,7 @@ namespace D3G{
 
 	int D3GINPUT::GetMouseYImpl()
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->motion.type == SDL_MOUSEMOTION)
 		{
 			return event->motion.y;
@@ -77,7 +77,7 @@ namespace D3G{
 
 	bool D3GINPUT::IsMouseKeyPressedImpl(int KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->button.state == SDL_PRESSED)
 		{
 			if (event->button.button == KeyCode)
@@ -91,7 +91,7 @@ namespace D3G{
 	}
 	bool D3GINPUT::IsMouseKeyDownImpl(int KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->button.state == SDL_PRESSED)
 		{
 			if (event->button.button == KeyCode && event->button.clicks <= 1)
@@ -106,7 +106,7 @@ namespace D3G{
 
 	bool D3GINPUT::IsMouseKeyReleasedImpl(int KeyCode)
 	{
-		auto event = Application::Get().ApplicationGetWindow().GetEvents();
+		auto event = Application::Get().ApplicationGetWindow().GetUnHandledEvents();
 		if (event->button.state == SDL_RELEASED)
 		{
 			if (event->button.button == KeyCode)

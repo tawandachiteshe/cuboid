@@ -17,7 +17,7 @@ namespace D3G {
 			Camera2DController(float aspectRatio, bool rotation = false);
 
 		void OnUpdate(float ts);
-		void OnEvent(SDL_Event& e);
+		void OnEvent(SDL_Event* e);
 
 		Camera2D& GetCamera() { return m_Camera; }
 		const Camera2D& GetCamera() const { return m_Camera; }

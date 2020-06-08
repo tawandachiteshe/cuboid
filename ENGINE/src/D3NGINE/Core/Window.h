@@ -20,7 +20,7 @@ namespace D3G
 	class Window
 	{
 	public:
-		static Window* Create(const WinProps& props = { "D3NGINE", 1278, 600, true });
+		static Scope<Window> Create(const WinProps& props = { "D3NGINE", 1278, 600, true });
 		Window(const WinProps& props = { "D3NGINE", 1278, 600, true });
 		void Init(const WinProps& props);
 		bool OnUpdate() const;
@@ -29,6 +29,8 @@ namespace D3G
 		inline unsigned int GetHeight() const { return m_WinData.WinHeight; }
 		inline SDL_Window* GetWindow() const { return window; }
 		static SDL_Event* GetEvents();
+		SDL_Event* GetUnHandledEvents();
+
 		bool IsRunning = true;
 		void ShutDown();
 
@@ -36,7 +38,7 @@ namespace D3G
 
 		void SetVsync(bool enabled);
 
-		bool OnEvent(SDL_Event& e) const;
+		bool OnEvent(SDL_Event* e) const;
 		int gladStatus = 0;
 		inline int GetGladStatus() { return gladStatus; }
 		inline void* GetGLContext() { return m_GlContext; }

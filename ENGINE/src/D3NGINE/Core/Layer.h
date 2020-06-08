@@ -13,7 +13,8 @@ namespace D3G
 		virtual void OnDetach() {}
 		virtual void OnUpdate(float dt) {}
 		virtual void OnImGuiRender(){}
-		virtual void OnEvent(SDL_Event& event) {}
+		virtual void OnEvent(SDL_Event* event) {}
+		virtual void OnUnHandledEvent(SDL_Event* event){}
 		virtual ~Layer();
 
 		inline const std::string& GetName() const { return m_DebugName; }

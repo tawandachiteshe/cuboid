@@ -9,6 +9,6 @@
 #include <fstream>
 #include <algorithm>
 #include <windows.h>
-#include <D3NGINE/Core.h>
+#include <D3NGINE/Core/Core.h>
 
 #endif

@@ -1,11 +1,10 @@
 #include "ImGuiLayer.h"
 #include <imgui.h>
-#include "D3NGINE/Application.h"
+#include "D3NGINE/Core/Application.h"
 #include "glad/glad.h"
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_opengl3.h>
 #include <D3NGINE/Renderer/RendererAPI.h>
-#include <SDL_events.h>
 
 namespace D3G
 {
@@ -96,7 +95,7 @@ namespace D3G
 	}
 
 
-	void ImGuiLayer::OnEvent(SDL_Event& event)
+	void ImGuiLayer::OnEvent(SDL_Event* event)
 	{
 
 	}

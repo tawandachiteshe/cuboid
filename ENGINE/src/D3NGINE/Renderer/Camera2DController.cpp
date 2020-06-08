@@ -1,8 +1,6 @@
 #include <D3NGINE/Renderer/Camera2DController.h>
 #include "D3NGINE/Input/D3GINPUT.h"
-#include <SDL_keycode.h>
-#include <D3NGINE/Application.h>
-#include <glm/glm.hpp>
+#include <D3NGINE/Core/Application.h>
 
 extern DECLSPEC void SDLCALL SDL_GetWindowSize(SDL_Window * window, int *w,
 				int *h);
@@ -60,10 +58,10 @@ namespace D3G {
 		m_CameraTranslationSpeed = m_ZoomLevel;
 	}
 
-	void Camera2DController::OnEvent(SDL_Event& e)
+	void Camera2DController::OnEvent(SDL_Event* e)
 	{
 		//OnMouseScrolled(e.wheel);
-		OnWindowResized(e.window);
+		OnWindowResized(e->window);
 
 	}
 

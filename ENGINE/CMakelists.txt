@@ -30,15 +30,15 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Renderer/GraphicsContext.cpp
         src/D3NGINE/Renderer/Renderer2D.cpp
 
-        src/D3NGINE/Core/Window.cpp
+        src/D3NGINE/utils/Window.cpp
         src/D3NGINE/utils/stb_image/std_image.cpp
         src/D3NGINE/utils/Logger.cpp
         src/D3NGINE/utils/IO/FileSystem.cpp
 
-        src/D3NGINE/Core/Application.cpp
-        src/D3NGINE/Core/Layer.cpp
-        src/D3NGINE/Core/LayerStack.cpp
-        )
+        src/D3NGINE/Application.cpp
+        src/D3NGINE/Layer.cpp
+        src/D3NGINE/LayerStack.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.cpp)
 
 set(D3_HEADER_FILES
         src/D3NGINE/ImGui/ImGuiDock.h
@@ -71,18 +71,18 @@ set(D3_HEADER_FILES
         src/D3NGINE/Renderer/GraphicsContext.h
         src/D3NGINE/Renderer/Renderer2D.h
 
-        src/D3NGINE/Core/Window.h
+        src/D3NGINE/utils/Window.h
         src/D3NGINE/utils/stb_image/stb_image.h
         src/D3NGINE/utils/Logger.cpp
         src/D3NGINE/utils/IO/FileSystem.h
 
-        src/D3NGINE/Core/Application.h
-        src/D3NGINE/Core/Layer.h
-        src/D3NGINE/Core/LayerStack.h
-        src/D3NGINE/Core/Core.h
-        src/D3NGINE/Core/D3G.h
-        src/D3NGINE/Core/EntryPoint.h
-        src/D3NGINE/Events/InputEvent.cpp src/D3NGINE/Events/InputEvent.h)
+        src/D3NGINE/Application.h
+        src/D3NGINE/Layer.h
+        src/D3NGINE/LayerStack.h
+        src/D3NGINE/Core.h
+        src/D3NGINE/D3G.h
+        src/D3NGINE/EntryPoint.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h)
 
 add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
 target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)

@@ -1,0 +1,105 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(ENGINE)
+
+set(D3_SOURCE_FILES
+        src/D3NGINE/ImGui/ImGuiDock.cpp
+        src/D3NGINE/ImGui/ImGuiLayer.cpp
+        src/D3NGINE/Input/D3GINPUT.cpp
+        #    src/D3NGINE/Nodes/Camera2D.cpp
+
+        src/D3NGINE/Platform/OpenGL/common.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLBufferLayout.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLShader.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLVertexArray.cpp
+        src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.cpp
+        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.cpp
+        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.cpp
+
+        src/D3NGINE/Renderer/Buffer.cpp
+        src/D3NGINE/Renderer/Renderer.cpp
+        src/D3NGINE/Renderer/RendererAPI.cpp
+        src/D3NGINE/Renderer/RendererCommand.cpp
+        src/D3NGINE/Renderer/VertexArray.cpp
+        src/D3NGINE/Renderer/Shader.cpp
+        src/D3NGINE/Renderer/Texture.cpp
+        src/D3NGINE/Renderer/Camera2D.cpp
+        src/D3NGINE/Renderer/Camera2DController.cpp
+        src/D3NGINE/Renderer/GraphicsContext.cpp
+        src/D3NGINE/Renderer/Renderer2D.cpp
+
+        src/D3NGINE/utils/Window.cpp
+        src/D3NGINE/utils/stb_image/std_image.cpp
+        src/D3NGINE/utils/Logger.cpp
+        src/D3NGINE/utils/IO/FileSystem.cpp
+
+        src/D3NGINE/Application.cpp
+        src/D3NGINE/Layer.cpp
+        src/D3NGINE/LayerStack.cpp
+        )
+
+set(D3_HEADER_FILES
+        src/D3NGINE/ImGui/ImGuiDock.h
+        src/D3NGINE/ImGui/ImGuiLayer.h
+        src/D3NGINE/Input/D3GINPUT.h
+        src/D3NGINE/Input/Input.h
+        #    src/D3NGINE/Nodes/Camera2D.h
+        src/D3NGINE/Platform/OpenGL/common.h
+        src/D3NGINE/Platform/OpenGL/OpenGLBufferLayout.h
+
+        src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.h
+        src/D3NGINE/Platform/OpenGL/OpenGLShader.h
+        src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.h
+        src/D3NGINE/Platform/OpenGL/OpenGLVertexArray.h
+        src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.h
+
+        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.h
+        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.h
+
+        src/D3NGINE/Renderer/Buffer.h
+        src/D3NGINE/Renderer/BufferLayout.h
+        src/D3NGINE/Renderer/Renderer.h
+        src/D3NGINE/Renderer/RendererAPI.h
+        src/D3NGINE/Renderer/RendererCommand.h
+        src/D3NGINE/Renderer/VertexArray.h
+        src/D3NGINE/Renderer/Shader.h
+        src/D3NGINE/Renderer/Texture.h
+        src/D3NGINE/Renderer/Camera2D.h
+        src/D3NGINE/Renderer/Camera2DController.h
+        src/D3NGINE/Renderer/GraphicsContext.h
+        src/D3NGINE/Renderer/Renderer2D.h
+
+        src/D3NGINE/utils/Window.h
+        src/D3NGINE/utils/stb_image/stb_image.h
+        src/D3NGINE/utils/Logger.cpp
+        src/D3NGINE/utils/IO/FileSystem.h
+
+        src/D3NGINE/Application.h
+        src/D3NGINE/Layer.h
+        src/D3NGINE/LayerStack.h
+        src/D3NGINE/Core.h
+        src/D3NGINE/D3G.h
+        src/D3NGINE/EntryPoint.h
+        )
+
+add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
+target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)
+target_link_directories(ENGINE PUBLIC ../vendor/SDL2/lib/x64 ../vendor/SDL2/lib/x64)
+
+target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${glad_SOURCE_DIR}/include ${Assimp_SOURCE_DIR}/include)
+target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/glm ${luac_SOURCE_DIR}/include ${luac_SOURCE_DIR}/src)
+target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/SDL2/include ${imgui_SOURCE_DIR}/src ${spdlog_SOURCE_DIR}/include)
+#TODO link assimp
+target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac)
+
+target_link_options(ENGINE PUBLIC -Wreturn-local-addr -Wint-to-pointer-cast)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src FILES ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
+
+
+set_target_properties(ENGINE PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED YES
+        CXX_EXTENSIONS NO
+        )

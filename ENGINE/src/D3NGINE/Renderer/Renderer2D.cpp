@@ -772,4 +772,9 @@ namespace D3G
             s_Storage.Stats.QuadCount++;
         }
 
+    Ref<Shader> &Renderer2D::GetShader()
+    {
+        return s_Storage.TextureShader;
     }
+
+}

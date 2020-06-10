@@ -10,6 +10,7 @@
 
 namespace D3G
 {
+    class Shader;
 
     class Renderer2D
     {
@@ -73,6 +74,8 @@ namespace D3G
         static void ResetStats();
 
         static Statistics GetStats();
+
+        static Ref<Shader>& GetShader();
 
         private:
         static void FlushAndReset();

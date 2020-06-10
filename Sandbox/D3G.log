@@ -1,36 +1,36 @@
-[19:54:24] [info] D3G: GRaphics context
-[19:54:24] [debug] D3G: GLAD INIT WITH STATUS CODE: 1
-[19:54:24] [info] D3G: Intel GPUOpenGL Version: 2.1.0 - Build 8.15.10.2900 Renderer: Intel(R) HD Graphics
-[19:54:24] [info] D3G: attrib location 5 attrib name a_Position 
-[19:54:24] [info] D3G: attrib location 0 attrib name a_Color 
-[19:54:24] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[19:54:24] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[19:54:24] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[19:54:24] [info] D3G: attrib location 6 attrib name a_PointSize 
-[19:54:24] [info] D3G: attrib location 4 attrib name a_Radius 
-[19:54:24] [info] D3G: attrib location 5 attrib name a_Position 
-[19:54:24] [info] D3G: attrib location 0 attrib name a_Color 
-[19:54:24] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[19:54:24] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[19:54:24] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[19:54:24] [info] D3G: attrib location 6 attrib name a_PointSize 
-[19:54:24] [info] D3G: attrib location 4 attrib name a_Radius 
-[19:54:24] [info] D3G: attrib location 5 attrib name a_Position 
-[19:54:24] [info] D3G: attrib location 0 attrib name a_Color 
-[19:54:24] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[19:54:24] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[19:54:24] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[19:54:24] [info] D3G: attrib location 6 attrib name a_PointSize 
-[19:54:24] [info] D3G: attrib location 4 attrib name a_Radius 
-[19:54:24] [info] D3G: attrib location 5 attrib name a_Position 
-[19:54:24] [info] D3G: attrib location 0 attrib name a_Color 
-[19:54:24] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[19:54:24] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[19:54:24] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[19:54:24] [info] D3G: attrib location 6 attrib name a_PointSize 
-[19:54:24] [info] D3G: attrib location 4 attrib name a_Radius 
-[19:54:24] [info] D3G: Raw image data 1 1
-[19:54:24] [info] D3G: APP iniT
-[19:54:24] [debug] D3G: Colors from Lua ( 0.23, 0.94, 0 )
-[19:54:24] [info] D3G: Data 128 128 4 res/images/logo.png
-[19:54:24] [info] D3G: image dada 32856 6408
+[02:16:10] [info] D3G: GRaphics context
+[02:16:10] [debug] D3G: GLAD INIT WITH STATUS CODE: 1
+[02:16:10] [info] D3G: Intel GPUOpenGL Version: 2.1.0 - Build 8.15.10.2900 Renderer: Intel(R) HD Graphics
+[02:16:11] [info] D3G: attrib location 5 attrib name a_Position 
+[02:16:11] [info] D3G: attrib location 0 attrib name a_Color 
+[02:16:11] [info] D3G: attrib location 1 attrib name a_TextureCoord 
+[02:16:11] [info] D3G: attrib location 2 attrib name a_TextureIdx 
+[02:16:11] [info] D3G: attrib location 3 attrib name a_TillingFactor 
+[02:16:11] [info] D3G: attrib location 6 attrib name a_PointSize 
+[02:16:11] [info] D3G: attrib location 4 attrib name a_Radius 
+[02:16:11] [info] D3G: attrib location 5 attrib name a_Position 
+[02:16:11] [info] D3G: attrib location 0 attrib name a_Color 
+[02:16:11] [info] D3G: attrib location 1 attrib name a_TextureCoord 
+[02:16:11] [info] D3G: attrib location 2 attrib name a_TextureIdx 
+[02:16:11] [info] D3G: attrib location 3 attrib name a_TillingFactor 
+[02:16:11] [info] D3G: attrib location 6 attrib name a_PointSize 
+[02:16:11] [info] D3G: attrib location 4 attrib name a_Radius 
+[02:16:11] [info] D3G: attrib location 5 attrib name a_Position 
+[02:16:11] [info] D3G: attrib location 0 attrib name a_Color 
+[02:16:11] [info] D3G: attrib location 1 attrib name a_TextureCoord 
+[02:16:11] [info] D3G: attrib location 2 attrib name a_TextureIdx 
+[02:16:11] [info] D3G: attrib location 3 attrib name a_TillingFactor 
+[02:16:11] [info] D3G: attrib location 6 attrib name a_PointSize 
+[02:16:11] [info] D3G: attrib location 4 attrib name a_Radius 
+[02:16:11] [info] D3G: attrib location 5 attrib name a_Position 
+[02:16:11] [info] D3G: attrib location 0 attrib name a_Color 
+[02:16:11] [info] D3G: attrib location 1 attrib name a_TextureCoord 
+[02:16:11] [info] D3G: attrib location 2 attrib name a_TextureIdx 
+[02:16:11] [info] D3G: attrib location 3 attrib name a_TillingFactor 
+[02:16:11] [info] D3G: attrib location 6 attrib name a_PointSize 
+[02:16:11] [info] D3G: attrib location 4 attrib name a_Radius 
+[02:16:11] [info] D3G: Raw image data 1 1
+[02:16:11] [info] D3G: APP iniT
+[02:16:11] [debug] D3G: Colors from Lua ( 0.23, 0.94, 0 )
+[02:16:11] [info] D3G: Data 128 128 4 res/images/logo.png
+[02:16:11] [info] D3G: image dada 32856 6408

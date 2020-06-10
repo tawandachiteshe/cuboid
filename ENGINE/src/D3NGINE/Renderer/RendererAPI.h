@@ -12,7 +12,8 @@ namespace D3G
 		enum class API
 		{
 			None = 0,
-			Opengl = 1
+			Opengl = 1,
+			DirectX = 2
 		};
 
 	public:

@@ -3,7 +3,9 @@
 //
 #include <glad/glad.h>
 #include <imgui.h>
+#include <SDL_timer.h>
 #include "SandBox2D.h"
+
 
 
 static float zoomLevel = 1.0f;
@@ -69,21 +71,9 @@ void SandBox2D::OnUpdate(float dt)
 
     D3G::RenderCommand::SetClearColor({ r , g, b, 1.0f});
     D3G::Renderer2D::BeginScene(m_Camera2DController.GetCamera());
-#if 1
 
-    for (float i = -5.0f; i < 5.0f ; i+=0.4f) {
-        for (float j = -5.0f; j < 5.0f ; j+=0.4f) {
-            if(i > 0.0f) {
-                D3G::Renderer2D::DrawRotatedQuad({i, j}, {0.45f, 0.45f}, rot,{1.0f, 0.3f, 0.0f, 0.65f});
-            }
-            else {
-                D3G::Renderer2D::DrawRotatedQuad({i, j}, {0.45f, 0.45f}, -rot, {1.0f, 0.4f, 0.0f, 0.65f});
-            }
-        }
-    }
-
-#endif
-
+    D3G::Renderer2D::DrawQuad({0.0f, 0.0f}, {5.0f, 5.0f});
+    D3G::Renderer2D::GetShader()->SetFloat("u_time", (float)SDL_GetTicks() * 0.001);
     D3G::Renderer2D::EndScene();
 }
 
@@ -108,6 +98,7 @@ void SandBox2D::OnImGuiRender()
 
 void SandBox2D::OnEvent(SDL_Event *event)
 {
+
     m_Camera2DController.OnEvent(event);
 }
 

@@ -11,42 +11,36 @@
 static float zoomLevel = 1.0f;
 static float fps = 0.0f;
 static float rot = 0.0f;
-static float r, b, g;
 
-static float getcolorfield (lua_State *L, const char *key) {
-    float result; int isnum;
-    lua_pushstring(L, key); /* push key */
-    lua_gettable(L, -2); /* get background[key] */
-    result = (lua_tonumberx(L, -1, &isnum));
-    if (!isnum)
-        luaL_error(L, "invalid component '%s' in color", key);
-    lua_pop(L, 1); /* remove number */
-    return result;
+template<typename ... Args>
+static void LOGGER(Args&& ... args)
+{
+    D3G_CORE_INFO(std::forward<Args>(args)...);
 }
+
+struct Vector2
+        {
+            float x;
+            float y;
+        };
 
 SandBox2D::SandBox2D(const std::string &name) : Layer(name), m_Camera2DController(1278.0f / 600.0f)
 {
+    lua.open_libraries(sol::lib::base);
+    lua["print"] = LOGGER<std::string, std::string, std::string>;
 
-     L = luaL_newstate();
-    luaL_openlibs(L);
+    lua["vc"] = Vector2{};
+
+    lua.new_usertype<Vector2>("Vector2",
+                           "x", &Vector2::x,
+                              "y",&Vector2::y
+    );
 
 
-    int a = luaL_loadfile(L, "res/scripts/RendererConf.lua");
-    int b = lua_pcall(L, 0, 0, 0);
-    int lua_globa = lua_getglobal(L, "a");
-    if((a || b))
-    {
-        D3G_CORE_ERROR("lua Error {0}", lua_tostring(L, -1));
-        lua_pop(L, 1);
-    }
+    lua["draw_quad"] = [](const Vector2& pos,const Vector2& size){
+        D3G::Renderer2D::DrawQuad({pos.x, pos.y}, {size.x, size.y}, {1.0f, 0.0f, 0.0f, 1.0f}); };
 
-     lua_getglobal(L, "background");
-    if (!lua_istable(L, 0))
-        luaL_error(L, "'background' is not a table");
-     r = getcolorfield(L, "red");
-     g = getcolorfield(L, "green");
-     b = getcolorfield(L, "blue");
-    D3G_CORE_DEBUG("Colors from Lua ( {0}, {1}, {2} )", r, g, b);
+
 
 }
 
@@ -67,11 +61,13 @@ void SandBox2D::OnUpdate(float dt)
     rot += dt * 45;
     m_Camera2DController.OnUpdate(dt);
 
+
     D3G::RenderCommand::Clear();
 
-    D3G::RenderCommand::SetClearColor({ r , g, b, 1.0f});
+    D3G::RenderCommand::SetClearColor({ 0.2f , 0.2f, 0.2, 1.0f});
     D3G::Renderer2D::BeginScene(m_Camera2DController.GetCamera());
 
+    lua.script_file("res/scripts/game.lua");
     D3G::Renderer2D::DrawQuad({0.0f, 0.0f}, {5.0f, 5.0f});
     D3G::Renderer2D::GetShader()->SetFloat("u_time", (float)SDL_GetTicks() * 0.001);
     D3G::Renderer2D::EndScene();

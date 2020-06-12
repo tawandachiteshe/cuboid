@@ -82,7 +82,7 @@ set(D3_HEADER_FILES
         src/D3NGINE/Core/Core.h
         src/D3NGINE/Core/D3G.h
         src/D3NGINE/Core/EntryPoint.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h)
+        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.cpp src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.h)
 
 add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
 target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)

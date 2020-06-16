@@ -92,7 +92,7 @@ void main()
         gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) * circle(v_TextureCoord, v_Radius) *
         v_Color;
     } else {
-        gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) * vec4(worleyColor, 1.0) *
+        gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) *
         v_Color;
     }
 

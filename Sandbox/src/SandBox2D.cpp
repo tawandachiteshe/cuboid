@@ -26,7 +26,7 @@ struct Vector2
 
 SandBox2D::SandBox2D(const std::string &name) : Layer(name), m_Camera2DController(1278.0f / 600.0f)
 {
-    lua.open_libraries(sol::lib::base);
+    lua.open_libraries(sol::lib::base, sol::lib::math);
     lua["print"] = LOGGER<std::string, std::string, std::string>;
 
     lua["vc"] = Vector2{};

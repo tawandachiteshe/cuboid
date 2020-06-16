@@ -40,7 +40,10 @@ SandBox2D::SandBox2D(const std::string &name) : Layer(name), m_Camera2DControlle
     lua["draw_quad"] = [](const Vector2& pos,const Vector2& size){
         D3G::Renderer2D::DrawQuad({pos.x, pos.y}, {size.x, size.y}, {1.0f, 0.0f, 0.0f, 1.0f}); };
 
+    uint32_t fbo;
+    glGenFramebuffers(1, &fbo);
 
+    D3G_CORE_INFO("framebuffer generated {0}", fbo);
 
 }
 

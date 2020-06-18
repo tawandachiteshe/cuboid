@@ -26,9 +26,6 @@ class SandBox2D : public D3G::Layer
     ~SandBox2D() override;
 
     private:
-    D3G::Camera2DController m_Camera2DController;
-    D3G::Ref<D3G::Texture2D> Tex1;
-    sol::state lua;
 };
 
 #endif //D3NGINE_SANDBOX2D_H

@@ -28,6 +28,8 @@ namespace D3G
 			uint32_t SDL_WINDOW_OPENGL = 0x00000002;
             inline void* GetContext() { return m_Context; }
 
+		void ResizeSwapBuffers() override;
+
 		private:
             void* m_Context;
 			SDL_Window *m_Window;

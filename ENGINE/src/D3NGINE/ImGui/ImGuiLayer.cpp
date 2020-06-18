@@ -5,7 +5,8 @@
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_opengl3.h>
 #include <D3NGINE/Renderer/RendererAPI.h>
-
+#include <imgui_impl_dx11.h>
+#include <D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h>
 namespace D3G
 {
 
@@ -37,11 +38,18 @@ namespace D3G
 			style.WindowRounding = 0.0f;
 			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
 		}
+
         if(RendererAPI::GetAPI() == RendererAPI::API::Opengl) {
             ImGui_ImplSDL2_InitForOpenGL(app.ApplicationGetWindow().GetWindow(),
                                          app.ApplicationGetWindow().GetGLContext());
             ImGui_ImplOpenGL3_Init("#version 120");
-        }
+        } else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX) {
+
+			ImGui_ImplSDL2_InitForD3D(app.ApplicationGetWindow().GetWindow());
+			ImGui_ImplDX11_Init(D3DGraphicsContext::GetDevice(), D3DGraphicsContext::GetContext());
+
+		}
+
 		io.DisplaySize = ImVec2((float)app.ApplicationGetWindow().GetWidth(), (float)app.ApplicationGetWindow().GetHeight());
 	}
 
@@ -56,6 +64,9 @@ namespace D3G
 		if(RendererAPI::GetAPI() == RendererAPI::API::Opengl)
 		{
 			ImGui_ImplOpenGL3_NewFrame();
+		} else if(RendererAPI::GetAPI() == RendererAPI::API::DirectX) {
+
+			ImGui_ImplDX11_NewFrame();
 		}
 		ImGui_ImplSDL2_NewFrame(app.ApplicationGetWindow().GetWindow());
 		ImGui::NewFrame();
@@ -78,12 +89,20 @@ namespace D3G
 			{
 				SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 				SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
-				ImGui::UpdatePlatformWindows();
-				ImGui::RenderPlatformWindowsDefault();
+
 				SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 			}
 
+		} else if(RendererAPI::GetAPI() == RendererAPI::API::DirectX) {
+
+			ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+			if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+			{
+				ImGui::UpdatePlatformWindows();
+				ImGui::RenderPlatformWindowsDefault();
+			}
 		}
+
 	}
 
 	void ImGuiLayer::OnImGuiRender()

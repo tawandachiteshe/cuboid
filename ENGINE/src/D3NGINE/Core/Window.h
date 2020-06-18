@@ -42,6 +42,7 @@ namespace D3G
 		int gladStatus = 0;
 		inline int GetGladStatus() { return gladStatus; }
 		inline void* GetGLContext() { return m_GlContext; }
+
 		~Window();
 
 	private:

@@ -58,4 +58,9 @@ namespace D3G {
         SDL_GL_SwapWindow(m_Window);
     }
 
+    void OpenGLGraphicsContext::ResizeSwapBuffers()
+    {
+
+    }
+
 } /* namespace D3G */

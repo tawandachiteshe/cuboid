@@ -1,36 +1,18 @@
-[00:29:26] [info] D3G: GRaphics context
-[00:29:26] [debug] D3G: GLAD INIT WITH STATUS CODE: 1
-[00:29:26] [info] D3G: Intel GPUOpenGL Version: 2.1.0 - Build 8.15.10.2900 Renderer: Intel(R) HD Graphics
-[00:29:26] [info] D3G: attrib location 5 attrib name a_Position 
-[00:29:26] [info] D3G: attrib location 0 attrib name a_Color 
-[00:29:26] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[00:29:26] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[00:29:26] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[00:29:26] [info] D3G: attrib location 6 attrib name a_PointSize 
-[00:29:26] [info] D3G: attrib location 4 attrib name a_Radius 
-[00:29:26] [info] D3G: attrib location 5 attrib name a_Position 
-[00:29:26] [info] D3G: attrib location 0 attrib name a_Color 
-[00:29:26] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[00:29:26] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[00:29:26] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[00:29:26] [info] D3G: attrib location 6 attrib name a_PointSize 
-[00:29:26] [info] D3G: attrib location 4 attrib name a_Radius 
-[00:29:26] [info] D3G: attrib location 5 attrib name a_Position 
-[00:29:26] [info] D3G: attrib location 0 attrib name a_Color 
-[00:29:26] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[00:29:26] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[00:29:26] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[00:29:26] [info] D3G: attrib location 6 attrib name a_PointSize 
-[00:29:26] [info] D3G: attrib location 4 attrib name a_Radius 
-[00:29:26] [info] D3G: attrib location 5 attrib name a_Position 
-[00:29:26] [info] D3G: attrib location 0 attrib name a_Color 
-[00:29:26] [info] D3G: attrib location 1 attrib name a_TextureCoord 
-[00:29:26] [info] D3G: attrib location 2 attrib name a_TextureIdx 
-[00:29:26] [info] D3G: attrib location 3 attrib name a_TillingFactor 
-[00:29:26] [info] D3G: attrib location 6 attrib name a_PointSize 
-[00:29:26] [info] D3G: attrib location 4 attrib name a_Radius 
-[00:29:26] [info] D3G: Raw image data 1 1
-[00:29:26] [info] D3G: APP iniT
-[00:29:26] [info] D3G: framebuffer generated 1
-[00:29:26] [info] D3G: Data 128 128 4 res/images/logo.png
-[00:29:26] [info] D3G: image dada 32856 6408
+[18:27:59] [info] D3G: D3D CONTEST INIT SUCCESS!!!
+[18:28:00] [info] D3G: D3D INIT fn SUCCESS!!!
+[18:28:00] [debug] D3G: Hwind status false
+[18:28:00] [info] D3G: MSAA LEVEL 0
+[18:28:00] [info] D3G: D3D IS IT COOL true
+[18:28:00] [info] D3G: Create Render Texture false
+[18:28:00] [info] D3G: Ini win 
+[18:28:00] [info] D3G: Vsync set true
+[18:28:00] [info] D3G: APP iniT
+[18:28:08] [info] D3G: Create Render Texture false
+[18:28:11] [info] D3G: Create Render Texture false
+[18:28:14] [info] D3G: Create Render Texture false
+[18:28:15] [info] D3G: Create Render Texture false
+[18:28:23] [info] D3G: Create Render Texture false
+[18:28:25] [info] D3G: Create Render Texture false
+[18:28:30] [info] D3G: Create Render Texture false
+[18:28:33] [info] D3G: Create Render Texture false
+[18:29:02] [info] D3G: Create Render Texture false

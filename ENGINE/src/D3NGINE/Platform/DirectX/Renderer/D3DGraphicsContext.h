@@ -6,6 +6,7 @@
 #define D3NGINE_D3DGRAPHICSCONTEXT_H
 
 #include <D3NGINE/Renderer/GraphicsContext.h>
+#include <SDL_video.h>
 #include <d3d11.h>
 
 namespace D3G
@@ -14,21 +15,37 @@ namespace D3G
     class D3DGraphicsContext : public GraphicsContext
     {
         public:
+        D3DGraphicsContext(SDL_Window *window);
+
         void Init() override;
 
         void SwapBuffers() override;
 
         void SetVsync(bool enable) override;
 
-        void Set_hwnd(const HWND *hwnd);
-
         private:
         static ID3D11Device*            m_d3dDevice;
         static ID3D11DeviceContext*     m_d3dDeviceContext;
         static IDXGISwapChain*          m_SwapChain;
         static ID3D11RenderTargetView*  m_mainRenderTargetView;
-        const HWND* m_hwnd = nullptr;
+
+        public:
+        inline static ID3D11DeviceContext* GetContext() { return m_d3dDeviceContext; }
+        inline static ID3D11Device* GetDevice()  { return   m_d3dDevice; }
+        inline static IDXGISwapChain* GetSwapChain()  { return m_SwapChain; };
+        inline static ID3D11RenderTargetView* GetRenderTargetView() { return m_mainRenderTargetView; }
         void CreateRenderTarget();
+
+        ~D3DGraphicsContext();
+
+        void ResizeSwapBuffers() override;
+
+        private:
+        //TODO: WIndow needs to clean up
+        void CleanupDeviceD3D();
+        void CleanupRenderTarget();
+        SDL_Window *m_Window;
+        HWND m_hwnd = NULL;
     };
 
 }

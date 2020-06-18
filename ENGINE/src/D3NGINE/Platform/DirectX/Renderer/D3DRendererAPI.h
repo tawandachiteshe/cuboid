@@ -7,6 +7,7 @@
 #include <D3NGINE/Renderer/RendererAPI.h>
 #include <d3gpch.h>
 
+typedef interface ID3D11RenderTargetView ID3D11RenderTargetView;
 namespace D3G
 {
 
@@ -22,6 +23,9 @@ namespace D3G
         void Clear() override;
 
         void DrawIndexed(const Ref <VertexArray> &vertexArray, uint32_t indexCount, uint32_t mode) override;
+
+        private:
+        static ID3D11RenderTargetView*  m_mainRenderTargetView;
     };
 
 }

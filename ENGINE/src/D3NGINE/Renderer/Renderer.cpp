@@ -34,7 +34,8 @@ namespace D3G
 	void Renderer::Init()
 	{
 		RenderCommand::Init();
-		Renderer2D::Init();
+		//TODO: Uncomment Renderer2d and make it flexible
+		//Renderer2D::Init();
 	}
 
 }

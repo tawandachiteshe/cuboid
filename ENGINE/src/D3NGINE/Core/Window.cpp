@@ -26,16 +26,20 @@ namespace D3G
 		m_WinData.WinWidth  =	props.WinWidth;
 
 		SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER);
+		SDL_WindowFlags window_flags;
+		if(Renderer::GetAPI() == RendererAPI::API::Opengl)
+			window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+		else if(Renderer::GetAPI() == RendererAPI::API::DirectX)
+			window_flags = (SDL_WindowFlags)(SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 
-
-		SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 		window = SDL_CreateWindow(props.title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, props.WinWidth, props.WinHeight, window_flags);
 		context = GraphicsContext::Create(window);
 		context->Init();
-        if(Renderer::GetAPI() == RendererAPI::API::Opengl) {
+        D3G_CORE_INFO("Ini win ");
+        if(Renderer::GetAPI() == RendererAPI::API::Opengl)
             m_GlContext = dynamic_cast<OpenGLGraphicsContext*>(context.get())->GetContext();
-        }
-		SDL_Renderer* renderer = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED);
+
+		//SDL_Renderer* renderer = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED);
 		IsRunning = true;
 		SetVsync(true);
 
@@ -76,6 +80,12 @@ namespace D3G
 		if (event->type == SDL_WINDOWEVENT && event->window.event == SDL_WINDOWEVENT_CLOSE
 			&& event->window.windowID == SDL_GetWindowID(GetWindow())) {
 			shouldClose = false;
+		}
+
+		if (event->type == SDL_WINDOWEVENT && event->window.event == SDL_WINDOWEVENT_RESIZED &&
+			event->window.windowID == SDL_GetWindowID(window))
+		{
+			context->ResizeSwapBuffers();
 		}
 		return shouldClose;
 	}

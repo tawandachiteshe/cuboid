@@ -1,7 +1,8 @@
-#include <glad/glad.h>
-#include <D3NGINE/Platform/OpenGL/OpenGLVertexArray.h>
-#include <D3NGINE/Platform/OpenGL/OpenGLShader.h>
 #include <d3gpch.h>
+#include <glad/glad.h>
+#include "OpenGLVertexArray.h"
+#include "OpenGLShader.h"
+
 
 namespace D3G
 {
@@ -9,23 +10,23 @@ namespace D3G
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
-		ThrowIfError(glGenVertexArrays(1, &m_RendererID));
+		glGenVertexArrays(1, &m_RendererID);
 
 	}
 
 	void OpenGLVertexArray::Bind() const
 	{
-		ThrowIfError(glBindVertexArray(m_RendererID));
+		glBindVertexArray(m_RendererID);
 	}
 
 	void OpenGLVertexArray::UnBind() const
 	{
-		ThrowIfError(glBindVertexArray(0));
+		glBindVertexArray(0);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
-		ThrowIfError(glDeleteVertexArrays(1, &m_RendererID));
+		glDeleteVertexArrays(1, &m_RendererID);
 	}
 
 	const Ref<IndexBuffer>& OpenGLVertexArray::GetIndexBuffer() const
@@ -40,26 +41,46 @@ namespace D3G
 	{
 		Bind();
 		vtxBuffer->Bind();
-		const auto& elements = vtxBuffer->GetBufferLayout()->GetElements();
-		const auto& elementsData = vtxBuffer->GetBufferLayoutData();
-		unsigned int offset = 0;
+		const auto& elements = vtxBuffer->GetBufferLayout().GetElements();
+
 		int attrib = 0;
-		for (int i = 0; i < elements->size(); i++)
+
+		for (int i = 0; i < elements.size(); i++)
 		{
+			auto& element = elements[i];
+			attrib = std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
 
+			glEnableVertexAttribArray(attrib);
+			glVertexAttribPointer(attrib, element.GetComponentCount(),
+											   ShaderDataTypeToOpenGLBaseType(element.Type),
+											   element.Normalized ? GL_TRUE : GL_FALSE,
+											   vtxBuffer->GetBufferLayout().GetStride(),
+											   (const void*)element.Offset);
 
-			const auto& element = (*elements)[i];
-			const auto& key = (*elementsData)[i];
-			std::string _key;
-			attrib = std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(key.second);
-
-			ThrowIfError(glEnableVertexAttribArray(attrib));
-			ThrowIfError(glVertexAttribPointer(attrib, element.count, element.type, element.normalized,
-					vtxBuffer->GetBufferLayout()->GetStride(), ((const void*)offset)));
-			offset += element.count * OpenGLVertexBufferElement::GetSizeOfType(element.type);
-
-			D3G_CORE_INFO("attrib location {0} attrib name {1} ",attrib, key.second);
+			D3G_CORE_INFO("attrib location {0} attrib name {1} ",attrib, element.Name);
 		}
+	}
+
+	GLenum OpenGLVertexArray::ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
+	{
+
+		switch(type){
+
+			case ShaderDataType::Float1:    return GL_FLOAT;
+			case ShaderDataType::Float2:   return GL_FLOAT;
+			case ShaderDataType::Float3:   return GL_FLOAT;
+			case ShaderDataType::Float4:   return GL_FLOAT;
+			case ShaderDataType::Mat3:     return GL_FLOAT;
+			case ShaderDataType::Mat4:     return GL_FLOAT;
+			case ShaderDataType::Int:      return GL_INT;
+			case ShaderDataType::Int2:     return GL_INT;
+			case ShaderDataType::Int3:     return GL_INT;
+			case ShaderDataType::Int4:     return GL_INT;
+			case ShaderDataType::Bool:     return GL_BOOL;
+
+		}
+		//TODO: Handle Errors here
+		return 0;
 	}
 
 	void OpenGLVertexArray::SetIndexBuffer(
@@ -73,5 +94,10 @@ namespace D3G
 	{
 		m_Shader = mShader;
 	}
+
+    void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer> &vtxBuffer)
+    {
+
+    }
 
 }

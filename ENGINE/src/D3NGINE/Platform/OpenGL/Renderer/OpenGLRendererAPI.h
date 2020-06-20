@@ -1,5 +1,5 @@
 #include <D3NGINE/Renderer/RendererAPI.h>
-#include <glm/glm.hpp>
+
 
 #ifndef D3G_OPENGLRENDERER_H
 #define D3G_OPENGLRENDERER_H

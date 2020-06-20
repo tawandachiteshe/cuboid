@@ -10,5 +10,8 @@
 #include <algorithm>
 #include <windows.h>
 #include <D3NGINE/Core/Core.h>
+#include <cstdint>
+
+//TODO DO SOME PLATFORM MACROS HERE TAWANDA
 
 #endif

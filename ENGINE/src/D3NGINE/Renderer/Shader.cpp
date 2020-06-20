@@ -1,6 +1,7 @@
 #include "Shader.h"
 #include <D3NGINE/Renderer/RendererAPI.h>
 #include <D3NGINE/Platform/OpenGL/OpenGLShader.h>
+#include <D3NGINE/Platform/DirectX/Renderer/D3DShader.h>
 #include <D3NGINE/utils/IO/FileSystem.h>
 
 namespace D3G
@@ -13,6 +14,7 @@ namespace D3G
 		{
 		case RendererAPI::API::None: D3G_CORE_ERROR("None Currently not suppported! "); break;
 		case RendererAPI::API::Opengl: return CreateRef<OpenGLShader>(fragShaderSrc, vertexShaderSrc);
+		case RendererAPI::API::DirectX: return CreateRef<D3DShader>(fragShaderSrc, vertexShaderSrc);
 		}
 		return nullptr;
 	}

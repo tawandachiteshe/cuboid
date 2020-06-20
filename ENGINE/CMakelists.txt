@@ -9,7 +9,6 @@ set(D3_SOURCE_FILES
         #    src/D3NGINE/Nodes/Camera2D.cpp
 
         src/D3NGINE/Platform/OpenGL/common.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLBufferLayout.cpp
         src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.cpp
         src/D3NGINE/Platform/OpenGL/OpenGLShader.cpp
         src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.cpp
@@ -17,6 +16,14 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.cpp
         src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.cpp
         src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.cpp
+
+        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexArray.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBuffer.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DIndexBuffer.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DShader.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.cpp
 
         src/D3NGINE/Renderer/Buffer.cpp
         src/D3NGINE/Renderer/Renderer.cpp
@@ -38,7 +45,7 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Core/Application.cpp
         src/D3NGINE/Core/Layer.cpp
         src/D3NGINE/Core/LayerStack.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.cpp)
+        )
 
 set(D3_HEADER_FILES
         src/D3NGINE/ImGui/ImGuiDock.h
@@ -46,20 +53,25 @@ set(D3_HEADER_FILES
         src/D3NGINE/Input/D3GINPUT.h
         src/D3NGINE/Input/Input.h
         #    src/D3NGINE/Nodes/Camera2D.h
-        src/D3NGINE/Platform/OpenGL/common.h
-        src/D3NGINE/Platform/OpenGL/OpenGLBufferLayout.h
 
+        src/D3NGINE/Platform/OpenGL/common.h
         src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.h
         src/D3NGINE/Platform/OpenGL/OpenGLShader.h
         src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.h
         src/D3NGINE/Platform/OpenGL/OpenGLVertexArray.h
         src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.h
-
         src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.h
         src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.h
 
+        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexArray.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBuffer.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DIndexBuffer.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DShader.h
+        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.h
+
         src/D3NGINE/Renderer/Buffer.h
-        src/D3NGINE/Renderer/BufferLayout.h
         src/D3NGINE/Renderer/Renderer.h
         src/D3NGINE/Renderer/RendererAPI.h
         src/D3NGINE/Renderer/RendererCommand.h
@@ -81,8 +93,7 @@ set(D3_HEADER_FILES
         src/D3NGINE/Core/LayerStack.h
         src/D3NGINE/Core/Core.h
         src/D3NGINE/Core/D3G.h
-        src/D3NGINE/Core/EntryPoint.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.cpp src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.h)
+        src/D3NGINE/Core/EntryPoint.h )
 
 add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
 target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)

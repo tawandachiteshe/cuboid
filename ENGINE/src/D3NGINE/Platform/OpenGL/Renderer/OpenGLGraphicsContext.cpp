@@ -7,6 +7,7 @@
 #include <glad/glad.h>
 #include <D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.h>
 #include <imgui_impl_sdl.h>
+#include <SDL_video.h>
 
 namespace D3G {
 

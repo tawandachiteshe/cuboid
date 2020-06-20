@@ -6,8 +6,13 @@
 #define D3NGINE_D3DGRAPHICSCONTEXT_H
 
 #include <D3NGINE/Renderer/GraphicsContext.h>
-#include <SDL_video.h>
-#include <d3d11.h>
+
+typedef struct ID3D11Device             ID3D11Device;
+typedef struct ID3D11DeviceContext      ID3D11DeviceContext;
+typedef struct IDXGISwapChain           IDXGISwapChain;
+typedef struct ID3D11RenderTargetView   ID3D11RenderTargetView;
+
+typedef struct SDL_Window SDL_Window;
 
 namespace D3G
 {

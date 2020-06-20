@@ -1,7 +1,5 @@
 #include <d3gpch.h>
-
-#include <D3NGINE/Platform/OpenGL/common.h>
-#include <D3NGINE/Platform/OpenGL/OpenGLTexture2D.h>
+#include "OpenGLTexture2D.h"
 #include <D3NGINE/utils/stb_image/stb_image.h>
 #include <glad/glad.h>
 
@@ -21,19 +19,19 @@ namespace D3G
 		uint32_t _width = m_Width;
 		uint32_t _height = m_Height;
 
-		ThrowIfError(glGenTextures(1, &m_RendererID));
-		ThrowIfError(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+		glGenTextures(1, &m_RendererID);
+		glBindTexture(GL_TEXTURE_2D, m_RendererID);
 
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST));
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
         uint32_t RawImageData = 0xffffffff;
-        ThrowIfError(glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, &RawImageData));
+        glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, &RawImageData);
 
-        ThrowIfError(glBindTexture(GL_TEXTURE_2D, 0));
+        glBindTexture(GL_TEXTURE_2D, 0);
 
 	}
 
@@ -64,18 +62,18 @@ namespace D3G
 		m_DataFormat = dataFormat;
 
 		D3G_CORE_INFO("image dada {0} {1}", m_InternalFormat, m_DataFormat);
-		ThrowIfError(glGenTextures(1, &m_RendererID));
-		ThrowIfError(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+		glGenTextures(1, &m_RendererID);
+		glBindTexture(GL_TEXTURE_2D, m_RendererID);
 		m_Width = width;
 		m_Height = height;
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-		ThrowIfError(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-		ThrowIfError(glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data));
-		ThrowIfError(glBindTexture(GL_TEXTURE_2D, 0));
+		glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+		glBindTexture(GL_TEXTURE_2D, 0);
 
 		if (data)
 			stbi_image_free(data);
@@ -85,7 +83,7 @@ namespace D3G
 
 	OpenGLTexture2D::~OpenGLTexture2D()
 	{
-		ThrowIfError(glDeleteTextures(1, &m_RendererID));
+		glDeleteTextures(1, &m_RendererID);
 	}
 
 	void OpenGLTexture2D::SetData(void *data, uint32_t size)
@@ -93,14 +91,14 @@ namespace D3G
 		uint32_t bpp = m_DataFormat == GL_RGBA ? 4 : 3;
 		//D3G_CORE_ASSERT(size == (m_Width * m_Height * bpp), "Data must be entire texture!");
         
-        ThrowIfError(glBindTexture(GL_TEXTURE_2D, m_RendererID));
-        ThrowIfError(glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data));
+        glBindTexture(GL_TEXTURE_2D, m_RendererID);
+        glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
 	}
 
 	void OpenGLTexture2D::Bind(unsigned int slot) const
 	{
-		ThrowIfError(glActiveTexture(GL_TEXTURE0 + slot));
-		ThrowIfError(glBindTexture(GL_TEXTURE_2D, m_RendererID));
+		glActiveTexture(GL_TEXTURE0 + slot);
+		glBindTexture(GL_TEXTURE_2D, m_RendererID);
 	}
 
 }

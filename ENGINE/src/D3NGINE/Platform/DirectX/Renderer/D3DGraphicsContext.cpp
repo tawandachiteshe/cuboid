@@ -5,6 +5,8 @@
 #include <d3gpch.h>
 #include <SDL_syswm.h>
 #include "D3DGraphicsContext.h"
+#include <d3d11.h>
+#include <SDL_video.h>
 
 namespace D3G
 {

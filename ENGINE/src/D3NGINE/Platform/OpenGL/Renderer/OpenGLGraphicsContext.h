@@ -11,8 +11,11 @@
 #ifndef ENGINE_SRC_D3NGINE_PLATFORM_OPENGL_RENDERER_OPENGLGRAPHICSCONTEXT_H_
 #define ENGINE_SRC_D3NGINE_PLATFORM_OPENGL_RENDERER_OPENGLGRAPHICSCONTEXT_H_
 
-#include <SDL_video.h>
+
 #include <D3NGINE/Renderer/GraphicsContext.h>
+
+typedef struct SDL_Window SDL_Window;
+
 namespace D3G
 {
 

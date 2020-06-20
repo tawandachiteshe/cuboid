@@ -1,10 +1,10 @@
+#include <d3gpch.h>
+
 #include <D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.h>
 #include <D3NGINE/Renderer/VertexArray.h>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
-#include <d3gpch.h>
 
-#include "imgui_impl_opengl3.h"
 
 namespace D3G
 {

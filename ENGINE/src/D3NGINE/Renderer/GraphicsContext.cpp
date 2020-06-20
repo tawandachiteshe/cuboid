@@ -14,7 +14,7 @@ namespace D3G
 		{
 			case RendererAPI::API::None:    D3G_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 			case RendererAPI::API::Opengl:  return CreateScope<OpenGLGraphicsContext>(static_cast<SDL_Window*>(window));
-			case RendererAPI::API::DirectX:  return CreateScope<D3DGraphicsContext>(static_cast<SDL_Window*>(window));
+			case RendererAPI::API::DirectX: return CreateScope<D3DGraphicsContext>(static_cast<SDL_Window*>(window));
 		}
 
 		D3G_CORE_ASSERT(false, "Unknown RendererAPI!");

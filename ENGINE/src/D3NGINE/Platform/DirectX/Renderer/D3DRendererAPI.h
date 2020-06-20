@@ -5,7 +5,6 @@
 #ifndef D3NGINE_D3DRENDERERAPI_H
 #define D3NGINE_D3DRENDERERAPI_H
 #include <D3NGINE/Renderer/RendererAPI.h>
-#include <d3gpch.h>
 
 typedef interface ID3D11RenderTargetView ID3D11RenderTargetView;
 namespace D3G

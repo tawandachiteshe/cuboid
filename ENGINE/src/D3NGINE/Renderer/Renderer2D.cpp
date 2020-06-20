@@ -117,7 +117,7 @@ namespace D3G
         s_Storage.TriangleVertexArray = VertexArray::Create();
         s_Storage.TriangleVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.TriangleVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxTrianglesVertices * sizeof(D3GVertex));
-        s_Storage.TriangleVertexBuffer->SetLayOut({
+        s_Storage.TriangleVertexBuffer->SetLayout({
                                                       {ShaderDataType::Float3, "a_Position"},
                                                       {ShaderDataType::Float4, "a_Color"},
                                                       {ShaderDataType::Float2, "a_TextureCoord"},
@@ -159,7 +159,7 @@ namespace D3G
         s_Storage.QuadVertexArray = VertexArray::Create();
         s_Storage.QuadVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.QuadVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxQuadsVertices * sizeof(D3GVertex));
-        s_Storage.QuadVertexBuffer->SetLayOut({
+        s_Storage.QuadVertexBuffer->SetLayout({
                                                       {ShaderDataType::Float3, "a_Position"},
                                                       {ShaderDataType::Float4, "a_Color"},
                                                       {ShaderDataType::Float2, "a_TextureCoord"},
@@ -195,7 +195,7 @@ namespace D3G
         s_Storage.LineVertexArray = VertexArray::Create();
         s_Storage.LineVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.LineVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxLinesVertices * sizeof(D3GVertex));
-        s_Storage.LineVertexBuffer->SetLayOut({
+        s_Storage.LineVertexBuffer->SetLayout({
                                                           {ShaderDataType::Float3, "a_Position"},
                                                           {ShaderDataType::Float4, "a_Color"},
                                                           {ShaderDataType::Float2, "a_TextureCoord"},
@@ -226,7 +226,7 @@ namespace D3G
         s_Storage.PointVertexArray = VertexArray::Create();
         s_Storage.PointVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.PointVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxPointsVertices * sizeof(D3GVertex));
-        s_Storage.PointVertexBuffer->SetLayOut({
+        s_Storage.PointVertexBuffer->SetLayout({
                                                           {ShaderDataType::Float3, "a_Position"},
                                                           {ShaderDataType::Float4, "a_Color"},
                                                           {ShaderDataType::Float2, "a_TextureCoord"},

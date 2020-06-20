@@ -1,5 +1,4 @@
-#include <D3NGINE/Platform/OpenGL/common.h>
-#include <D3NGINE/Platform/OpenGL/OpenGLShader.h>
+#include "OpenGLShader.h"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -43,7 +42,7 @@ namespace D3G
 	int OpenGLShader::GetUniformLocation(const std::string& name) const
 	{
 		GLint loc = -1;
-		ThrowIfError(loc = glGetUniformLocation(m_Program, name.c_str()));
+		loc = glGetUniformLocation(m_Program, name.c_str());
 
 		return loc;
 	}
@@ -123,13 +122,13 @@ namespace D3G
 	{
 		GLint loc = -1;
 
-		ThrowIfError(loc = glGetAttribLocation(m_Program, name.c_str()));
+		loc = glGetAttribLocation(m_Program, name.c_str());
 		return loc;
 	}
 
 	void OpenGLShader::SetInt(const std::string &name, int value)
 	{
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");
 
@@ -146,7 +145,7 @@ namespace D3G
 
 	void OpenGLShader::SetFloat(const std::string &name, float value)
 	{
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");
 
@@ -156,7 +155,7 @@ namespace D3G
 	void OpenGLShader::SetFloat2(const std::string &name,
 			const glm::vec2 &value)
 	{
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");
 
@@ -166,7 +165,7 @@ namespace D3G
 	void OpenGLShader::SetFloat3(const std::string &name,
 			const glm::vec3 &value)
 	{
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");
 
@@ -176,7 +175,7 @@ namespace D3G
 	void OpenGLShader::SetFloat4(const std::string &name,
 			const glm::vec4 &value)
 	{
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");
 
@@ -186,7 +185,7 @@ namespace D3G
 	void OpenGLShader::SetMat4(const std::string &name, const glm::mat4 &value)
 	{
 
-		ThrowIfError(int loc = glGetUniformLocation(m_Program, name.c_str()));
+		int loc = glGetUniformLocation(m_Program, name.c_str());
 
 		if (loc == -1)
 			D3G_CORE_ERROR("Uniform not found");

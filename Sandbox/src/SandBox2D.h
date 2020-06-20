@@ -26,6 +26,12 @@ class SandBox2D : public D3G::Layer
     ~SandBox2D() override;
 
     private:
+
+    D3G::Ref<D3G::VertexArray> m_Va;
+    D3G::Ref<D3G::VertexBuffer> m_vb;
+    D3G::Ref<D3G::IndexBuffer> m_ib;
+    D3G::Ref<D3G::Shader> m_Shader;
+    D3G::Camera2DController m_CameraController;
 };
 
 #endif //D3NGINE_SANDBOX2D_H

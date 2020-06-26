@@ -8,8 +8,6 @@
 
 #include <D3NGINE/Renderer/VertexArray.h>
 
-typedef struct ID3D11InputLayout ID3D11InputLayout;
-
 
 
 namespace D3G
@@ -41,8 +39,6 @@ namespace D3G
         private:
 
         Ref<IndexBuffer> m_IdxBuffer;
-
-        ID3D11InputLayout* m_VertexLayout;
 
         Ref<Shader> m_Shader;
 

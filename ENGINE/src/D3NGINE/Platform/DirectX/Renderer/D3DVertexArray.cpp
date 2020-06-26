@@ -6,32 +6,17 @@
 #include "D3DVertexArray.h"
 #include "D3DGraphicsContext.h"
 #include "D3DShader.h"
+#include "D3DVertexBuffer.h"
 
 #include <d3d11.h>
 
 namespace D3G
 {
-    static DXGI_FORMAT ShaderDataTypeToD3D(ShaderDataType dataType)
-    {
-        switch(dataType){
-
-            case ShaderDataType::Float1:    return DXGI_FORMAT_R32_FLOAT;
-            case ShaderDataType::Float2:    return DXGI_FORMAT_R32G32_FLOAT;
-            case ShaderDataType::Float3:    return DXGI_FORMAT_R32G32B32_FLOAT;
-            case ShaderDataType::Float4:    return DXGI_FORMAT_R32G32B32A32_FLOAT;
-
-            case ShaderDataType::Int:       return DXGI_FORMAT_R32_SINT;
-            case ShaderDataType::Int2:      return DXGI_FORMAT_R32G32_SINT;
-            case ShaderDataType::Int3:      return DXGI_FORMAT_R32G32B32_SINT;
-            case ShaderDataType::Int4:      return DXGI_FORMAT_R32G32B32A32_SINT;
-
-        }
-    }
 
     void D3DVertexArray::Bind() const
     {
 
-        D3DGraphicsContext::GetContext()->IASetInputLayout(m_VertexLayout);
+
 
     }
 
@@ -81,33 +66,9 @@ namespace D3G
 
     void D3DVertexArray::AddVertexBuffer(const D3G::Ref<D3G::VertexBuffer> &vtxBuffer)
     {
-
+        //Bind();
         Bind();
         vtxBuffer->Bind();
-        std::vector<D3D11_INPUT_ELEMENT_DESC> layoutBinding;
-        const auto& elements = vtxBuffer->GetBufferLayout().GetElements();
-
-        for(int i = 0; i < elements.size(); i++){
-
-            auto& element = elements[i];
-
-            D3D11_INPUT_ELEMENT_DESC desc = { element.Name.c_str(), 0, ShaderDataTypeToD3D(element.Type), 0, (size_t)element.Offset,
-                                              D3D11_INPUT_PER_VERTEX_DATA, 0};
-            layoutBinding.push_back(desc);
-
-            D3G_CORE_INFO("VERTEX ATRRIBS NAME {0}", element.Name);
-        }
-
-
-
-        void* pVoid = std::dynamic_pointer_cast<D3DShader>(m_Shader)->Get_PixelShaderSrcBlob()->GetBufferPointer();
-        size_t BufferSize = std::dynamic_pointer_cast<D3DShader>(m_Shader)->Get_PixelShaderSrcBlob()->GetBufferSize();
-
-        D3DGraphicsContext::GetDevice()->CreateInputLayout(layoutBinding.data(),
-                                                           layoutBinding.size(),
-                                                           pVoid,
-                                                           (UINT)BufferSize,
-                                                           &m_VertexLayout);
 
     }
 
@@ -126,7 +87,7 @@ namespace D3G
 
     D3DVertexArray::~D3DVertexArray()
     {
-        m_VertexLayout = nullptr;
+
     }
 
     void D3DVertexArray::SetShader(const Ref<Shader>& mShader)

@@ -14,6 +14,7 @@ namespace D3G
         //TODO: Support 16 bit indices to save memory Tawanda
         D3DGraphicsContext::GetContext()->IASetIndexBuffer(m_IndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
+
     }
 
     void D3DIndexBuffer::UnBind() const
@@ -23,7 +24,7 @@ namespace D3G
 
     uint32_t D3DIndexBuffer::GetCount() const
     {
-        return 0;
+        return m_Count;
     }
 
     D3DIndexBuffer::~D3DIndexBuffer()
@@ -36,6 +37,7 @@ namespace D3G
     D3DIndexBuffer::D3DIndexBuffer(uint32_t *indices, uint32_t count)
     {
 
+        m_Count = count;
         D3D11_BUFFER_DESC indexBufferDesc;
 
         indexBufferDesc.Usage = D3D11_USAGE_IMMUTABLE;
@@ -48,7 +50,8 @@ namespace D3G
         D3D11_SUBRESOURCE_DATA indicesData;
         indicesData.pSysMem = indices;
 
-        D3DGraphicsContext::GetDevice()->CreateBuffer(&indexBufferDesc, &indicesData, &m_IndexBuffer);
+        D3G_CORE_INFO("Index Buffer creation {0}",
+                      D3DGraphicsContext::GetDevice()->CreateBuffer(&indexBufferDesc, &indicesData, &m_IndexBuffer) != S_OK);
 
     }
 

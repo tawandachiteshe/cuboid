@@ -5,7 +5,8 @@
 #include <d3gpch.h>
 #include "D3DShader.h"
 #include <d3dcompiler.h>
-
+#include <glm/gtc/type_ptr.hpp>
+#include <DirectXMath.h>
 #include "D3DGraphicsContext.h"
 
 
@@ -13,16 +14,7 @@ namespace D3G
 {
     struct DefaultShaderContantBuffer
     {
-        INT defaultInt = 0;
-        INT defaultIntArrayMax[32] = {0};
-
-        FLOAT defaultFloat = 0.0f;
-        FLOAT defaultFloat2[2] = {0};
-        FLOAT defaultFloat3[3] = {0};
-        FLOAT defaultFloat4[4] = {0};
-
-        FLOAT defaultFloat4x4[4][4] = { { 0 } };
-
+        DirectX::XMFLOAT4X4 ProjectionMatrix;
     };
 
 
@@ -30,9 +22,9 @@ namespace D3G
     {
 
         D3DGraphicsContext::GetContext()->VSSetShader(m_VertexShader, NULL, 0);
+        BindDefaultCB();
         D3DGraphicsContext::GetContext()->PSSetShader(m_PixelShader, NULL, 0);
 
-        BindDefaultCB();
 
     }
 
@@ -40,7 +32,6 @@ namespace D3G
     {
 
         D3DGraphicsContext::GetContext()->VSSetConstantBuffers(0, 1, &m_ShaderConstantBuffer);
-        D3DGraphicsContext::GetContext()->PSSetConstantBuffers(0, 1, &m_ShaderConstantBuffer);
 
     }
 
@@ -51,105 +42,55 @@ namespace D3G
 
     void D3DShader::SetInt(const std::string &name, int value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultInt, &value, sizeof(int));
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
     }
 
     void D3DShader::SetIntArray(const std::string &name, int *values, uint32_t count)
     {
 
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
-
-        memcpy(&localConstBuffer->defaultIntArrayMax, values, sizeof(INT) * count);
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
 
     }
 
     void D3DShader::SetFloat(const std::string &name, float value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultFloat, &value, sizeof(FLOAT));
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
     }
 
     void D3DShader::SetFloat2(const std::string &name, const glm::vec2 &value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultFloat2, &value, sizeof(FLOAT));
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
 
     }
 
     void D3DShader::SetFloat3(const std::string &name, const glm::vec3 &value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultFloat3, &value, sizeof(FLOAT));
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
 
     }
 
     void D3DShader::SetFloat4(const std::string &name, const glm::vec4 &value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultFloat4, &value, sizeof(FLOAT));
-        D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
 
     }
 
     void D3DShader::SetMat4(const std::string &name, const glm::mat4 &value)
     {
-        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
-        DefaultShaderContantBuffer* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
 
-        memcpy(&localConstBuffer->defaultFloat4x4, &value, sizeof(FLOAT));
+        D3DGraphicsContext::GetContext()->Map(m_ShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &m_ShaderRes);
+        auto* localConstBuffer =  (DefaultShaderContantBuffer*)m_ShaderRes.pData;
+
+        auto xmmatrix = DirectX::XMMatrixOrthographicLH(1278.0f, 600.0f, 0.1f, 1.0f);
+
+        DirectX::XMStoreFloat4x4(&localConstBuffer->ProjectionMatrix, xmmatrix);
+        //memcpy(&localConstBuffer->ProjectionMatrix, &value, sizeof(value));
+
         D3DGraphicsContext::GetContext()->Unmap(m_ShaderConstantBuffer, 0);
     }
 
     D3DShader::D3DShader(const std::string &pixelShaderSrc, const std::string &vertexShaderSrc)
     {
 
-        {
-
-        bool VertexShaderCompileStatus =
-                D3DCompile(vertexShaderSrc.c_str(), vertexShaderSrc.size(), NULL, NULL, NULL, "main", "vs_4_0",
-                           0, 0, &m_VertexShaderSrcBlob, &m_VertexShaderErrorBlob) != S_OK;
-
-        if (!VertexShaderCompileStatus) {
-            D3G_CORE_INFO("D3D Vertex Shader compiled successfully!!!");
-
-            bool PixelShaderCreationStatus = D3DGraphicsContext::GetDevice()->CreateVertexShader(
-                    m_VertexShaderSrcBlob->GetBufferPointer(), m_VertexShaderSrcBlob->GetBufferSize(),
-                    NULL, &m_VertexShader) != S_OK;
-
-            if (!PixelShaderCreationStatus)
-                D3G_CORE_INFO("D3D Vertex Shader created successfully!!!");
-            else
-                D3G_CORE_ERROR("D3D Vertex Shader creation failed ;(");
-
-            //m_VertexShaderSrcBlob->Release();
-
-        } else {
-
-            D3G_CORE_ERROR("D3D Vertex Shader FAILED to COMPILEY ;(");
-        }
-
-        D3G_CORE_CRITICAL("Error compiling d3d vertex shader {0}: ",
-                          (const char *) m_VertexShaderErrorBlob->GetBufferPointer());
-    }
-
-        {
             //TODO: CHECK SOME CLEAN UP HERE
             D3D11_BUFFER_DESC desc;
             ZeroMemory(&desc, sizeof(desc));
@@ -158,45 +99,40 @@ namespace D3G
             desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
             desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
             desc.MiscFlags = 0;
+            desc.StructureByteStride = 0;
 
-            D3DGraphicsContext::GetDevice()->CreateBuffer(&desc, NULL, &m_ShaderConstantBuffer);
 
+            D3G_CORE_INFO("constant buffers {0}",
+                          D3DGraphicsContext::GetDevice()->CreateBuffer(&desc, NULL, &m_ShaderConstantBuffer) != S_OK);
+
+
+
+        //compile pixel shader
+        if(CompileShader(pixelShaderSrc.c_str(), "ps_4_0", &m_PixelShaderSrcBlob)) {
+
+
+            bool creationStatus = D3DGraphicsContext::GetDevice()->CreatePixelShader(m_PixelShaderSrcBlob->GetBufferPointer(),
+                                                               m_PixelShaderSrcBlob->GetBufferSize(), NULL, &m_PixelShader) != S_OK;
+
+            const char* wordStatus = creationStatus ? "Failed" : "Success";
+
+            D3G_CORE_INFO("Creation of Pixel shader was {0}", wordStatus);
         }
 
-        {
-            bool PixelShaderCompileStatus =
-                    D3DCompile(pixelShaderSrc.c_str(), vertexShaderSrc.size(), NULL, NULL, NULL, "main", "ps_4_0",
-                               0, 0, &m_PixelShaderSrcBlob, &m_PixelShaderErrorBlob) != S_OK;
+        //compile pixel shader
+        if(CompileShader(vertexShaderSrc.c_str(), "vs_4_0", &m_VertexShaderSrcBlob)) {
 
-            if (!PixelShaderCompileStatus) {
-                D3G_CORE_INFO("D3D Pixel Shader compiled successfully!!!");
 
-                bool PixelShaderCreationStatus = D3DGraphicsContext::GetDevice()->CreatePixelShader(
-                        m_PixelShaderSrcBlob->GetBufferPointer(), m_PixelShaderSrcBlob->GetBufferSize(),
-                        NULL, &m_PixelShader) != S_OK;
+            bool creationStatus = D3DGraphicsContext::GetDevice()->CreateVertexShader(m_VertexShaderSrcBlob->GetBufferPointer(),
+                                                                                     m_VertexShaderSrcBlob->GetBufferSize(), NULL, &m_VertexShader) != S_OK;
 
-                if (!PixelShaderCreationStatus)
-                    D3G_CORE_INFO("D3D Pixel Shader created successfully!!!");
-                else
-                    D3G_CORE_ERROR("D3D Pixel Shader creation failed ;(");
+            const char* wordStatus = creationStatus ? "Failed" : "Success";
 
-                //m_PixelShaderSrcBlob->Release();
-
-            } else {
-
-                D3G_CORE_ERROR("D3D Pixel Shade ;(");
-
-            }
-
-            D3G_CORE_CRITICAL("Error compiling d3d pixel shader {0}: ",
-                              (const char *) m_PixelShaderErrorBlob->GetBufferPointer());
+            D3G_CORE_INFO("Creation of Vertex shader was {0}", wordStatus);
         }
 
-        if(m_PixelShaderErrorBlob != nullptr)
-            m_PixelShaderErrorBlob->Release();
 
-        if(m_VertexShaderErrorBlob != nullptr)
-            m_VertexShaderErrorBlob->Release();
+
 
     }
 
@@ -217,6 +153,31 @@ namespace D3G
 
     void D3DShader::CreatePixelShader()
     {
+
+    }
+
+
+    bool D3DShader::CompileShader(const char *src, const char* shaderType, ID3DBlob **blob)
+    {
+        ID3DBlob *errorBlob;
+        ID3DBlob *srcBlob;
+
+        bool compilationStatus = false;
+
+        compilationStatus = D3DCompile(src, strlen(src), NULL, NULL, NULL, "main", shaderType,
+                                       0, 0, &srcBlob, &errorBlob) != S_OK;
+
+        if (compilationStatus) {
+            D3G_CORE_ERROR("Failed to compile {0} \n\n {1}", (const char *) errorBlob->GetBufferPointer());
+            errorBlob->Release();
+            return false;
+        } else {
+
+            *blob = srcBlob;
+            return true;
+        }
+
+
 
     }
 

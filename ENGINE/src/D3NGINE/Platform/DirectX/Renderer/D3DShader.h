@@ -52,6 +52,8 @@ namespace D3G
 
         private:
 
+        bool CompileShader(const char* src, const char* shaderType,ID3DBlob** blob);
+
         void CreateVertexShader();
         void CreatePixelShader();
 

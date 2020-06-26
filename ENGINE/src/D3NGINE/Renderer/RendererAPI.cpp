@@ -5,7 +5,7 @@
 
 namespace D3G
 {
-	RendererAPI::API RendererAPI::d_API = RendererAPI::API::DirectX;
+	RendererAPI::API RendererAPI::d_API = RendererAPI::API::Opengl;
 
 
 	Scope<RendererAPI> RendererAPI::Create()

@@ -8,11 +8,11 @@
 #include <D3NGINE/Renderer/Buffer.h>
 #include <cstdint>
 
-
-typedef struct ID3D11Buffer ID3D11Buffer;
+#include <d3d11.h>
 
 namespace D3G
 {
+    class Shader;
 
     class D3DVertexBuffer : public VertexBuffer
     {
@@ -32,6 +32,7 @@ namespace D3G
 
         const BufferLayout& GetBufferLayout() const override;
 
+        void CreateVertexBufferNow();
 
         virtual ~D3DVertexBuffer();
 
@@ -40,6 +41,18 @@ namespace D3G
         ID3D11Buffer* m_VertexBuffer;
 
         BufferLayout m_Layout;
+
+        ID3D11InputLayout* m_VertexLayout;
+
+        Ref<Shader> m_Shader;
+
+        float* m_TempVertices  = nullptr;
+
+        D3D11_BUFFER_DESC m_VertexBufferDesc;
+
+        D3D11_SUBRESOURCE_DATA m_VerticesData;
+
+        bool IsMemBufferAlloc = false;
 
     };
 

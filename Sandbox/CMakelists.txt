@@ -4,9 +4,7 @@ project(Sandbox)
 
 SET(SANDBOX_RES
         res/images/logo.ico
-        src/Sandbox.rc
-
-        )
+        src/Sandbox.rc)
 
 SET(SANDBOX_SRC
         src/App.cpp

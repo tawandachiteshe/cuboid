@@ -31,6 +31,7 @@ class SandBox2D : public D3G::Layer
     D3G::Ref<D3G::VertexBuffer> m_vb;
     D3G::Ref<D3G::IndexBuffer> m_ib;
     D3G::Ref<D3G::Shader> m_Shader;
+    D3G::Ref<D3G::VertexBufferLayout> m_Layout;
     D3G::Camera2DController m_CameraController;
 };
 

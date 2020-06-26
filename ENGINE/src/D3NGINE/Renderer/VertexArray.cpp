@@ -1,7 +1,9 @@
+#include <d3gpch.h>
 #include <D3NGINE/Renderer/RendererAPI.h>
 #include <D3NGINE/Platform/OpenGL/OpenGLVertexArray.h>
 #include <D3NGINE/Renderer/VertexArray.h>
 #include <D3NGINE/Platform/DirectX/Renderer/D3DVertexArray.h>
+
 
 namespace D3G
 {

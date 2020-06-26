@@ -1,11 +1,16 @@
-[22:58:03] [info] D3G: D3D CONTEST INIT SUCCESS!!!
-[22:58:03] [info] D3G: D3D INIT fn SUCCESS!!!
-[22:58:03] [debug] D3G: Hwind status false
-[22:58:03] [info] D3G: MSAA LEVEL 0
-[22:58:04] [info] D3G: D3D IS IT COOL true
-[22:58:04] [info] D3G: Create Render Texture false
-[22:58:04] [info] D3G: Ini win 
-[22:58:04] [info] D3G: Vsync set true
-[22:58:04] [info] D3G: APP iniT
-[22:58:04] [info] D3G: D3D Vertex Shader compiled successfully!!!
-[22:58:04] [info] D3G: D3D Vertex Shader created successfully!!!
+[01:31:51] [info] D3G: D3D CONTEST INIT SUCCESS!!!
+[01:31:51] [info] D3G: D3D INIT fn SUCCESS!!!
+[01:31:51] [debug] D3G: Hwind status false
+[01:31:51] [info] D3G: MSAA LEVEL 0
+[01:31:51] [info] D3G: D3D IS IT COOL true
+[01:31:51] [info] D3G: Create Render Texture false
+[01:31:51] [info] D3G: Ini win 
+[01:31:51] [info] D3G: Vsync set true
+[01:31:51] [info] D3G: APP iniT
+[01:31:51] [info] D3G: constant buffers false
+[01:31:51] [info] D3G: Creation of Pixel shader was Success
+[01:31:51] [info] D3G: Creation of Vertex shader was Success
+[01:31:51] [info] D3G: VERTEX ATRRIBS NAME POSITION
+[01:31:51] [info] D3G: VERTEX ATRRIBS NAME COLOR
+[01:31:51] [info] D3G: Vertex buffer status false
+[01:31:51] [info] D3G: Index Buffer creation false

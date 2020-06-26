@@ -30,6 +30,8 @@ namespace D3G
         private:
 
         ID3D11Buffer* m_IndexBuffer;
+
+        uint32_t m_Count = 0;
     };
 
 }

@@ -66,17 +66,12 @@ namespace D3G
 
     void D3DVertexArray::AddVertexBuffer(const D3G::Ref<D3G::VertexBuffer> &vtxBuffer)
     {
-        //Bind();
-        Bind();
-        vtxBuffer->Bind();
 
     }
 
     void D3DVertexArray::SetIndexBuffer(const Ref <IndexBuffer>& idxBuffer)
     {
 
-        idxBuffer->Bind();
-        m_IdxBuffer = idxBuffer;
 
     }
 
@@ -92,7 +87,6 @@ namespace D3G
 
     void D3DVertexArray::SetShader(const Ref<Shader>& mShader)
     {
-        mShader->Bind();
-        m_Shader = mShader;
+
     }
 }

@@ -28,7 +28,6 @@ SandBox2D::SandBox2D(const std::string &name) : Layer(name),
 void SandBox2D::OnAttach()
 {
 
-
 }
 
 void SandBox2D::OnDetach()
@@ -38,7 +37,24 @@ void SandBox2D::OnDetach()
 
 void SandBox2D::OnUpdate(float dt)
 {
+    D3G::RenderCommand::Clear();
+    D3G::RenderCommand::SetClearColor({0.23f, 0.23f, 0.23f, 1.0f});
 
+    D3G::Renderer2D::BeginScene(m_CameraController.GetCamera());
+
+    srand(time(0));
+    for (float i = -1.5f ; i < 1.5f; i+=0.4f) {
+
+        for (float j = -1.5f ; j < 1.5f; j+=0.4f) {
+
+            D3G::Renderer2D::DrawCircle({i (1 rand()), j}, 0.25f, {i, j , j, i });
+
+        }
+    }
+
+    D3G::Renderer2D::EndScene();
+
+    m_CameraController.OnUpdate(dt);
 }
 
 void SandBox2D::OnImGuiRender()
@@ -51,9 +67,6 @@ void SandBox2D::OnImGuiRender()
 
     ImGui::End();
 
-    ImGui::Begin("Utils");
-
-    ImGui::End();
 
 }
 

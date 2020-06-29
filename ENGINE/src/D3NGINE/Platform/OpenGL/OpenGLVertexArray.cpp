@@ -43,21 +43,24 @@ namespace D3G
 		vtxBuffer->Bind();
 		const auto& elements = vtxBuffer->GetBufferLayout().GetElements();
 
-		int attrib = 0;
+		uint32_t attrib = 0;
 
 		for (int i = 0; i < elements.size(); i++)
 		{
 			auto& element = elements[i];
-			attrib = std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
+			attrib = (uint32_t)std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
+
+            D3G_CORE_INFO("attrib location {0} attrib name {1} ",attrib, element.Name);
 
 			glEnableVertexAttribArray(attrib);
-			glVertexAttribPointer(attrib, element.GetComponentCount(),
-											   ShaderDataTypeToOpenGLBaseType(element.Type),
-											   element.Normalized ? GL_TRUE : GL_FALSE,
-											   vtxBuffer->GetBufferLayout().GetStride(),
-											   (const void*)element.Offset);
+			glVertexAttribPointer(attrib,
+                                  element.GetComponentCount(),
+                                  ShaderDataTypeToOpenGLBaseType(element.Type),
+                                  (GLboolean)(element.Normalized ? GL_TRUE : GL_FALSE),
+                                  vtxBuffer->GetBufferLayout().GetStride(),
+                                  (const void*)element.Offset);
 
-			D3G_CORE_INFO("attrib location {0} attrib name {1} ",attrib, element.Name);
+
 		}
 	}
 
@@ -97,6 +100,25 @@ namespace D3G
 
     void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer> &vtxBuffer)
     {
+
+        Bind();
+        vtxBuffer->Bind();
+        const auto& elements = vtxBuffer->GetBufferLayout().GetElements();
+        uint32_t attrib = 0;
+
+        for (int i = 0; i < elements.size(); i++)
+        {
+            auto& element = elements[i];
+            attrib = (uint32_t)std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
+            D3G_CORE_INFO("attrib location {0} attrib name {1} ",attrib, element.Name);
+            glEnableVertexAttribArray(attrib);
+            glVertexAttribPointer(attrib,
+                                  element.GetComponentCount(),
+                                  ShaderDataTypeToOpenGLBaseType(element.Type),
+                                  (GLboolean)(element.Normalized ? GL_TRUE : GL_FALSE),
+                                  vtxBuffer->GetBufferLayout().GetStride(),
+                                  (const void*)element.Offset);
+        }
 
     }
 

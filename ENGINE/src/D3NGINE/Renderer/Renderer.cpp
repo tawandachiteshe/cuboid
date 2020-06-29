@@ -19,11 +19,12 @@ namespace D3G
 
 	void Renderer::Submit(const Ref<VertexArray> &vtxArray, const Ref<Shader>& shader, const glm::mat4& transform)
 	{
-		shader->SetMat4("u_ProjectionViewMatrix", m_SceneData->m_ProjectionViewMatrix);
 
 		shader->Bind();
 		vtxArray->Bind();
-		//shader->SetMat4("u_Transform", transform);
+		shader->SetMat4("u_Transform", transform);
+
+		shader->SetMat4("u_ProjectionViewMatrix", m_SceneData->m_ProjectionViewMatrix);
 		RenderCommand::DrawIndexed(vtxArray);
 	}
 
@@ -36,7 +37,7 @@ namespace D3G
 	{
 		RenderCommand::Init();
 		//TODO: Uncomment Renderer2d and make it flexible
-		//Renderer2D::Init();
+		Renderer2D::Init();
 	}
 
 }

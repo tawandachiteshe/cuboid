@@ -45,30 +45,6 @@ namespace D3G
     m_Layout(layout), m_Shader(shader)
     {
 
-        const auto& elements = m_Layout.GetElements();
-        D3D11_INPUT_ELEMENT_DESC* layoutBinding = new D3D11_INPUT_ELEMENT_DESC[elements.size()];
-        UINT layoutsize = 0;
-        for(int i = 0; i < elements.size(); i++){
-
-            auto& element = elements[i];
-
-            layoutBinding[i]  = { element.Name.c_str(), 0, ShaderDataTypeToD3D(element.Type), 0, (UINT)element.Offset,
-                                  D3D11_INPUT_PER_VERTEX_DATA, 0};
-
-            D3G_CORE_INFO("VERTEX ATRRIBS NAME {0}", element.Name);
-            layoutsize++;
-        }
-
-
-        D3DGraphicsContext::GetDevice()->CreateInputLayout(layoutBinding,
-                                                           layoutsize,
-                                                           std::dynamic_pointer_cast<D3DShader>(m_Shader)->Get_VertexShaderSrcBlob()->GetBufferPointer(),
-                                                           std::dynamic_pointer_cast<D3DShader>(m_Shader)->Get_VertexShaderSrcBlob()->GetBufferSize(),
-                                                           &m_VertexLayout);
-
-
-        delete[] layoutBinding;
-
     }
 
 }

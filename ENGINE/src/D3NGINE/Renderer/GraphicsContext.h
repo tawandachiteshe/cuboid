@@ -18,7 +18,7 @@ namespace D3G
 			virtual ~GraphicsContext() = default;
 			virtual void SetVsync(bool enable) = 0;
 			virtual void ResizeSwapBuffers() = 0;
-			static Scope<GraphicsContext> Create(void* window);
+			static Scope<GraphicsContext> Create(std::any window);
 	};
 
 } /* namespace D3G */

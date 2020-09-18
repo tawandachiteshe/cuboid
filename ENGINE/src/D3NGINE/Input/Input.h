@@ -13,6 +13,8 @@ namespace D3G
 		class Input
 		{
 
+
+
 		public:
 
 			static bool IsKeyPressed(int KeyCode){ return m_InputInstance->IsKeyPressedImpl(KeyCode); }

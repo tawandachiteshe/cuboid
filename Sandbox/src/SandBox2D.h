@@ -21,7 +21,7 @@ class SandBox2D : public D3G::Layer
 
     void OnImGuiRender() override;
 
-    void OnEvent(SDL_Event *event) override;
+    void OnEvent(D3G::Event& event) override;
 
     ~SandBox2D() override;
 

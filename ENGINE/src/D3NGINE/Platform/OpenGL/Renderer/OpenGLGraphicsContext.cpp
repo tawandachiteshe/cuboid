@@ -38,9 +38,10 @@ namespace D3G {
     }
 
 
-    OpenGLGraphicsContext::OpenGLGraphicsContext(SDL_Window *window) {
+    OpenGLGraphicsContext::OpenGLGraphicsContext(SDL_Window* window) {
+
         D3G_CORE_INFO("GRaphics context");
-        this->m_Window = window;
+        this->m_Window = (window);
         this->m_Context = SDL_GL_CreateContext(m_Window);
         D3G_ASSERT(m_Window, "Window no data");
         D3G_ASSERT(m_Context, "Window no data");

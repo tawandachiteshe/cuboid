@@ -1,5 +1,5 @@
 #include <D3NGINE/Renderer/Camera2DController.h>
-#include "D3NGINE/Input/D3GINPUT.h"
+#include "D3NGINE/Core/Input.h"
 #include <D3NGINE/Core/Application.h>
 
 extern DECLSPEC void SDLCALL SDL_GetWindowSize(SDL_Window * window, int *w,
@@ -16,23 +16,23 @@ namespace D3G {
 	{
 		//HZ_PROFILE_FUNCTION();
 
-		if (Input::IsKeyDown(SDLK_a))
+		if (false)
 		{
 			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Input::IsKeyDown(SDLK_d))
+		else if (false)
 		{
 			m_CameraPosition.x += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
 
-		if (Input::IsKeyDown(SDLK_w))
+		if (false)
 		{
 			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (Input::IsKeyDown(SDLK_s))
+		else if (false)
 		{
 			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
@@ -40,9 +40,9 @@ namespace D3G {
 
 		if (m_Rotation)
 		{
-			if (Input::IsKeyPressed(SDLK_q))
+			if (false)
 				m_CameraRotation += m_CameraRotationSpeed * ts;
-			if (Input::IsKeyPressed(SDLK_e))
+			if (false)
 				m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 			if (m_CameraRotation > 180.0f)
@@ -58,10 +58,10 @@ namespace D3G {
 		m_CameraTranslationSpeed = m_ZoomLevel;
 	}
 
-	void Camera2DController::OnEvent(SDL_Event* e)
+	void Camera2DController::OnEvent(Event& e)
 	{
 		//OnMouseScrolled(e.wheel);
-		OnWindowResized(e->window);
+		
 
 	}
 
@@ -79,7 +79,7 @@ namespace D3G {
 	{
 		//HZ_PROFILE_FUNCTION();
 		int w, h = 0;
-		SDL_GetWindowSize(Application::Get().ApplicationGetWindow().GetWindow(), &w, &h);
+		SDL_GetWindowSize(std::any_cast<SDL_Window*>(Application::Get().GetWindow().GetNativeWindow()), &w, &h);
 		m_AspectRatio = (float)w / (float)h;
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;

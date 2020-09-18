@@ -84,16 +84,16 @@ void main()
     worleyColor += m_dist;
     worleyColor += 1.-step(.02, m_dist);
     //draw grid
-    //worleyColor.r += step(.98, f_st.x) + step(.98, f_st.y);
-    simColor.rg = fract(skew(st));
-    simColor = simplexGrid(sim_st);
+    worleyColor.r += step(.98, f_st.x) + step(.98, f_st.y);
+    //simColor.rg = fract(skew(st));
+    //simColor = simplexGrid(sim_st);
     if (v_Radius == 1.0f)
     {
         gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) * circle(v_TextureCoord, v_Radius) *
         v_Color;
     } else {
         gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) *
-        v_Color;
+        v_Color * vec4(worleyColor, 1f);
     }
 
 

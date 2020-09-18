@@ -4,12 +4,11 @@ project(Sandbox)
 
 SET(SANDBOX_RES
         res/images/logo.ico
-        src/Sandbox.rc)
+        )
 
 SET(SANDBOX_SRC
         src/App.cpp
-        src/SandBox2D.cpp src/SandBox2D.h
-        src/resource.h)
+        src/SandBox2D.cpp src/SandBox2D.h)
 
 
 add_executable(Sandbox ${SANDBOX_SRC} ${SANDBOX_RES})

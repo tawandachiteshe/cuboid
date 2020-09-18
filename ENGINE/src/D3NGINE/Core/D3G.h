@@ -20,5 +20,7 @@
 #include <D3NGINE/Renderer/Camera2DController.h>
 #include <D3NGINE/Renderer/VertexBufferLayout.h>
 
+#include <D3NGINE/Events/Event.h>
+
 
 #endif

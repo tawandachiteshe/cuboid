@@ -1,35 +1,44 @@
-//
+ //
 // Created by Jerry on 8/6/2020.
 //
 
 #include <d3gpch.h>
 #include <SDL_syswm.h>
 #include "D3DGraphicsContext.h"
-#include <d3d11.h>
 #include <SDL_video.h>
+#include "InitializeD3Devices.h"
+#include "D3NGINE/Core/Application.h"
 
 namespace D3G
 {
 
     void D3DGraphicsContext::Init()
     {
+       
     }
 
     void D3DGraphicsContext::SwapBuffers(){
 
+  
+        Graphics()->Present();
 
     }
 
 
     void D3DGraphicsContext::SetVsync(bool enable)
     {
-
+        Graphics()->SetVSync(enable);
     }
 
 
-    D3DGraphicsContext::D3DGraphicsContext(SDL_Window *window):
-    m_Window(window)
+    D3DGraphicsContext::D3DGraphicsContext(HWND window)
     {
+        
+        const auto& app = Application::Get();
+
+        InitializeD3Devices::Create(window, 1280, 720);
+
+        
 
     }
 
@@ -39,17 +48,9 @@ namespace D3G
 
     D3DGraphicsContext::~D3DGraphicsContext()
     {
-    }
-
-
-    void D3DGraphicsContext::CleanupDeviceD3D()
-    {
-    }
-
-    void D3DGraphicsContext::CleanupRenderTarget()
-    {
 
     }
+
 
     void D3DGraphicsContext::ResizeSwapBuffers()
     {

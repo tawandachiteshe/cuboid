@@ -5,7 +5,7 @@ project(ENGINE)
 set(D3_SOURCE_FILES
         src/D3NGINE/ImGui/ImGuiDock.cpp
         src/D3NGINE/ImGui/ImGuiLayer.cpp
-        src/D3NGINE/Input/D3GINPUT.cpp
+        #src/D3NGINE/Input/D3GINPUT.cpp
         #    src/D3NGINE/Nodes/Camera2D.cpp
 
         src/D3NGINE/Platform/OpenGL/common.cpp
@@ -25,6 +25,10 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Platform/DirectX/Renderer/D3DShader.cpp
         src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.cpp
         src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBufferLayout.cpp
+        src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.cpp
+        src/D3NGINE/Platform/Windowing/WindowsWindow.cpp
+        src/D3NGINE/Platform/Windowing/SDLWindow.cpp
+
 
         src/D3NGINE/Renderer/Buffer.cpp
         src/D3NGINE/Renderer/Renderer.cpp
@@ -47,13 +51,16 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Core/Application.cpp
         src/D3NGINE/Core/Layer.cpp
         src/D3NGINE/Core/LayerStack.cpp
+        src/D3NGINE/Core/Input.cpp
+
+        src/D3NGINE/Events/Event.cpp
         )
 
 set(D3_HEADER_FILES
         src/D3NGINE/ImGui/ImGuiDock.h
         src/D3NGINE/ImGui/ImGuiLayer.h
-        src/D3NGINE/Input/D3GINPUT.h
-        src/D3NGINE/Input/Input.h
+        #src/D3NGINE/Input/D3GINPUT.h
+        #src/D3NGINE/Input/Input.h
         #    src/D3NGINE/Nodes/Camera2D.h
 
         src/D3NGINE/Platform/OpenGL/common.h
@@ -73,6 +80,10 @@ set(D3_HEADER_FILES
         src/D3NGINE/Platform/DirectX/Renderer/D3DShader.h
         src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.h
         src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBufferLayout.h
+        src/D3NGINE/Platform/DirectX/Renderer/DxHelper.h
+        src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h
+        src/D3NGINE/Platform/Windowing/WindowsWindow.h
+        src/D3NGINE/Platform/Windowing/SDLWindow.h
 
         src/D3NGINE/Renderer/Buffer.h
         src/D3NGINE/Renderer/Renderer.h
@@ -97,7 +108,15 @@ set(D3_HEADER_FILES
         src/D3NGINE/Core/LayerStack.h
         src/D3NGINE/Core/Core.h
         src/D3NGINE/Core/D3G.h
-        src/D3NGINE/Core/EntryPoint.h )
+        src/D3NGINE/Core/EntryPoint.h
+        src/D3NGINE/Core/Input.h
+        src/D3NGINE/Core/KeyCode.h
+
+
+        src/D3NGINE/Events/Event.h
+        src/D3NGINE/Events/KeyEvent.h
+        src/D3NGINE/Events/MouseEvent.h
+        src/D3NGINE/Events/ApplicationEvent.h)
 
 add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
 target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)
@@ -105,13 +124,12 @@ target_link_directories(ENGINE PUBLIC ../vendor/SDL2/lib/x64 ../vendor/SDL2/lib/
 
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${glad_SOURCE_DIR}/include ${Assimp_SOURCE_DIR}/include)
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/glm ${luac_SOURCE_DIR}/include ${luac_SOURCE_DIR}/src)
-target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/SDL2/include ${imgui_SOURCE_DIR}/src ${spdlog_SOURCE_DIR}/include)
+target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/SDL2/include ${imgui_SOURCE_DIR} ${spdlog_SOURCE_DIR}/include)
 #TODO link assimp
 
-target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac
-d3d11.lib d3dx11.lib d3dcompiler.lib dxgi.lib dxguid.lib )
+target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d10.lib d3dcompiler.lib dxgi.lib)
 
-target_link_options(ENGINE PUBLIC -Wreturn-local-addr -Wint-to-pointer-cast)
+#target_link_options(ENGINE PUBLIC -Wreturn-local-addr -Wint-to-pointer-cast)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src FILES ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
 
 

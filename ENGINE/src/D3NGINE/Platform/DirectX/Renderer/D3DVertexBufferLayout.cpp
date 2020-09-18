@@ -33,7 +33,7 @@ namespace D3G
 
     void D3DVertexBufferLayout::Bind()
     {
-        D3DGraphicsContext::GetContext()->IASetInputLayout(m_VertexLayout);
+        
     }
 
     BufferLayout &D3DVertexBufferLayout::GetBufferLayout() const

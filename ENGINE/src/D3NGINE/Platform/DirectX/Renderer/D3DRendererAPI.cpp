@@ -5,7 +5,7 @@
 #include <d3gpch.h>
 #include "D3DRendererAPI.h"
 #include "D3DGraphicsContext.h"
-#include <d3d11.h>
+#include "InitializeD3Devices.h"
 
 namespace D3G
 {
@@ -16,15 +16,26 @@ namespace D3G
 
     void D3DRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
     {
+        D3D10_VIEWPORT vp;
+        vp.Width = width;
+        vp.Height = height;
+        vp.MinDepth = 0.0f;
+        vp.MaxDepth = 1.0f;
+        vp.TopLeftX = 0;
+        vp.TopLeftY = 0;
 
+        Graphics()->GetDevice()->RSSetViewports(1, &vp);
     }
 
     void D3DRendererAPI::SetClearColor(const glm::vec4 &clearColor)
     {
-
+        Graphics()->Clear({ clearColor.x, clearColor.y, clearColor.z, clearColor.w});
     }
 
-    void D3DRendererAPI::Clear(){
+    void D3DRendererAPI::Clear()
+    {
+
+        Graphics()->Clear({ 0.0f, 0.0f, 0.0f, 1.0f });
 
     }
 

@@ -5,56 +5,49 @@ typedef union SDL_Event SDL_Event;
 #ifndef D3G_UTILS_WINDOW_H
 #define D3G_UTILS_WINDOW_H
 #include <D3NGINE/Renderer/GraphicsContext.h>
+#include "D3NGINE/Events/Event.h"
 
 namespace D3G
 {
-
-	struct WinProps
+	struct WindowProps
 	{
-		std::string title;
-		int WinWidth;
-		int WinHeight;
-		bool Vsync;
+		std::string Title;
+		unsigned int Width;
+		unsigned int Height;
+
+		WindowProps(const std::string& title = "D3G Engine",
+			unsigned int width = 1280,
+			unsigned int height = 720)
+			: Title(title), Width(width), Height(height)
+		{
+		}
 	};
 
 	class Window
 	{
 	public:
-		static Scope<Window> Create(const WinProps& props = { "D3NGINE", 1278, 600, true });
-		Window(const WinProps& props = { "D3NGINE", 1278, 600, true });
-		void Init(const WinProps& props);
-		bool OnUpdate() const;
 
-		inline unsigned int GetWidth() const { return m_WinData.WinWidth; }
-		inline unsigned int GetHeight() const { return m_WinData.WinHeight; }
-		inline SDL_Window* GetWindow() const { return window; }
-		static SDL_Event* GetEvents();
-		SDL_Event* GetUnHandledEvents();
+		using EventCallbackFn = std::function<void(Event&)>;
+		
 
-		bool IsRunning = true;
-		void ShutDown();
+		virtual ~Window() = default;
 
-		bool IsVsync() const;
+		virtual void OnUpdate() = 0;
 
-		void SetVsync(bool enabled);
+		virtual unsigned int GetWidth() const = 0;
+		virtual unsigned int GetHeight() const = 0;
 
-		bool OnEvent(SDL_Event* e) const;
-		int gladStatus = 0;
-		inline int GetGladStatus() { return gladStatus; }
-		inline void* GetGLContext() { return m_GlContext; }
+		// Window attributes
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+		virtual void SetVSync(bool enabled) = 0;
+		virtual bool IsVSync() const = 0;
 
-		~Window();
+		virtual std::any GetNativeWindow() const = 0;
+		virtual void* GetGLContext() const = 0;
 
-	private:
-		Scope<GraphicsContext> context;
-		SDL_Window* window;
-		static SDL_Event m_Event;
-		void* m_GlContext = nullptr;
-		WinProps m_WinData;
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
-
-
-
+	
 }
 
 

@@ -12,10 +12,10 @@ namespace D3G
 		m_Instance = this;
 		m_Window = Window::Create();
 
-		Renderer::Init();
+		//Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
-		PushOverLay(m_ImGuiLayer);
+	    PushOverLay(m_ImGuiLayer);
 
 
 	}
@@ -51,26 +51,13 @@ namespace D3G
 			}
 			m_ImGuiLayer->End();
 
+			m_Window->OnUpdate();
 
-			bool isPolling = m_Window->OnUpdate();
-			SDL_Event* event = m_Window->GetEvents();
-			if(isPolling)
-			{
-				ImGui_ImplSDL2_ProcessEvent(event);
-				this->OnEvent(event);
-				m_Running = m_Window->OnEvent(event);
-			}
-
-			this->OnUnHandledEvent(event);
-
-			int w, h = 0;
-			SDL_GetWindowSize(m_Window->GetWindow(), &w, &h);
-			Renderer::OnWindowResize((uint32_t)w, (uint32_t)h);
 
 		}
 	}
 
-	void Application::OnEvent(SDL_Event* e)
+	void Application::OnEvent(Event& e)
 	{
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
@@ -79,14 +66,6 @@ namespace D3G
 		}
 
 	}
-
-    void Application::OnUnHandledEvent(SDL_Event* e)
-    {
-        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
-        {
-            (*--it)->OnUnHandledEvent(e);
-        }
-    }
 
 	void Application::PushLayer(Layer* layer)
 	{

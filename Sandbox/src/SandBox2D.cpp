@@ -37,42 +37,21 @@ void SandBox2D::OnDetach()
 
 void SandBox2D::OnUpdate(float dt)
 {
-    D3G::RenderCommand::Clear();
-    D3G::RenderCommand::SetClearColor({0.23f, 0.23f, 0.23f, 1.0f});
-
-    D3G::Renderer2D::BeginScene(m_CameraController.GetCamera());
-
-    srand(time(0));
-    for (float i = -1.5f ; i < 1.5f; i+=0.4f) {
-
-        for (float j = -1.5f ; j < 1.5f; j+=0.4f) {
-
-            D3G::Renderer2D::DrawCircle({i (1 rand()), j}, 0.25f, {i, j , j, i });
-
-        }
-    }
-
-    D3G::Renderer2D::EndScene();
-
+    D3G::RenderCommand::SetClearColor({ 0.0f, 1.0f, 0.0f, 1.0f });
     m_CameraController.OnUpdate(dt);
+    m_CameraController.SetZoomLevel(zoomLevel);
 }
 
 void SandBox2D::OnImGuiRender()
 {
-    //bool showDock = false;
-    //D3G::ShowExampleAppDockSpace(&showDock);
-   ImGui::Begin("Settings");
-
-   ImGui::SliderFloat("Zoom level", &zoomLevel, 0.1, 10.0f);
-
+    ImGui::Begin("data");
+    ImGui::Text("This is some useful text.");
     ImGui::End();
-
-
 }
 
-void SandBox2D::OnEvent(SDL_Event *event)
+void SandBox2D::OnEvent(D3G::Event& event)
 {
-m_CameraController.OnEvent(event);
+    m_CameraController.OnEvent(event);
 }
 
 SandBox2D::~SandBox2D()

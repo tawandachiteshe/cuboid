@@ -4,6 +4,8 @@
 #include <SDL_events.h>
 #include <glm/glm.hpp>
 
+#include "D3NGINE/Events/Event.h"
+
 #ifndef D3G_RENDERER_CAMERA2D_CTRLER_H
 #define D3G_RENDERER_CAMERA2D_CTRLER_H
 
@@ -17,7 +19,7 @@ namespace D3G {
 			Camera2DController(float aspectRatio, bool rotation = false);
 
 		void OnUpdate(float ts);
-		void OnEvent(SDL_Event* e);
+		void OnEvent(Event& e);
 
 		Camera2D& GetCamera() { return m_Camera; }
 		const Camera2D& GetCamera() const { return m_Camera; }

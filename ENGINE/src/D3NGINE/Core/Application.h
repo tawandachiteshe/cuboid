@@ -1,7 +1,7 @@
 #include "Window.h"
 #include "LayerStack.h"
 #include "D3NGINE/ImGui/ImGuiLayer.h"
-#include <SDL_events.h>
+#include "D3NGINE/Events/Event.h"
 
 #ifndef D3G_APPLICATION_H
 #define D3G_APPLICATION_H
@@ -15,13 +15,14 @@ namespace D3G
 		Application();
 		virtual ~Application();
 		void Run();
-		void OnEvent(SDL_Event* event);
-		void OnUnHandledEvent(SDL_Event* event);
+		void OnEvent(Event& event);
+
 		void PushLayer(Layer* layer);
 		void PushOverLay(Layer* layer);
 		void Name();
-		inline Window& ApplicationGetWindow() { return *m_Window; }
-		inline static Application& Get() { return *m_Instance; }
+		Window& GetWindow() { return *m_Window; }
+		static Application& Get() { return *m_Instance; }
+
 	private:
 		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;

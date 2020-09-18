@@ -11,6 +11,11 @@
 #define D3G_ASSERT(x, ...) { if(!(x)) { D3G_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define D3G_CORE_ASSERT(x, ...) { if(!(x)) { D3G_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 
+#define BIT(x) (1 << x)
+
+#define HZ_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+
 namespace D3G
 {
 	template<typename T>

@@ -5,8 +5,14 @@
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_opengl3.h>
 #include <D3NGINE/Renderer/RendererAPI.h>
-#include <imgui_impl_dx11.h>
+#include <imgui_impl_dx10.h>
 #include <D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h>
+#include <SDL.h>
+#include <imgui_impl_win32.h>
+#include "D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h"
+
+
+
 namespace D3G
 {
 
@@ -18,11 +24,21 @@ namespace D3G
 
 	ImGuiLayer::~ImGuiLayer()
 	{
+		//TODO: Create shut down method 
+		ImGui_ImplDX10_Shutdown();
+		ImGui_ImplWin32_Shutdown();
+		ImGui::DestroyContext();
 	}
+
 	void ImGuiLayer::OnAttach()
 	{
 
+		IMGUI_CHECKVERSION();
+		
+
 		Application& app = Application::Get();
+
+
 		ImGui::SetCurrentContext(ImGui::CreateContext());
 		ImGui::StyleColorsClassic();
 		ImGuiIO& io = ImGui::GetIO();
@@ -40,12 +56,20 @@ namespace D3G
 		}
 
         if(RendererAPI::GetAPI() == RendererAPI::API::Opengl) {
-            ImGui_ImplSDL2_InitForOpenGL(app.ApplicationGetWindow().GetWindow(),
-                                         app.ApplicationGetWindow().GetGLContext());
+
+            ImGui_ImplSDL2_InitForOpenGL(std::any_cast<SDL_Window*>(app.GetWindow().GetNativeWindow()),
+                                         app.GetWindow().GetGLContext());
             ImGui_ImplOpenGL3_Init("#version 120");
         }
+		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
+		{
+			ImGui_ImplWin32_EnableDpiAwareness();
+			ImGui_ImplWin32_Init(std::any_cast<HWND>(app.GetWindow().GetNativeWindow()));
+			ImGui_ImplDX10_Init(Graphics()->GetDevice());
 
-		io.DisplaySize = ImVec2((float)app.ApplicationGetWindow().GetWidth(), (float)app.ApplicationGetWindow().GetHeight());
+		}
+
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 	}
 
 	void ImGuiLayer::OnDetach()
@@ -55,37 +79,57 @@ namespace D3G
 
 	void ImGuiLayer::Begin()
 	{
+		
 		Application& app = Application::Get();
 		if(RendererAPI::GetAPI() == RendererAPI::API::Opengl)
 		{
 			ImGui_ImplOpenGL3_NewFrame();
+			ImGui_ImplSDL2_NewFrame(std::any_cast<SDL_Window*>(app.GetWindow().GetNativeWindow()));
+			
+		} else if(RendererAPI::GetAPI() == RendererAPI::API::DirectX)
+		{
+			ImGui_ImplDX10_NewFrame();
+			ImGui_ImplWin32_NewFrame();
+
 		}
-		ImGui_ImplSDL2_NewFrame(app.ApplicationGetWindow().GetWindow());
+
 		ImGui::NewFrame();
+		
 	}
 
 	void ImGuiLayer::End()
 	{
 		Application& app = Application::Get();
 		ImGuiIO& io = ImGui::GetIO();
-		io.DisplaySize = ImVec2((float)app.ApplicationGetWindow().GetWidth(),(float)app.ApplicationGetWindow().GetHeight());
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(),(float)app.GetWindow().GetHeight());
+		
 		ImGui::Render();
 
 		if(RendererAPI::GetAPI() == RendererAPI::API::Opengl)
 		{
-
+			
 			glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
 			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+			
 
 			if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 			{
 				SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 				SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
-
+				
 				SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 			}
+			
+		}
+		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
+		{
+
+			ImGui_ImplDX10_RenderDrawData(ImGui::GetDrawData());
 
 		}
+
+		ImGui::UpdatePlatformWindows();
+		ImGui::RenderPlatformWindowsDefault();
 
 	}
 
@@ -98,7 +142,7 @@ namespace D3G
 	}
 
 
-	void ImGuiLayer::OnEvent(SDL_Event* event)
+	void ImGuiLayer::OnEvent(Event& event)
 	{
 
 	}

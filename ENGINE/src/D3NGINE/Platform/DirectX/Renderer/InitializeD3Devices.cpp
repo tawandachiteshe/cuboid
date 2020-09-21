@@ -4,12 +4,17 @@
 
 D3G::Ref<InitializeD3Devices> InitializeD3Devices::initDevices = nullptr;
 
-ID3D10Device*			InitializeD3Devices::m_pDevice				= nullptr;
-ID3D10Texture2D*		InitializeD3Devices::m_pBackBuffer			= nullptr;
-ID3D10RenderTargetView* InitializeD3Devices::m_pRenderTargetView	= nullptr;
-IDXGISwapChain*			InitializeD3Devices::m_pSwapChain			= nullptr;
-ID3D10InfoQueue*		InitializeD3Devices::m_pMessageQueue		= nullptr;
-RECT					InitializeD3Devices::m_rcScreenRect			= {};
+ID3D11Device*			 InitializeD3Devices::m_pDevice				= nullptr;
+ID3D11Texture2D*		 InitializeD3Devices::m_pBackBuffer			= nullptr;
+ID3D11Texture2D*		 InitializeD3Devices::m_pDepthStencilBuffer  = nullptr;
+ID3D11RenderTargetView*  InitializeD3Devices::m_pRenderTargetView	= nullptr;
+IDXGISwapChain*			 InitializeD3Devices::m_pSwapChain			= nullptr;
+ID3D11InfoQueue*		 InitializeD3Devices::m_pMessageQueue		= nullptr;
+RECT					 InitializeD3Devices::m_rcScreenRect			= {};
+ID3D11DepthStencilView*  InitializeD3Devices::m_pDepthStencilView	= nullptr;
+ID3D11DepthStencilState* InitializeD3Devices::m_pDepthStencilState  = nullptr;
+ID3D11DeviceContext*	 InitializeD3Devices::m_pDeviceContext		= nullptr;
+
 
 void InitializeD3Devices::DestroyAll()
 {
@@ -53,16 +58,9 @@ void InitializeD3Devices::InitD3D(HWND hwnd, int width, int height, int bpp)
 	
 
 	UINT createDeviceFlags = 0;
-
-	r = D3D10CreateDeviceAndSwapChain(
-		NULL, 
-		D3D10_DRIVER_TYPE_HARDWARE,
-		NULL, 
-		createDeviceFlags,
-		D3D10_SDK_VERSION,
-		&sd,
-		&m_pSwapChain,
-		&m_pDevice);
+	D3D_FEATURE_LEVEL featureLevel;
+	const D3D_FEATURE_LEVEL featureLevelArray[2] = { D3D_FEATURE_LEVEL_11_0, D3D_FEATURE_LEVEL_10_0, };
+	r = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &m_pSwapChain, &m_pDevice, &featureLevel, &m_pDeviceContext);
 
 	if (r != S_OK)
 	{
@@ -85,8 +83,40 @@ void InitializeD3Devices::InitD3D(HWND hwnd, int width, int height, int bpp)
 	m_rcScreenRect.bottom = height;
 
 
-	r = m_pSwapChain->GetBuffer(0,
-		__uuidof(ID3D10Texture2D), (LPVOID*)&m_pBackBuffer);
+	CreateRenderTarget();
+	
+
+	m_pDeviceContext->OMSetRenderTargets(1, &m_pRenderTargetView, NULL);
+
+	D3D11_VIEWPORT vp;
+	vp.Width = width;
+	vp.Height = height;
+	vp.MinDepth = 0.0f;
+	vp.MaxDepth = 1.0f;
+	vp.TopLeftX = 0;
+	vp.TopLeftY = 0;
+	m_pDeviceContext->RSSetViewports(1, &vp);
+
+}
+
+void InitializeD3Devices::CleanupRenderTarget()
+{
+	if (m_pRenderTargetView) { m_pRenderTargetView->Release(); m_pRenderTargetView = NULL; }
+}
+
+void InitializeD3Devices::CleanupDeviceD3D()
+{
+	CleanupRenderTarget();
+	if (m_pSwapChain) { m_pSwapChain->Release(); m_pSwapChain = NULL; }
+	if (m_pDevice) { m_pDevice->Release(); m_pDevice = NULL; }
+}
+
+void InitializeD3Devices::CreateRenderTarget()
+{
+	HRESULT r = S_OK;
+
+	r = m_pSwapChain->GetBuffer(0, IID_PPV_ARGS(&m_pBackBuffer));
+
 	if (FAILED(r))
 	{
 		D3G_CORE_CRITICAL("Could not get back buffer");
@@ -98,18 +128,6 @@ void InitializeD3Devices::InitD3D(HWND hwnd, int width, int height, int bpp)
 	{
 		D3G_CORE_CRITICAL("Could not create render target view");
 	}
-
-	m_pDevice->OMSetRenderTargets(1, &m_pRenderTargetView, NULL);
-
-	D3D10_VIEWPORT vp;
-	vp.Width = width;
-	vp.Height = height;
-	vp.MinDepth = 0.0f;
-	vp.MaxDepth = 1.0f;
-	vp.TopLeftX = 0;
-	vp.TopLeftY = 0;
-	m_pDevice->RSSetViewports(1, &vp);
-
 }
 
 void InitializeD3Devices::DumpMessages()
@@ -168,21 +186,87 @@ void InitializeD3Devices::Present()
 	DumpMessages();
 }
 
+void  InitializeD3Devices::CreateDepthStencilBuffer() 
+{
+	HRESULT r = 0;
+	// Create the depth buffer
+	D3D11_TEXTURE2D_DESC descDepth;
+	ZeroMemory(&descDepth, sizeof(descDepth));
+	descDepth.Width = m_rcScreenRect.right;
+	descDepth.Height = m_rcScreenRect.bottom;
+	descDepth.MipLevels = 1;
+	descDepth.ArraySize = 1;
+
+	descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	descDepth.SampleDesc.Count = 1;
+	descDepth.SampleDesc.Quality = 0;
+	descDepth.Usage = D3D11_USAGE_DEFAULT;
+	descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	descDepth.CPUAccessFlags = 0;
+	descDepth.MiscFlags = 0;
+	r = m_pDevice->CreateTexture2D(&descDepth, NULL, &m_pDepthStencilBuffer);
+
+	if (FAILED(r))
+	{
+		D3G_CORE_ERROR("Unable to create depth buffer");
+	}
+
+	D3D11_DEPTH_STENCIL_DESC descDS;
+	ZeroMemory(&descDS, sizeof(descDS));
+	descDS.DepthEnable = true;
+	descDS.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+	descDS.DepthFunc = D3D11_COMPARISON_LESS;
+	// Stencil test values
+	descDS.StencilEnable = true;
+	descDS.StencilReadMask = (UINT8)0xFFFFFFFF;
+	descDS.StencilWriteMask = (UINT8)0xFFFFFFFF;
+	// Stencil op if pixel is front
+	descDS.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	descDS.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+	descDS.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	descDS.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+	// Stencil op if pixel is back
+	descDS.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	descDS.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+	descDS.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	descDS.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+	r = m_pDevice->CreateDepthStencilState(&descDS, &m_pDepthStencilState);
+	if (FAILED(r))
+	{
+		D3G_CORE_ERROR("Could not create depth/stencil state");
+	}
+	m_pDeviceContext->OMSetDepthStencilState(m_pDepthStencilState, 1);
+
+	D3D11_DEPTH_STENCIL_VIEW_DESC descDSView;
+	ZeroMemory(&descDSView, sizeof(descDSView));
+	descDSView.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	descDSView.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	descDSView.Texture2D.MipSlice = 0;
+
+	r = m_pDevice->CreateDepthStencilView(
+		m_pDepthStencilBuffer, &descDSView, &m_pDepthStencilView);
+	if (FAILED(r))
+	{
+		D3G_CORE_ERROR("Could not create depth/stencil view");
+	}
+}
+
 void InitializeD3Devices::Clear(const float(&colClear)[4])
 {
 
 	HRESULT r = S_OK;
 
-	D3G_CORE_ASSERT(m_pDevice, "Cannot clear without d3d device");
+	D3G_CORE_ASSERT(m_pDeviceContext, "Cannot clear without d3d device context");
 
-	m_pDevice->OMSetRenderTargets(1, &m_pRenderTargetView, NULL);
-	m_pDevice->ClearRenderTargetView(m_pRenderTargetView, colClear);
+	m_pDeviceContext->OMSetRenderTargets(1, &m_pRenderTargetView, NULL);
+	m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView, colClear);
 
 }
 
 void InitializeD3Devices::Create(HWND hWnd, short width, short height)
 {
-	Graphics()->InitD3D(hWnd, width, height, 32);
+	GraphicsEngine()->InitD3D(hWnd, width, height, 32);
 	initDevices = D3G::CreateRef<InitializeD3Devices>();
 	
 

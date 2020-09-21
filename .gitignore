@@ -1,0 +1,17 @@
+/.vs
+/.git
+/bin
+/build
+*.vcxproj
+/assimp
+/CMakeFiles
+/ENGINE/CMakeFiles
+/ENGINE/ENGINE.dir
+/glad/CMakeFiles
+/glad/glad.dir
+/out
+/Sandbox/CMakeFiles
+/Sandbox/Sandbox.dir
+/spdlog/CMakeFiles
+/spdlog/ENGINE.dir
+/x64

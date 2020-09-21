@@ -5,6 +5,7 @@ SET(HEADER_FILES imgui.h
         imgui_impl_sdl.h
         imgui_impl_win32.h
         imgui_impl_dx10.h
+        imgui_impl_dx11.h
         imconfig.h)
 
 SET(SRC_FILES imgui.cpp
@@ -14,7 +15,8 @@ SET(SRC_FILES imgui.cpp
         imgui_impl_sdl.cpp
         imgui_widgets.cpp
         imgui_impl_win32.cpp
-        imgui_impl_dx10.cpp)
+        imgui_impl_dx10.cpp
+        imgui_impl_dx11.cpp)
 
 
 add_library(imgui STATIC ${HEADER_FILES} ${SRC_FILES})

@@ -1,0 +1,10 @@
+^F:\DEVELOPER CRIB\GAMEENGINEWORKSPACE\D3NGINE\LUAC\LUA\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/D3NGINE" "-BF:/Developer Crib/GameEngineWorkspace/D3NGINE" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/D3NGINE/luac/lua/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

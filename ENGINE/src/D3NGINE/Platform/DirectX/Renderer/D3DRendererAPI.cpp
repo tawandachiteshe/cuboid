@@ -16,7 +16,7 @@ namespace D3G
 
     void D3DRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
     {
-        D3D10_VIEWPORT vp;
+        D3D11_VIEWPORT vp;
         vp.Width = width;
         vp.Height = height;
         vp.MinDepth = 0.0f;
@@ -24,18 +24,18 @@ namespace D3G
         vp.TopLeftX = 0;
         vp.TopLeftY = 0;
 
-        Graphics()->GetDevice()->RSSetViewports(1, &vp);
+        GraphicsEngine()->GetContext()->RSSetViewports(1, &vp);
     }
 
     void D3DRendererAPI::SetClearColor(const glm::vec4 &clearColor)
     {
-        Graphics()->Clear({ clearColor.x, clearColor.y, clearColor.z, clearColor.w});
+        GraphicsEngine()->Clear({ clearColor.x, clearColor.y, clearColor.z, clearColor.w});
     }
 
     void D3DRendererAPI::Clear()
     {
 
-        Graphics()->Clear({ 0.0f, 0.0f, 0.0f, 1.0f });
+        GraphicsEngine()->Clear({ 0.0f, 0.0f, 0.0f, 1.0f });
 
     }
 

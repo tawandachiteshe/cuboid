@@ -5,7 +5,7 @@
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_opengl3.h>
 #include <D3NGINE/Renderer/RendererAPI.h>
-#include <imgui_impl_dx10.h>
+#include <imgui_impl_dx11.h>
 #include <D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h>
 #include <SDL.h>
 #include <imgui_impl_win32.h>
@@ -25,7 +25,7 @@ namespace D3G
 	ImGuiLayer::~ImGuiLayer()
 	{
 		//TODO: Create shut down method 
-		ImGui_ImplDX10_Shutdown();
+		ImGui_ImplDX11_Shutdown();
 		ImGui_ImplWin32_Shutdown();
 		ImGui::DestroyContext();
 	}
@@ -65,7 +65,7 @@ namespace D3G
 		{
 			ImGui_ImplWin32_EnableDpiAwareness();
 			ImGui_ImplWin32_Init(std::any_cast<HWND>(app.GetWindow().GetNativeWindow()));
-			ImGui_ImplDX10_Init(Graphics()->GetDevice());
+			ImGui_ImplDX11_Init(GraphicsEngine()->GetDevice(), GraphicsEngine()->GetContext());
 
 		}
 
@@ -88,7 +88,7 @@ namespace D3G
 			
 		} else if(RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
-			ImGui_ImplDX10_NewFrame();
+			ImGui_ImplDX11_NewFrame();
 			ImGui_ImplWin32_NewFrame();
 
 		}
@@ -124,20 +124,23 @@ namespace D3G
 		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
 
-			ImGui_ImplDX10_RenderDrawData(ImGui::GetDrawData());
+			ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 		}
 
-		ImGui::UpdatePlatformWindows();
-		ImGui::RenderPlatformWindowsDefault();
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+		{
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+		}
 
 	}
 
 	void ImGuiLayer::OnImGuiRender()
 	{
 
-		//static bool show = false;
-		//ImGui::ShowDemoWindow(&show);
+		static bool show = false;
+		ImGui::ShowDemoWindow(&show);
 
 	}
 

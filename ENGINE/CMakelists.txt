@@ -127,7 +127,7 @@ target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/g
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/SDL2/include ${imgui_SOURCE_DIR} ${spdlog_SOURCE_DIR}/include)
 #TODO link assimp
 
-target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d10.lib d3dcompiler.lib dxgi.lib)
+target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d11.lib d3dcompiler.lib dxgi.lib)
 
 #target_link_options(ENGINE PUBLIC -Wreturn-local-addr -Wint-to-pointer-cast)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src FILES ${D3_SOURCE_FILES} ${D3_HEADER_FILES})

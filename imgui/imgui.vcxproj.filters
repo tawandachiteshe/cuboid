@@ -25,6 +25,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui.h">
@@ -40,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx11.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imconfig.h">

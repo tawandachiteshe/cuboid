@@ -3,6 +3,9 @@
 #include "D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h"
 #include <imgui_impl_win32.h>
 
+
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 namespace D3G
 {
 
@@ -45,17 +48,15 @@ namespace D3G
 	void WindowsWindow::OnUpdate()
 	{
 
-		context->SwapBuffers();
-
-		while (m_Msg.message != WM_QUIT)
+		
+		if (::PeekMessage(&m_Msg, NULL, 0U, 0U, PM_REMOVE))
 		{
-			if (::PeekMessage(&m_Msg, NULL, 0U, 0U, PM_REMOVE))
-			{
 				::TranslateMessage(&m_Msg);
 				::DispatchMessage(&m_Msg);
-				continue;
-			}
 		}
+		
+
+		context->SwapBuffers();
 
 	}
 
@@ -98,18 +99,26 @@ namespace D3G
 	}
 
 
-	extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+	
 
 	LRESULT WINAPI WindowsWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 
+		if (ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam))
+			return true;
+
 		switch (msg)
 		{
 		case WM_SIZE:
-			if (Graphics()->GetDevice() != NULL && wParam != SIZE_MINIMIZED)
+			if (GraphicsEngine()->GetDevice() != NULL && wParam != SIZE_MINIMIZED)
 			{
-				
-			}
+
+				D3G_CORE_DEBUG("{0} size", (UINT)LOWORD(lParam));
+
+				GraphicsEngine()->CleanupRenderTarget();
+				GraphicsEngine()->GetSwapChain()->ResizeBuffers(0, (UINT)LOWORD(lParam), (UINT)HIWORD(lParam), DXGI_FORMAT_UNKNOWN, 0);
+				GraphicsEngine()->CreateRenderTarget();
+			}			
 			return 0;
 		case WM_SYSCOMMAND:
 			if ((wParam & 0xfff0) == SC_KEYMENU) // Disable ALT application menu

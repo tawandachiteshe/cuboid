@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lauxlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lbaselib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lbitlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lcode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lcorolib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lctype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldblib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldebug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lfunc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lgc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\linit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\liolib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\llex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lmathlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\loadlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lobject.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lopcodes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\loslib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lstate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lstring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lstrlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ltable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ltablib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ltm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\luac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lundump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lutf8lib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lvm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lzio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lauxlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ldo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lfunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lgc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\llex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\llimits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lmem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lobject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lopcodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lprefix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lstate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ltable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\ltm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\luaconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lualib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lundump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lvm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lzio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{313C0D49-2764-3F8D-94B0-80D88E5C6CC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

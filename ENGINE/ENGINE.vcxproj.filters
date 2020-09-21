@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiDock.cpp">
+      <Filter>D3NGINE\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiLayer.cpp">
+      <Filter>D3NGINE\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\common.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLIndexBuffer.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexBuffer.cpp">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLRendererAPI.cpp">
+      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLGraphicsContext.cpp">
+      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DGraphicsContext.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DRendererAPI.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexArray.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBuffer.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DIndexBuffer.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DShader.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\InitializeD3Devices.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\WindowsWindow.cpp">
+      <Filter>D3NGINE\Platform\Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.cpp">
+      <Filter>D3NGINE\Platform\Windowing</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererAPI.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererCommand.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexArray.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Shader.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2D.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2DController.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\GraphicsContext.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer2D.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.cpp">
+      <Filter>D3NGINE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\stb_image\std_image.cpp">
+      <Filter>D3NGINE\utils\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\Logger.cpp">
+      <Filter>D3NGINE\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\IO\FileSystem.cpp">
+      <Filter>D3NGINE\utils\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Application.cpp">
+      <Filter>D3NGINE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Layer.cpp">
+      <Filter>D3NGINE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\LayerStack.cpp">
+      <Filter>D3NGINE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Input.cpp">
+      <Filter>D3NGINE\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\Event.cpp">
+      <Filter>D3NGINE\Events</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiDock.h">
+      <Filter>D3NGINE\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiLayer.h">
+      <Filter>D3NGINE\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\common.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLIndexBuffer.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLShader.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLTexture2D.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexBuffer.h">
+      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLRendererAPI.h">
+      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLGraphicsContext.h">
+      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DGraphicsContext.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DRendererAPI.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexArray.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBuffer.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DIndexBuffer.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DShader.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\DxHelper.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\InitializeD3Devices.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\WindowsWindow.h">
+      <Filter>D3NGINE\Platform\Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.h">
+      <Filter>D3NGINE\Platform\Windowing</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererAPI.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererCommand.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexArray.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Shader.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2D.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2DController.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\GraphicsContext.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer2D.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\stb_image\stb_image.h">
+      <Filter>D3NGINE\utils\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\IO\FileSystem.h">
+      <Filter>D3NGINE\utils\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Application.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Layer.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\LayerStack.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Core.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\D3G.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\EntryPoint.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Input.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\KeyCode.h">
+      <Filter>D3NGINE\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\Event.h">
+      <Filter>D3NGINE\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\KeyEvent.h">
+      <Filter>D3NGINE\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\MouseEvent.h">
+      <Filter>D3NGINE\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\ApplicationEvent.h">
+      <Filter>D3NGINE\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakelists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="D3NGINE">
+      <UniqueIdentifier>{034AB251-56CC-315D-BA8C-5B144FC37614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Core">
+      <UniqueIdentifier>{77912454-3B98-336A-A5B3-EFDB55C2DE76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Events">
+      <UniqueIdentifier>{CE4EACD9-F5F7-3F2B-BA82-F3C8FACF9426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\ImGui">
+      <UniqueIdentifier>{0944FD53-1A6A-3972-B033-4E2D0CAF2CE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform">
+      <UniqueIdentifier>{5040DEDA-A7F1-32DB-BBB7-29FDAF4EAA39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\DirectX">
+      <UniqueIdentifier>{EF37F23C-46B7-3A3E-A7C3-78A86EE7D8A1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\DirectX\Renderer">
+      <UniqueIdentifier>{E1755F52-1DE2-3291-8560-3E20FFBB4FBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\OpenGL">
+      <UniqueIdentifier>{1CDB4CF4-C597-3636-9070-BA778B07725E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\OpenGL\Renderer">
+      <UniqueIdentifier>{97EA380E-6315-397B-9A07-7AAA8E1B8F1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\Windowing">
+      <UniqueIdentifier>{04548870-CC4D-3E70-B917-31F5E0804421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Renderer">
+      <UniqueIdentifier>{B4252DAD-A4D3-3177-AE30-8F537B7EB24D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\utils">
+      <UniqueIdentifier>{B8D4DFB3-1D89-394A-85A5-93742DABBA0D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\utils\IO">
+      <UniqueIdentifier>{E4127D3D-7AAE-3555-A2EA-542ECFCA609B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\utils\stb_image">
+      <UniqueIdentifier>{FA5ACCB0-7635-376A-8FE2-92FE836B3525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{B204F35F-ADB4-3C80-AF11-1B2BD18F7CEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

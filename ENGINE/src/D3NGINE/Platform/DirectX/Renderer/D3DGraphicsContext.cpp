@@ -20,14 +20,14 @@ namespace D3G
     void D3DGraphicsContext::SwapBuffers(){
 
   
-        Graphics()->Present();
+        GraphicsEngine()->Present();
 
     }
 
 
     void D3DGraphicsContext::SetVsync(bool enable)
     {
-        Graphics()->SetVSync(enable);
+        GraphicsEngine()->SetVSync(enable);
     }
 
 

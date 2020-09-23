@@ -35,15 +35,15 @@ namespace D3G
 
         void SetMat4(const std::string &name, const glm::mat4 &value) override;
 
-        ID3DBlob *Get_VertexShaderSrcBlob() const;
+        ID3DBlob * GetVertexShaderBuffer() const;
 
-        ID3DBlob *Get_PixelShaderSrcBlob() const;
+        ID3DBlob * GetPixelShaderBuffer() const;
 
         private:
 
-        ID3DBlob* m_VertexShaderSrcBlob;
+        ID3DBlob* m_pVertexShaderBuffer;
 
-        ID3DBlob* m_PixelShaderSrcBlob;
+        ID3DBlob* m_pPixelShaderBuffer;
 
         void BindDefaultCB();
 
@@ -52,7 +52,7 @@ namespace D3G
 
         private:
 
-        bool CompileShader(const char* src, const char* shaderType,ID3DBlob** blob);
+        bool CompileShader(const std::string& src, const char* shaderType,ID3DBlob** blob);
 
         void CreateVertexShader();
         void CreatePixelShader();
@@ -60,10 +60,6 @@ namespace D3G
         ID3D11VertexShader* m_VertexShader;
 
         ID3D11PixelShader* m_PixelShader;
-
-        ID3DBlob* m_VertexShaderErrorBlob;
-
-        ID3DBlob* m_PixelShaderErrorBlob;
 
         ID3D11Buffer* m_ShaderConstantBuffer;
     };

@@ -18,9 +18,11 @@ namespace D3G
     {
         public:
 
-        D3DVertexBuffer(float* vertices, uint32_t size);
+        D3DVertexBuffer(void* vertices, uint32_t size);
 
         D3DVertexBuffer(uint32_t size);
+
+        virtual ~D3DVertexBuffer();
 
         void Bind() const override;
 
@@ -32,27 +34,17 @@ namespace D3G
 
         const BufferLayout& GetBufferLayout() const override;
 
-        void CreateVertexBufferNow();
-
-        virtual ~D3DVertexBuffer();
+        void SetShader(const Ref<Shader>& shader);
 
         private:
 
-        ID3D11Buffer* m_VertexBuffer;
+        ID3D11Buffer* m_pVertexBuffer;
 
         BufferLayout m_Layout;
 
-        ID3D11InputLayout* m_VertexLayout;
+        ID3D11InputLayout* m_pInputLayout;
 
         Ref<Shader> m_Shader;
-
-        float* m_TempVertices  = nullptr;
-
-        D3D11_BUFFER_DESC m_VertexBufferDesc;
-
-        D3D11_SUBRESOURCE_DATA m_VerticesData;
-
-        bool IsMemBufferAlloc = false;
 
     };
 

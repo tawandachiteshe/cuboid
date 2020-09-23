@@ -89,8 +89,8 @@ void InitializeD3Devices::InitD3D(HWND hwnd, int width, int height, int bpp)
 	m_pDeviceContext->OMSetRenderTargets(1, &m_pRenderTargetView, NULL);
 
 	D3D11_VIEWPORT vp;
-	vp.Width = width;
-	vp.Height = height;
+	vp.Width = (FLOAT)width;
+	vp.Height = (FLOAT)height;
 	vp.MinDepth = 0.0f;
 	vp.MaxDepth = 1.0f;
 	vp.TopLeftX = 0;
@@ -183,7 +183,7 @@ void InitializeD3Devices::Present()
 		D3G_CORE_ERROR("Present Failed!!!");
 	}
 
-	DumpMessages();
+	//DumpMessages();
 }
 
 void  InitializeD3Devices::CreateDepthStencilBuffer() 

@@ -139,8 +139,8 @@ namespace D3G
 	void ImGuiLayer::OnImGuiRender()
 	{
 
-		static bool show = false;
-		ImGui::ShowDemoWindow(&show);
+		///static bool show = false;
+		///ImGui::ShowDemoWindow(&show);
 
 	}
 

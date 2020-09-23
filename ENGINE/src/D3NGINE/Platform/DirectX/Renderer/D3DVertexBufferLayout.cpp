@@ -5,7 +5,7 @@
 #include "d3gpch.h"
 #include "D3DVertexBufferLayout.h"
 #include "D3DGraphicsContext.h"
-#include "d3d11.h"
+
 #include "D3DShader.h"
 #include <D3NGINE/Renderer/Buffer.h>
 #include <D3NGINE/Renderer/Shader.h>

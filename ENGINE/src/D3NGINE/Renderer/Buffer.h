@@ -1,6 +1,7 @@
 
 #include <string>
 #include <vector>
+#include "Shader.h"
 
 #ifndef D3G_RENDERER_BUFFER_H
 #define D3G_RENDERER_BUFFER_H
@@ -40,7 +41,7 @@ namespace D3G
 		std::string Name;
 		ShaderDataType Type;
 		uint32_t Size;
-		size_t Offset;
+		uint32_t Offset;
 		bool Normalized;
 
 		BufferElement() = default;
@@ -92,7 +93,7 @@ namespace D3G
 		private:
 		void CalculateOffsetsAndStride()
 		{
-			size_t offset = 0;
+			UINT offset = 0;
 			m_Stride = 0;
 			for (auto& element : m_Elements)
 			{
@@ -132,9 +133,11 @@ namespace D3G
 
 			virtual void SetData(const void* data, uint32_t size) = 0;
 
+			 virtual void SetShader(const Ref<Shader>& shader) {}
+
 			virtual const BufferLayout& GetBufferLayout() const = 0;
 
-			static Ref<VertexBuffer> Create(float* vertices, uint32_t size);
+			static Ref<VertexBuffer> Create(void* vertices, uint32_t size);
 
 			static Ref<VertexBuffer> Create(uint32_t size = 0);
 

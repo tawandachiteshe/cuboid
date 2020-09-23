@@ -41,7 +41,10 @@ namespace D3G
 
     void D3DRendererAPI::DrawIndexed(const Ref <VertexArray> &vertexArray, uint32_t indexCount, uint32_t mode)
     {
-
+        vertexArray->Bind();
+        uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+        GraphicsEngine()->GetContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+        GraphicsEngine()->GetContext()->DrawIndexed(count, 0, 0);
 
     }
 

@@ -27,6 +27,12 @@ class SandBox2D : public D3G::Layer
 
     private:
 
+        struct Vertex
+        {
+            glm::vec3 pos;
+            glm::vec4 color;
+        };
+
     D3G::Ref<D3G::VertexArray> m_Va;
     D3G::Ref<D3G::VertexBuffer> m_vb;
     D3G::Ref<D3G::IndexBuffer> m_ib;

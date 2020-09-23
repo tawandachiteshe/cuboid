@@ -8,6 +8,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <DirectXMath.h>
 #include "D3DGraphicsContext.h"
+#include "InitializeD3Devices.h"
 
 
 namespace D3G
@@ -20,7 +21,8 @@ namespace D3G
 
     void D3DShader::Bind()
     {
-
+        GraphicsEngine()->GetContext()->VSSetShader(m_VertexShader, nullptr, 0);
+        GraphicsEngine()->GetContext()->PSSetShader(m_PixelShader, nullptr, 0);
     }
 
     void D3DShader::BindDefaultCB()
@@ -75,18 +77,40 @@ namespace D3G
 
     D3DShader::D3DShader(const std::string &pixelShaderSrc, const std::string &vertexShaderSrc)
     {
+        bool is_shader_cool = false;
+        HRESULT hr = S_OK;
 
+        CompileShader(pixelShaderSrc, "ps_4_0", &m_pPixelShaderBuffer);
+   
+            
+
+       CompileShader(vertexShaderSrc, "vs_4_0", &m_pVertexShaderBuffer);
+
+        hr = GraphicsEngine()->GetDevice()->CreatePixelShader(m_pPixelShaderBuffer->GetBufferPointer(), m_pPixelShaderBuffer->GetBufferSize(), NULL, &m_PixelShader);
+
+
+        if(FAILED(hr))
+        {
+            D3G_CORE_ERROR("Pixel shader failed to create!!!");
+        }
+
+        hr = GraphicsEngine()->GetDevice()->CreateVertexShader(m_pVertexShaderBuffer->GetBufferPointer(), m_pVertexShaderBuffer->GetBufferSize(), NULL, &m_VertexShader);
+
+        if (FAILED(hr))
+        {
+            D3G_CORE_ERROR("Vertex shader failed to create!!!");
+        }
 
     }
 
-    ID3DBlob *D3DShader::Get_VertexShaderSrcBlob() const
+    ID3DBlob *D3DShader::GetVertexShaderBuffer() const
     {
-        return nullptr;
+        return m_pVertexShaderBuffer;
     }
 
-    ID3DBlob *D3DShader::Get_PixelShaderSrcBlob() const
+    ID3DBlob *D3DShader::GetPixelShaderBuffer() const
     {
-        return nullptr;
+        return m_pPixelShaderBuffer;
     }
 
     void D3DShader::CreateVertexShader()
@@ -100,10 +124,24 @@ namespace D3G
     }
 
 
-    bool D3DShader::CompileShader(const char *src, const char* shaderType, ID3DBlob **blob)
+    bool D3DShader::CompileShader(const std::string& src, const char* shaderType,  ID3DBlob **blob)
     {
+        HRESULT r = S_OK;
+        ID3DBlob* error_blob = nullptr;
 
-        return false;
+        D3DCompile(src.c_str(), strlen(src.c_str()), NULL, NULL, NULL, "main", shaderType, 0, 0, blob, &error_blob);
+
+        if(FAILED(r))
+        {
+            D3G_CORE_ERROR("D3DSHADER failed to compile");
+            if (error_blob)
+                error_blob->Release();
+            return false;
+        }
+
+        return true;
+
+        
     }
 
 }

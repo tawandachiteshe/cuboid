@@ -15,10 +15,10 @@ namespace D3G
 		BufferLayout m_Layout;
 
 	public:
-
+		
 		const BufferLayout& GetBufferLayout() const override;
 
-		OpenGLVertexBuffer(float* vertices, uint32_t size);
+		OpenGLVertexBuffer(void* vertices, uint32_t size);
 
 		OpenGLVertexBuffer(uint32_t size);
 

@@ -7,6 +7,8 @@
 #ifndef D3G_INPUT_H
 #define D3G_INPUT_H
 
+#if 0
+
 namespace D3G
 {
 
@@ -49,5 +51,5 @@ namespace D3G
 		};
 
 }
-
+#endif
 #endif

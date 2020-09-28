@@ -15,7 +15,7 @@ namespace D3G
 		virtual float GetMouseYImpl() override;
 
 	private:
-		SDL_Event m_Event;
+		unsigned char m_keys[256] = {};
 
 	};
 }

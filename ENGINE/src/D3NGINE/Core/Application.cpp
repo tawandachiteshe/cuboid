@@ -1,3 +1,4 @@
+#include "d3gpch.h"
 #include "Application.h"
 #include <D3NGINE/Renderer/Renderer.h>
 #include <imgui_impl_sdl.h>
@@ -11,6 +12,7 @@ namespace D3G
 	{
 		m_Instance = this;
 		m_Window = Window::Create();
+		m_Window->SetEventCallback(D3G_BIND_EVENT_FN(Application::OnEvent));
 
 		//Renderer::Init();
 

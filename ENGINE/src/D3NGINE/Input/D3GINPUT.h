@@ -3,6 +3,8 @@
 #ifndef D3GINPUT_H
 #define D3GINPUT_H
 
+#if 0
+
 namespace D3G
 {
 	class D3GINPUT : public Input
@@ -25,6 +27,8 @@ namespace D3G
 	};
 
 }
+
+#endif
 
 #endif
 

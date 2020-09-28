@@ -34,8 +34,9 @@ void SandBox2D::OnAttach()
     Vertex vertices[] = 
     {
         { { -0.5f, -0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
-        { { 0.0f,  0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
-        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } }
+        { { -0.5f,  0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
+        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
+         { { 0.5f, 0.5f, 0.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } }
     };
 
     m_vb = D3G::VertexBuffer::Create(vertices, sizeof(vertices));
@@ -49,8 +50,8 @@ void SandBox2D::OnAttach()
     m_Va->AddVertexBuffer(m_vb);
 
     m_vb->Bind();
-    uint32_t indices[] = { 0, 1, 2 };
-    m_ib = D3G::IndexBuffer::Create(indices, 3);
+    uint32_t indices[] = { 0, 1, 2, 2, 1, 3 };
+    m_ib = D3G::IndexBuffer::Create(indices, 6);
     m_ib->Bind();
 
     m_Va->SetIndexBuffer(m_ib);
@@ -71,6 +72,10 @@ void SandBox2D::OnUpdate(float dt)
     m_CameraController.OnUpdate(dt);
     m_CameraController.SetZoomLevel(zoomLevel);
 
+    //D3G_DEBUG("{0}, {1}", D3G::Input::GetMousePosition().first, D3G::Input::GetMousePosition().second);
+
+    
+
     m_vb->Bind();
     m_Shader->Bind();
 
@@ -89,6 +94,8 @@ void SandBox2D::OnImGuiRender()
 
 void SandBox2D::OnEvent(D3G::Event& event)
 {
+   //D3G_DEBUG(event.GetName());
+   
     m_CameraController.OnEvent(event);
 }
 

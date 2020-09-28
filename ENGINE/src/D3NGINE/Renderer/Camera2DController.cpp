@@ -2,8 +2,6 @@
 #include "D3NGINE/Core/Input.h"
 #include <D3NGINE/Core/Application.h>
 
-extern DECLSPEC void SDLCALL SDL_GetWindowSize(SDL_Window * window, int *w,
-				int *h);
 
 namespace D3G {
 
@@ -16,23 +14,23 @@ namespace D3G {
 	{
 		//HZ_PROFILE_FUNCTION();
 
-		if (false)
+		if (Input::IsKeyPressed(D3G_KEY_A))
 		{
 			m_CameraPosition.x -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (false)
+		else if (Input::IsKeyPressed(D3G_KEY_D))
 		{
 			m_CameraPosition.x += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
 
-		if (false)
+		if (Input::IsKeyPressed(D3G_KEY_W))
 		{
 			m_CameraPosition.x += -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y += cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 		}
-		else if (false)
+		else if (Input::IsKeyPressed(D3G_KEY_S))
 		{
 			m_CameraPosition.x -= -sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
 			m_CameraPosition.y -= cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * ts;
@@ -40,9 +38,9 @@ namespace D3G {
 
 		if (m_Rotation)
 		{
-			if (false)
+			if (Input::IsKeyPressed(D3G_KEY_Q))
 				m_CameraRotation += m_CameraRotationSpeed * ts;
-			if (false)
+			if (Input::IsKeyPressed(D3G_KEY_E))
 				m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 			if (m_CameraRotation > 180.0f)
@@ -61,25 +59,32 @@ namespace D3G {
 	void Camera2DController::OnEvent(Event& e)
 	{
 		//OnMouseScrolled(e.wheel);
+
+		EventDispatcher dispatcher(e);
+
+		dispatcher.Dispatch<MouseScrolledEvent>(D3G_BIND_EVENT_FN(Camera2DController::OnMouseScrolled));
+		dispatcher.Dispatch<WindowResizeEvent>(D3G_BIND_EVENT_FN(Camera2DController::OnWindowResized));
 		
 
 	}
 
-	bool Camera2DController::OnMouseScrolled(SDL_MouseWheelEvent& e)
+	bool Camera2DController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 
-		//TODO Rebuitl all this crap
-		m_ZoomLevel -= (float)(e.y) * 0.25f;
+		m_ZoomLevel -= (float)(e.GetYOffset()) * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;
 	}
 
-	bool Camera2DController::OnWindowResized(SDL_WindowEvent& e)
+	bool Camera2DController::OnWindowResized(WindowResizeEvent& e)
 	{
 		//HZ_PROFILE_FUNCTION();
 		int w, h = 0;
-		SDL_GetWindowSize(std::any_cast<SDL_Window*>(Application::Get().GetWindow().GetNativeWindow()), &w, &h);
+		
+		w = e.GetWidth();
+		h = e.GetHeight();
+
 		m_AspectRatio = (float)w / (float)h;
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;

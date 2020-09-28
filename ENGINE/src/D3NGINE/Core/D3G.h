@@ -2,10 +2,13 @@
 #define D3G_ENGINE_H
 
 #include "Application.h"
-#include <D3NGINE/Input/D3GINPUT.h>
+
 #include "Layer.h"
 #include "LayerStack.h"
-#include "SDL_events.h"
+
+#include "D3NGINE/Core/KeyCode.h"
+#include "D3NGINE/Core/MouseCodes.h"
+
 #include "D3NGINE/ImGui/ImGuiLayer.h"
 #include <D3NGINE/utils/IO/FileSystem.h>
 
@@ -19,6 +22,7 @@
 #include <D3NGINE/Renderer/Renderer2D.h>
 #include <D3NGINE/Renderer/Camera2DController.h>
 #include <D3NGINE/Renderer/VertexBufferLayout.h>
+#include "Input.h"
 
 #include <D3NGINE/Events/Event.h>
 

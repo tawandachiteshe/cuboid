@@ -1,32 +1,66 @@
 #pragma once
 
 #include "WindowsInput.h"
+#include "D3NGINE/Core/Application.h"
 
 namespace D3G
 {
 	bool WindowsInput::IsKeyPressedImpl(KeyCode key)
 	{
-		if (SDL_PollEvent(&m_Event)) {
-
-
+		if (::GetKeyboardState(m_keys))
+		{
+			//KeyDown
+			if (m_keys[(int)key] & 0x80)
+			{
+				return true;
+			} 
+			else 
+			{
+				
+			}
 
 		}
 		return false;
 	}
 	bool WindowsInput::IsMouseButtonPressedImpl(MouseCode button)
 	{
+
+		if (::GetKeyboardState(m_keys))
+		{
+			//KeyDown
+			if (m_keys[(int)button] & 0x80)
+			{
+				return true;
+			}
+			else
+			{
+				
+			}
+
+		}
+
 		return false;
 	}
 	std::pair<float, float> WindowsInput::GetMousePositionImpl()
 	{
-		return std::pair<float, float>();
+		POINT current_mouse_position = {};
+		::GetCursorPos(&current_mouse_position);
+
+		HWND applicationHWND = std::any_cast<HWND>(Application::Get().GetWindow().GetNativeWindow());
+
+		::ScreenToClient(applicationHWND, &current_mouse_position);
+
+		
+
+		return std::pair<float, float>((float)current_mouse_position.x, (float)current_mouse_position.y);
 	}
 	float WindowsInput::GetMouseXImpl()
 	{
-		return 0.0f;
+		return (float)GetMousePositionImpl().first;
 	}
 	float WindowsInput::GetMouseYImpl()
 	{
-		return 0.0f;
+
+		return (float)GetMousePositionImpl().second;
 	}
 }

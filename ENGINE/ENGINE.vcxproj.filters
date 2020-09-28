@@ -67,6 +67,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.cpp">
       <Filter>D3NGINE\Platform\Windowing</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\SystemInput\WindowsInput.cpp">
+      <Filter>D3NGINE\Platform\SystemInput</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.cpp">
       <Filter>D3NGINE\Renderer</Filter>
     </ClCompile>
@@ -198,6 +201,9 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.h">
       <Filter>D3NGINE\Platform\Windowing</Filter>
     </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\SystemInput\WindowsInput.h">
+      <Filter>D3NGINE\Platform\SystemInput</Filter>
+    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.h">
       <Filter>D3NGINE\Renderer</Filter>
     </ClInclude>
@@ -313,6 +319,9 @@
     </Filter>
     <Filter Include="D3NGINE\Platform\OpenGL\Renderer">
       <UniqueIdentifier>{97EA380E-6315-397B-9A07-7AAA8E1B8F1F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="D3NGINE\Platform\SystemInput">
+      <UniqueIdentifier>{0C0E94F4-C352-3F12-A7E8-03A413BB89CE}</UniqueIdentifier>
     </Filter>
     <Filter Include="D3NGINE\Platform\Windowing">
       <UniqueIdentifier>{04548870-CC4D-3E70-B917-31F5E0804421}</UniqueIdentifier>

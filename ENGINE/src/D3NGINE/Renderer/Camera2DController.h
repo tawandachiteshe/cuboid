@@ -1,10 +1,11 @@
 
 
 #include "D3NGINE/Renderer/Camera2D.h"
-#include <SDL_events.h>
 #include <glm/glm.hpp>
 
 #include "D3NGINE/Events/Event.h"
+#include "D3NGINE/Events/ApplicationEvent.h"
+#include "D3NGINE/Events/MouseEvent.h"
 
 #ifndef D3G_RENDERER_CAMERA2D_CTRLER_H
 #define D3G_RENDERER_CAMERA2D_CTRLER_H
@@ -28,8 +29,8 @@ namespace D3G {
 		void SetZoomLevel(float level) { m_ZoomLevel = level; }
 	private:
 
-		bool OnMouseScrolled(SDL_MouseWheelEvent& e);
-		bool OnWindowResized(SDL_WindowEvent& e);
+		bool OnMouseScrolled(MouseScrolledEvent& e);
+		bool OnWindowResized(WindowResizeEvent& e);
 	private:
 		float m_AspectRatio;
 		float m_ZoomLevel = 1.0f;

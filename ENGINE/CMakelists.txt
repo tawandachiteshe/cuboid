@@ -28,6 +28,7 @@ set(D3_SOURCE_FILES
         src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.cpp
         src/D3NGINE/Platform/Windowing/WindowsWindow.cpp
         src/D3NGINE/Platform/Windowing/SDLWindow.cpp
+        src/D3NGINE/Platform/SystemInput/WindowsInput.cpp
 
 
         src/D3NGINE/Renderer/Buffer.cpp
@@ -84,6 +85,7 @@ set(D3_HEADER_FILES
         src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h
         src/D3NGINE/Platform/Windowing/WindowsWindow.h
         src/D3NGINE/Platform/Windowing/SDLWindow.h
+        src/D3NGINE/Platform/SystemInput/WindowsInput.h
 
         src/D3NGINE/Renderer/Buffer.h
         src/D3NGINE/Renderer/Renderer.h

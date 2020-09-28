@@ -1,4 +1,9 @@
 
+cbuffer vertexBuffer : register(b0)
+{
+	float4x4 ProjectionMatrix;
+};
+
 struct VS_INPUT
 {
 	float3 position : POSITION;
@@ -15,7 +20,7 @@ struct PS_INPUT
 PS_INPUT main(VS_INPUT vsin)
 {
 	PS_INPUT psin;
-	psin.position = float4(vsin.position, 1.0f);
+	psin.position = mul(ProjectionMatrix, float4(vsin.position, 1.0f));
 	psin.color = vsin.color;
 
 	return psin;

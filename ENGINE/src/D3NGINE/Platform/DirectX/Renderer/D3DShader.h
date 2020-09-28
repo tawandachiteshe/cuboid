@@ -41,6 +41,11 @@ namespace D3G
 
         private:
 
+            struct VERTEX_CONSTANT_BUFFER
+            {
+                glm::mat4 mvp;
+            };
+
         ID3DBlob* m_pVertexShaderBuffer;
 
         ID3DBlob* m_pPixelShaderBuffer;
@@ -61,7 +66,7 @@ namespace D3G
 
         ID3D11PixelShader* m_PixelShader;
 
-        ID3D11Buffer* m_ShaderConstantBuffer;
+        ID3D11Buffer* m_pShaderConstantBuffer;
     };
 
 

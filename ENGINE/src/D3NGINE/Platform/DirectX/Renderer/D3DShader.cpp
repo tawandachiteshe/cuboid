@@ -22,6 +22,7 @@ namespace D3G
     void D3DShader::Bind()
     {
         GraphicsEngine()->GetContext()->VSSetShader(m_VertexShader, nullptr, 0);
+        GraphicsEngine()->GetContext()->VSSetConstantBuffers(0, 1, &m_pShaderConstantBuffer);
         GraphicsEngine()->GetContext()->PSSetShader(m_PixelShader, nullptr, 0);
     }
 
@@ -72,11 +73,32 @@ namespace D3G
     void D3DShader::SetMat4(const std::string &name, const glm::mat4 &value)
     {
 
+        D3D11_MAPPED_SUBRESOURCE mapped_resource;
+
+        if (GraphicsEngine()->GetContext()->Map(m_pShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped_resource) != S_OK)
+            D3G_CORE_ERROR("FAILED TO MAP VERTEX SHADER CONSTANT BUFFER");
+
+        VERTEX_CONSTANT_BUFFER* constant_buffer = (VERTEX_CONSTANT_BUFFER*)mapped_resource.pData;
+
+        memcpy(&constant_buffer->mvp, &value, sizeof(value));
+
+        GraphicsEngine()->GetContext()->Unmap(m_pShaderConstantBuffer, 0);
 
     }
 
     D3DShader::D3DShader(const std::string &pixelShaderSrc, const std::string &vertexShaderSrc)
     {
+        {
+
+            D3D11_BUFFER_DESC desc;
+            desc.ByteWidth = sizeof(VERTEX_CONSTANT_BUFFER);
+            desc.Usage = D3D11_USAGE_DYNAMIC;
+            desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+            desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+            desc.MiscFlags = 0;
+            GraphicsEngine()->GetDevice()->CreateBuffer(&desc, NULL, &m_pShaderConstantBuffer);
+
+        }
         bool is_shader_cool = false;
         HRESULT hr = S_OK;
 

@@ -100,6 +100,8 @@ namespace D3G
 	}
 
 
+	static float mouseWheelNumber = 0.0f;
+
 	
 
 	LRESULT WINAPI WindowsWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -150,8 +152,8 @@ namespace D3G
 
 		case WM_MOUSEWHEEL:
 		{
-			float mouseWheel = (float)GET_WHEEL_DELTA_WPARAM(wParam) / (float)WHEEL_DELTA;
-			MouseScrolledEvent mouseScrolledEvent(mouseWheel, mouseWheel);
+			mouseWheelNumber += (float)GET_WHEEL_DELTA_WPARAM(wParam) / (float)WHEEL_DELTA;
+			MouseScrolledEvent mouseScrolledEvent(mouseWheelNumber, mouseWheelNumber);
 			auto& windowData = WindowsWindow::GetWindowData();
 			windowData->EventCallback(mouseScrolledEvent);
 

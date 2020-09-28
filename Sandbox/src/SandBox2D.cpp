@@ -13,6 +13,8 @@ static float zoomLevel = 1.0f;
 static float fps = 0.0f;
 static float rot = 0.0f;
 
+static float xscale, yscale = 1.0f;
+
 template<typename ... Args>
 static void LOGGER(Args&& ... args)
 {
@@ -21,7 +23,7 @@ static void LOGGER(Args&& ... args)
 
 
 SandBox2D::SandBox2D(const std::string &name) : Layer(name),
-                                                m_CameraController(1278.0f/600.0f)
+                                                m_CameraController(1280.0f/720.0f)
 {
 }
 
@@ -67,7 +69,7 @@ void SandBox2D::OnDetach()
 
 void SandBox2D::OnUpdate(float dt)
 {
-    D3G::RenderCommand::SetViewport(0, 0, 1278, 600);
+    D3G::RenderCommand::SetViewport(0, 0, 1280, 720);
     D3G::RenderCommand::SetClearColor({ 0.23f, 0.23f, 0.23f, 1.0f });
     m_CameraController.OnUpdate(dt);
     m_CameraController.SetZoomLevel(zoomLevel);
@@ -77,7 +79,13 @@ void SandBox2D::OnUpdate(float dt)
     
 
     m_vb->Bind();
+
+    const auto& scale = glm::scale(glm::mat4(1.0f), glm::vec3(xscale, yscale, 1.0f));
+
+   
     m_Shader->Bind();
+    m_Shader->SetMat4("dads", m_CameraController.GetCamera().GetViewProjectionMatrix());
+
 
     m_ib->Bind();
     
@@ -89,6 +97,10 @@ void SandBox2D::OnImGuiRender()
 {
     ImGui::Begin("data");
     ImGui::Text("This is some useful text.");
+
+    ImGui::DragFloat("Scale x", &xscale, 0.1f);
+    ImGui::DragFloat("Scale y", &yscale, 0.1f);
+
     ImGui::End();
 }
 

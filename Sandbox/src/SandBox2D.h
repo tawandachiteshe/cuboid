@@ -31,6 +31,7 @@ class SandBox2D : public D3G::Layer
         {
             glm::vec3 pos;
             glm::vec4 color;
+            glm::vec2 uv;
         };
 
     D3G::Ref<D3G::VertexArray> m_Va;
@@ -38,6 +39,7 @@ class SandBox2D : public D3G::Layer
     D3G::Ref<D3G::IndexBuffer> m_ib;
     D3G::Ref<D3G::Shader> m_Shader;
     D3G::Ref<D3G::VertexBufferLayout> m_Layout;
+    D3G::Ref<D3G::Texture> m_Texture;
     D3G::Camera2DController m_CameraController;
 };
 

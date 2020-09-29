@@ -36,11 +36,11 @@ namespace D3G
 
         private:
 
-        ID3D11ShaderResourceView* m_TexResView;
+        ID3D11ShaderResourceView* m_pTexResView;
 
-        ID3D11SamplerState* m_TextureSampler;
+        ID3D11SamplerState* m_pTextureSampler;
 
-        ID3D11Texture2D *m_Texture2D = NULL;
+        ID3D11Texture2D *m_pTexture2D = NULL;
 
         uint32_t m_Width, m_Height, m_Channels = 0;
 

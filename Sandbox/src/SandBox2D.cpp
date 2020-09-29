@@ -23,7 +23,7 @@ static void LOGGER(Args&& ... args)
 
 
 SandBox2D::SandBox2D(const std::string &name) : Layer(name),
-                                                m_CameraController(1280.0f/720.0f)
+                                                m_CameraController(1280.0f/720.0f, true)
 {
 }
 
@@ -33,12 +33,14 @@ void SandBox2D::OnAttach()
 {
     m_Va = D3G::VertexArray::Create();
 
+    m_Texture = D3G::Texture2D::Create("res/images/image.png");
+
     Vertex vertices[] = 
     {
-        { { -0.5f, -0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
-        { { -0.5f,  0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } },
-        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
-         { { 0.5f, 0.5f, 0.0f }, { 0.0f, 1.0f, 1.0f, 1.0f } }
+        { { -0.5f, -0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f }, { 0.0f, 0.0f } },
+        { { -0.5f,  0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f }, { 0.0f, 1.0f } },
+        { { 0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f },  { 1.0f, 0.0f } },
+         { { 0.5f, 0.5f, 0.0f }, { 0.0f, 1.0f, 1.0f, 1.0f },  { 1.0f, 1.0f } }
     };
 
     m_vb = D3G::VertexBuffer::Create(vertices, sizeof(vertices));
@@ -46,8 +48,9 @@ void SandBox2D::OnAttach()
     m_vb->Bind();
     m_vb->SetShader(m_Shader);
  
+    m_Texture->Bind();
 
-    m_vb->SetLayout( { { D3G::ShaderDataType::Float3, "POSITION" }, { D3G::ShaderDataType::Float4, "COLOR" } } );
+    m_vb->SetLayout({ { D3G::ShaderDataType::Float3, "POSITION" }, { D3G::ShaderDataType::Float4, "COLOR" }, { D3G::ShaderDataType::Float2, "TEXCOORD" } });
 
     m_Va->AddVertexBuffer(m_vb);
 

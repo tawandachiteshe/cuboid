@@ -5,8 +5,8 @@
 #include <d3gpch.h>
 #include <D3NGINE/Renderer/Texture.h>
 #include "D3DTexture.h"
-#include "D3DGraphicsContext.h"
-#include <d3d11.h>
+#include "InitializeD3Devices.h"
+
 #include <D3NGINE/utils/stb_image/stb_image.h>
 
 namespace D3G
@@ -30,7 +30,8 @@ namespace D3G
 
     void D3DTexture::Bind(uint32_t slot) const
     {
-
+        GraphicsEngine()->GetContext()->PSSetSamplers(0, 1, &m_pTextureSampler);
+        GraphicsEngine()->GetContext()->PSSetShaderResources(0, 1, &m_pTexResView);
     }
 
     bool D3DTexture::operator==(const Texture &other) const
@@ -48,6 +49,79 @@ namespace D3G
     D3DTexture::D3DTexture(const char *filePath):
     m_FilePath(filePath)
     {
+
+        HRESULT hr = S_OK;
+
+        int width, height, channels;
+        stbi_set_flip_vertically_on_load(1);
+        stbi_uc* data = stbi_load(m_FilePath, &width, &height, &channels, 0);
+
+        {
+
+            D3D11_TEXTURE2D_DESC desc = {};
+            desc.Width = (UINT)width;
+            desc.Height = (UINT)height;
+            desc.Usage = D3D11_USAGE_DEFAULT;
+            desc.MipLevels = 1;
+            desc.SampleDesc.Count = 1;
+            desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            desc.MiscFlags = 0;
+            desc.ArraySize = 1;
+            desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+
+            D3D11_SUBRESOURCE_DATA pData = {};
+            pData.pSysMem = (const void*)data;
+            pData.SysMemPitch = desc.Width * 4;
+            pData.SysMemSlicePitch = 0;
+
+
+            hr = GraphicsEngine()->GetDevice()->CreateTexture2D(&desc, &pData, &m_pTexture2D);
+
+            if (FAILED(hr))
+            {
+                D3G_CORE_ERROR("D3D FAILED TO CREATE TEXTURE");
+            }
+
+
+            D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
+            ZeroMemory(&srvDesc, sizeof(srvDesc));
+            srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+            srvDesc.Texture2D.MipLevels = desc.MipLevels;
+            srvDesc.Texture2D.MostDetailedMip = 0;
+            hr = GraphicsEngine()->GetDevice()->CreateShaderResourceView(m_pTexture2D, &srvDesc, &m_pTexResView);
+            m_pTexture2D->Release();
+
+
+            if (FAILED(hr))
+            {
+                D3G_CORE_ERROR("D3D FAILED TO CREATE SHADER RESOURCE VIEW");
+            }
+
+        }
+
+
+        {
+
+            D3D11_SAMPLER_DESC desc;
+            ZeroMemory(&desc, sizeof(desc));
+            desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+            desc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
+            desc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
+            desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
+            desc.MipLODBias = 0.f;
+            desc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
+            desc.MinLOD = 0.f;
+            desc.MaxLOD = 0.f;
+
+           hr = GraphicsEngine()->GetDevice()->CreateSamplerState(&desc, &m_pTextureSampler);
+
+           if (FAILED(hr))
+           {
+               D3G_CORE_ERROR("Failed to create a sampler texture");
+           }
+
+        }
 
     }
 }

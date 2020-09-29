@@ -14,7 +14,7 @@ namespace D3G
 		m_Window = Window::Create();
 		m_Window->SetEventCallback(D3G_BIND_EVENT_FN(Application::OnEvent));
 
-		//Renderer::Init();
+		Renderer::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 	    PushOverLay(m_ImGuiLayer);

@@ -5,6 +5,7 @@
 #ifndef D3NGINE_D3DRENDERERAPI_H
 #define D3NGINE_D3DRENDERERAPI_H
 #include <D3NGINE/Renderer/RendererAPI.h>
+#include "InitializeD3Devices.h"
 
 typedef interface ID3D11RenderTargetView ID3D11RenderTargetView;
 namespace D3G
@@ -25,6 +26,7 @@ namespace D3G
 
         private:
         static ID3D11RenderTargetView*  m_mainRenderTargetView;
+        static ID3D11BlendState* m_pBlendState;
     };
 
 }

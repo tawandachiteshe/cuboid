@@ -33,7 +33,11 @@ void SandBox2D::OnAttach()
 {
     m_Va = D3G::VertexArray::Create();
 
-    m_Texture = D3G::Texture2D::Create("res/images/image.png");
+    m_Texture = D3G::Texture2D::Create(1, 1);
+
+    uint32_t textureData = 0x00FFF00u;
+
+    m_Texture->SetData(&textureData, sizeof(textureData));
 
     Vertex vertices[] = 
     {

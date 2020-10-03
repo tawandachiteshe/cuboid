@@ -10,10 +10,13 @@
 namespace D3G
 {
     ID3D11BlendState* D3DRendererAPI::m_pBlendState = NULL;
+    ID3D11RasterizerState* D3DRendererAPI::m_pRasterizerState = NULL;
+
+    //TODO: clean here...
 
     void D3DRendererAPI::Init()
     {
-
+        HRESULT hr = S_OK;
         {
             D3D11_BLEND_DESC desc;
             ZeroMemory(&desc, sizeof(desc));
@@ -32,6 +35,19 @@ namespace D3G
             GraphicsEngine()->GetContext()->OMSetBlendState(m_pBlendState, blend_factor, 0xffffffff);
            
         }
+
+        {
+            D3D11_RASTERIZER_DESC desc;
+            ZeroMemory(&desc, sizeof(desc));
+            desc.FillMode = D3D11_FILL_SOLID;
+            desc.CullMode = D3D11_CULL_NONE;
+            desc.ScissorEnable = false;
+            desc.DepthClipEnable = false;
+            desc.FrontCounterClockwise = true;
+            hr = GraphicsEngine()->GetDevice()->CreateRasterizerState(&desc, &m_pRasterizerState);
+        }
+
+        //
 
     }
 
@@ -67,6 +83,8 @@ namespace D3G
         vertexArray->Bind();
         uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
         GraphicsEngine()->GetContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+        GraphicsEngine()->GetContext()->RSSetState(m_pRasterizerState);
         GraphicsEngine()->GetContext()->DrawIndexed(count, 0, 0);
 
     }

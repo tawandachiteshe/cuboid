@@ -42,6 +42,7 @@ namespace D3G
 
         Ref<Shader> m_Shader;
 
+        Ref<D3G::VertexBuffer> m_vtxBuffer;
     };
 
 }

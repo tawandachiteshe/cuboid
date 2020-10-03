@@ -27,6 +27,8 @@ namespace D3G
         private:
         static ID3D11RenderTargetView*  m_mainRenderTargetView;
         static ID3D11BlendState* m_pBlendState;
+        static ID3D11RasterizerState* m_pRasterizerState;
+
     };
 
 }

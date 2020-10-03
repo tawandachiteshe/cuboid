@@ -17,6 +17,8 @@ namespace D3G
 		void Run();
 		void OnEvent(Event& event);
 
+		bool OnApplicationClose(Event& event);
+
 		void PushLayer(Layer* layer);
 		void PushOverLay(Layer* layer);
 		void Name();

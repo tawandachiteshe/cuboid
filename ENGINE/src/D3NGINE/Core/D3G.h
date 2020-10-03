@@ -22,6 +22,7 @@
 #include <D3NGINE/Renderer/Renderer2D.h>
 #include <D3NGINE/Renderer/Camera2DController.h>
 #include <D3NGINE/Renderer/VertexBufferLayout.h>
+#include <D3NGINE/Renderer/Texture2DArray.h>
 #include "Input.h"
 
 #include <D3NGINE/Events/Event.h>

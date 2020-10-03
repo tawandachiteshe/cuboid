@@ -95,6 +95,11 @@ namespace D3G
         glTexImage2D(GL_TEXTURE_2D, 0, m_InternalFormat, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
 	}
 
+	void* OpenGLTexture2D::GetTextureID()
+	{
+		return &m_RendererID;
+	}
+
 	void OpenGLTexture2D::Bind(unsigned int slot) const
 	{
 		glActiveTexture(GL_TEXTURE0 + slot);

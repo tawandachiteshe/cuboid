@@ -55,6 +55,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.cpp">
       <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture2DArray.cpp">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.cpp">
       <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
     </ClCompile>
@@ -104,6 +107,9 @@
       <Filter>D3NGINE\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.cpp">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture2DArray.cpp">
       <Filter>D3NGINE\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.cpp">
@@ -186,6 +192,9 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.h">
       <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture2DArray.h">
+      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.h">
       <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
     </ClInclude>
@@ -238,6 +247,9 @@
       <Filter>D3NGINE\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.h">
+      <Filter>D3NGINE\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture2DArray.h">
       <Filter>D3NGINE\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.h">

@@ -10,6 +10,7 @@
 #include <SDL.h>
 #include <imgui_impl_win32.h>
 #include "D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h"
+#include "ImGuiDock.h"
 
 
 
@@ -139,9 +140,10 @@ namespace D3G
 	void ImGuiLayer::OnImGuiRender()
 	{
 
-		///static bool show = false;
-		///ImGui::ShowDemoWindow(&show);
+		static bool show = false;
+		ImGui::ShowDemoWindow(&show);
 
+		//ShowExampleAppDockSpace(&show);
 	}
 
 

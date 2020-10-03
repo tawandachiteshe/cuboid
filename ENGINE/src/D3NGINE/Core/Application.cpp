@@ -2,7 +2,7 @@
 #include "Application.h"
 #include <D3NGINE/Renderer/Renderer.h>
 #include <imgui_impl_sdl.h>
-
+#include "D3NGINE\Events\ApplicationEvent.h"
 namespace D3G
 {
 
@@ -61,12 +61,24 @@ namespace D3G
 
 	void Application::OnEvent(Event& e)
 	{
+		EventDispatcher dispatch(e);
+
+		dispatch.Dispatch<WindowCloseEvent>(D3G_BIND_EVENT_FN(Application::OnApplicationClose));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
 			(*--it)->OnEvent(e);
 		}
 
+	}
+
+	bool Application::OnApplicationClose(Event& event)
+	{
+		D3G_CORE_INFO("Window closed");
+		m_Running = false;
+		Renderer::ShutDown();
+
+		return true;
 	}
 
 	void Application::PushLayer(Layer* layer)

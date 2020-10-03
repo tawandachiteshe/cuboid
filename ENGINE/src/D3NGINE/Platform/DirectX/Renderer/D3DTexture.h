@@ -20,9 +20,13 @@ namespace D3G
     {
         public:
 
-        D3DTexture(uint32_t width, uint32_t height);
+        D3DTexture(uint32_t width, uint32_t height, uint32_t textureArraySize = 1u);
 
-        D3DTexture(const char* filePath);
+        D3DTexture(const char* filePath, uint32_t textureArraySize = 1u);
+
+        ~D3DTexture();
+
+        ID3D11Texture2D* GetTexturePointer() { return m_pTexture2D; };
 
         uint32_t GetWidth() const override;
 
@@ -33,6 +37,9 @@ namespace D3G
         void Bind(uint32_t slot) const override;
 
         bool operator==(const Texture &other) const override;
+
+        void* GetTextureID() { return m_pRendererID;  }
+
 
         private:
 
@@ -46,7 +53,9 @@ namespace D3G
 
         const char* m_FilePath = nullptr;
 
-        void* m_RendererID = 0;
+        uint32_t m_uTextureArraySize = 1u;
+
+        void* m_pRendererID = 0;
     };
 
 }

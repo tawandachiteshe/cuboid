@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 #include <glad/glad.h>
 #include <array>
+#include "Texture2DArray.h"
 
 namespace D3G
 {
@@ -88,10 +89,9 @@ namespace D3G
         glm::vec4 QuadVertexPositions[4];
         glm::vec4 TriangleVertexPositions[3];
 
-        const std::string FragSrc = "res/Shaders/Texture-frag.glsl";
-        const std::string VertSrc = "res/Shaders/Texture-vert.glsl";
-
+     
         Renderer2D::Statistics Stats;
+        Ref<Texture2DArray> TextureArray;
     };
 
 
@@ -117,6 +117,8 @@ namespace D3G
         s_Storage.TriangleVertexArray = VertexArray::Create();
         s_Storage.TriangleVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.TriangleVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxTrianglesVertices * sizeof(D3GVertex));
+ 
+        s_Storage.TriangleVertexBuffer->SetShader(s_Storage.TextureShader);
         s_Storage.TriangleVertexBuffer->SetLayout({
                                                       {ShaderDataType::Float3, "a_Position"},
                                                       {ShaderDataType::Float4, "a_Color"},
@@ -151,14 +153,17 @@ namespace D3G
             QuadIndices[i + 1] = offset + 1;
             QuadIndices[i + 2] = offset + 2;
 
-            QuadIndices[i + 3] = offset + 2;
-            QuadIndices[i + 4] = offset + 3;
-            QuadIndices[i + 5] = offset + 0;
+            QuadIndices[i + 3] = offset + 0;
+            QuadIndices[i + 4] = offset + 2;
+            QuadIndices[i + 5] = offset + 3;
             offset += 4;
         }
         s_Storage.QuadVertexArray = VertexArray::Create();
-        s_Storage.QuadVertexArray->SetShader(s_Storage.TextureShader);
+        
+
         s_Storage.QuadVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxQuadsVertices * sizeof(D3GVertex));
+
+        s_Storage.QuadVertexBuffer->SetShader(s_Storage.TextureShader);
         s_Storage.QuadVertexBuffer->SetLayout({
                                                       {ShaderDataType::Float3, "a_Position"},
                                                       {ShaderDataType::Float4, "a_Color"},
@@ -171,12 +176,15 @@ namespace D3G
         s_Storage.QuadVertexArray->AddVertexBuffer(s_Storage.QuadVertexBuffer);
         s_Storage.QuadVertexBufferBase = new D3GVertex[Renderer2DStorage::MaxQuadsVertices];
         Ref<IndexBuffer> idxBuffer = IndexBuffer::Create(QuadIndices, Renderer2DStorage::MaxQuadsIndices);
+        
         s_Storage.QuadVertexArray->SetIndexBuffer(idxBuffer);
         delete[] QuadIndices;
         s_Storage.QuadVertexPositions[0] = {-0.5f, -0.5f, 0.0f, 1.0f};
         s_Storage.QuadVertexPositions[1] = {0.5f, -0.5f, 0.0f, 1.0f};
         s_Storage.QuadVertexPositions[2] = {0.5f, 0.5f, 0.0f, 1.0f};
         s_Storage.QuadVertexPositions[3] = {-0.5f, 0.5f, 0.0f, 1.0f};
+
+       
     }
 
     void Renderer2D::InitLines()
@@ -195,6 +203,8 @@ namespace D3G
         s_Storage.LineVertexArray = VertexArray::Create();
         s_Storage.LineVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.LineVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxLinesVertices * sizeof(D3GVertex));
+
+        s_Storage.LineVertexBuffer->SetShader(s_Storage.TextureShader);
         s_Storage.LineVertexBuffer->SetLayout({
                                                           {ShaderDataType::Float3, "a_Position"},
                                                           {ShaderDataType::Float4, "a_Color"},
@@ -226,6 +236,8 @@ namespace D3G
         s_Storage.PointVertexArray = VertexArray::Create();
         s_Storage.PointVertexArray->SetShader(s_Storage.TextureShader);
         s_Storage.PointVertexBuffer = VertexBuffer::Create(Renderer2DStorage::MaxPointsVertices * sizeof(D3GVertex));
+      
+        s_Storage.PointVertexBuffer->SetShader(s_Storage.TextureShader);
         s_Storage.PointVertexBuffer->SetLayout({
                                                           {ShaderDataType::Float3, "a_Position"},
                                                           {ShaderDataType::Float4, "a_Color"},
@@ -248,19 +260,50 @@ namespace D3G
     {
         //glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, (int*)&Renderer2DStorage::MaxTextureSlots);
 
+        s_Storage.TextureArray = Texture2DArray::Create(s_Storage.MaxTextureSlots);
 
-        s_Storage.TextureShader = Shader::FromShaderSourceFiles(s_Storage.FragSrc, s_Storage.VertSrc);
+        std::string FragSrc, VertSrc = "";
+
+        if (RendererAPI::GetAPI() == RendererAPI::API::Opengl)
+        {
+
+            FragSrc = "res/Shaders/Texture-frag.glsl";
+            VertSrc = "res/Shaders/Texture-vert.glsl";
+
+        } else {
+
+            FragSrc = "res/Shaders/TexturePixelShader.hlsl";
+            VertSrc = "res/Shaders/TextureVertexShader.hlsl";
+        }
+        
+        
+
+        s_Storage.TextureShader = Shader::FromShaderSourceFiles(FragSrc, VertSrc);
         //Initialise primitives here or it wont work dick ... Reason we need vertexAttribs in a shader
+
+        s_Storage.WhiteTexture = Texture2D::Create(1, 1);
+
+
+        uint32_t whiteTextureData = 0xFFFFFFFF;
+      
+
+        s_Storage.WhiteTexture->SetData(&whiteTextureData, sizeof(whiteTextureData));
+
+        s_Storage.TextureArray->AddTexture(s_Storage.WhiteTexture);
+        s_Storage.TextureArray->Bind(0);
+
         InitQuads();
         InitTriangles();
         InitPoints();
         InitLines();
 
-        s_Storage.WhiteTexture = Texture2D::Create(1, 1);
+   
 
         int32_t samplers[Renderer2DStorage::MaxTextureSlots];
         for (uint32_t i = 0; i < Renderer2DStorage::MaxTextureSlots; i++)
             samplers[i] = i;
+
+        
 
         s_Storage.TextureShader->SetIntArray("u_Textures", samplers, Renderer2DStorage::MaxTextureSlots);
         s_Storage.TextureSlots[0] = s_Storage.WhiteTexture;
@@ -325,8 +368,12 @@ namespace D3G
         for (uint32_t i = 0; i < s_Storage.TextureSlotIndex; i++)
             s_Storage.TextureSlots[i]->Bind(i);
 
-        if(s_Storage.QuadIndexCount != 0)
+        if (s_Storage.QuadIndexCount != 0)
+        {
+            s_Storage.TextureArray->Bind(0);
             RenderCommand::DrawIndexed(s_Storage.QuadVertexArray, s_Storage.QuadIndexCount);
+
+        }
 
         if(s_Storage.TriangleIndexCount != 0)
             RenderCommand::DrawIndexed(s_Storage.TriangleVertexArray, s_Storage.TriangleIndexCount);
@@ -485,6 +532,8 @@ namespace D3G
 
     void Renderer2D::DrawQuad(const glm::vec3 &position, const glm::vec2 &size, const glm::vec4 &color)
     {
+
+
         Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
         constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
 
@@ -525,6 +574,24 @@ namespace D3G
     void Renderer2D::DrawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<Texture2D> &texture,
                               float tilingFactor, const glm::vec4 &tintColor)
     {
+#if 0
+    
+        D3G_CORE_INFO("{0} {1}", s_Storage.TextureArray->GetTextures().size(), (void *)texture.get());
+
+        
+        for (size_t i = 0; i < s_Storage.TextureArray->GetTextures().size(); i++)
+        {
+
+            if (!(*s_Storage.TextureArray->GetTextures()[i].get() == *texture.get()))
+            {
+                D3G_CORE_INFO("FOr texture pointer {0}", (void*)s_Storage.TextureArray->GetTextures()[i].get());
+                s_Storage.TextureArray->AddTexture(texture);
+            }
+         
+
+        }
+
+#endif
         Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
         constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
 
@@ -572,6 +639,7 @@ namespace D3G
             s_Storage.QuadVertexBufferPtr++;
         }
         s_Storage.QuadIndexCount += 6;
+        s_Storage.Stats.QuadCount++;
 
         }
 
@@ -723,6 +791,9 @@ namespace D3G
     void Renderer2D::DrawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation,
                                          const Ref<Texture2D> &texture, float tilingFactor, const glm::vec4 &tintColor)
         {
+
+      
+
             Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
             constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
 

@@ -15,12 +15,12 @@ namespace D3G
 
     uint32_t D3DTexture::GetWidth() const
     {
-        return 0;
+        return m_Width;
     }
 
     uint32_t D3DTexture::GetHeight() const
     {
-        return 0;
+        return m_Height;
     }
 
     void D3DTexture::SetData(void *data, uint32_t size)
@@ -28,7 +28,7 @@ namespace D3G
 
         HRESULT hr = S_OK;
 
-        UINT rowPitch = (m_Width * 4);
+        UINT rowPitch = (m_Width * 4) * sizeof(size);
         
         D3D11_MAPPED_SUBRESOURCE mappedTex2D;
 
@@ -54,11 +54,11 @@ namespace D3G
 
     bool D3DTexture::operator==(const Texture &other) const
     {
-        return false;
+        return m_pRendererID == ((D3DTexture&)other).m_pRendererID;
     }
 
-    D3DTexture::D3DTexture(uint32_t width, uint32_t height) :
-            m_Width(width), m_Height(height)
+    D3DTexture::D3DTexture(uint32_t width, uint32_t height, uint32_t textureArraySize) :
+            m_Width(width), m_Height(height), m_uTextureArraySize(textureArraySize)
     {
         HRESULT hr = S_OK;
         {
@@ -71,7 +71,7 @@ namespace D3G
             desc.SampleDesc.Count = 1;
             desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
             desc.MiscFlags = 0;
-            desc.ArraySize = 1;
+            desc.ArraySize = m_uTextureArraySize;
             desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
             desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
@@ -87,12 +87,24 @@ namespace D3G
             D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
             ZeroMemory(&srvDesc, sizeof(srvDesc));
             srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-            srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-            srvDesc.Texture2D.MipLevels = desc.MipLevels;
-            srvDesc.Texture2D.MostDetailedMip = 0;
-            hr = GraphicsEngine()->GetDevice()->CreateShaderResourceView(m_pTexture2D, &srvDesc, &m_pTexResView);
-           // m_pTexture2D->Release();
+            if (true)
+            {
+                srvDesc.Texture2DArray.ArraySize = m_uTextureArraySize;
+                srvDesc.Texture2DArray.MipLevels = desc.MipLevels;
+                srvDesc.Texture2DArray.MostDetailedMip = 0;
+                srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;
+            }
+            else
+            {
+                srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+                srvDesc.Texture2D.MipLevels = desc.MipLevels;
+                srvDesc.Texture2D.MostDetailedMip = 0;
 
+            }
+
+            hr = GraphicsEngine()->GetDevice()->CreateShaderResourceView(m_pTexture2D, &srvDesc, &m_pTexResView);
+
+            m_pRendererID = m_pTexResView;
 
             if (FAILED(hr))
             {
@@ -127,9 +139,10 @@ namespace D3G
 
     }
 
-    D3DTexture::D3DTexture(const char *filePath):
+    D3DTexture::D3DTexture(const char *filePath, uint32_t textureArraySize):
     m_FilePath(filePath)
     {
+        
 
         HRESULT hr = S_OK;
 
@@ -147,7 +160,7 @@ namespace D3G
             desc.SampleDesc.Count = 1;
             desc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
             desc.MiscFlags = 0;
-            desc.ArraySize = 1;
+            desc.ArraySize = m_uTextureArraySize;
             desc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
 
             D3D11_SUBRESOURCE_DATA pData = {};
@@ -167,11 +180,24 @@ namespace D3G
             D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
             ZeroMemory(&srvDesc, sizeof(srvDesc));
             srvDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-            srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-            srvDesc.Texture2D.MipLevels = desc.MipLevels;
-            srvDesc.Texture2D.MostDetailedMip = 0;
+            if (true)
+            {
+                srvDesc.Texture2DArray.ArraySize = m_uTextureArraySize;
+                srvDesc.Texture2DArray.MipLevels = desc.MipLevels;
+                srvDesc.Texture2DArray.MostDetailedMip = 0;
+                srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2DARRAY;
+            }
+            else
+            {
+                srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+                srvDesc.Texture2D.MipLevels = desc.MipLevels;
+                srvDesc.Texture2D.MostDetailedMip = 0;
+
+            }
+           
+            
             hr = GraphicsEngine()->GetDevice()->CreateShaderResourceView(m_pTexture2D, &srvDesc, &m_pTexResView);
-            m_pTexture2D->Release();
+            
 
 
             if (FAILED(hr))
@@ -204,5 +230,10 @@ namespace D3G
 
         }
 
+    }
+
+    D3DTexture::~D3DTexture()
+    {
+        m_pTexture2D->Release();
     }
 }

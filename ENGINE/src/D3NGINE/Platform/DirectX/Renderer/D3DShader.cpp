@@ -151,11 +151,11 @@ namespace D3G
         HRESULT r = S_OK;
         ID3DBlob* error_blob = nullptr;
 
-        D3DCompile(src.c_str(), strlen(src.c_str()), NULL, NULL, NULL, "main", shaderType, 0, 0, blob, &error_blob);
+        r = D3DCompile(src.c_str(), strlen(src.c_str()), NULL, NULL, NULL, "main", shaderType, 0, 0, blob, &error_blob);
 
         if(FAILED(r))
         {
-            D3G_CORE_ERROR("D3DSHADER failed to compile");
+            D3G_CORE_ERROR("D3DSHADER failed to compile: {0} ", (const char *)error_blob->GetBufferPointer());
             if (error_blob)
                 error_blob->Release();
             return false;

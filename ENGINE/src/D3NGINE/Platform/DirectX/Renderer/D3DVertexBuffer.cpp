@@ -58,8 +58,26 @@ namespace D3G
 
     }
 
-    D3DVertexBuffer::D3DVertexBuffer(uint32_t size)
+    D3DVertexBuffer::D3DVertexBuffer(uint32_t size) :
+        m_Layout({}), m_pInputLayout(0), m_pVertexBuffer(0), m_Shader(0)
     {
+        HRESULT r = S_OK;
+
+        D3D11_BUFFER_DESC buff_desc = {};
+        buff_desc.Usage = D3D11_USAGE_DYNAMIC;
+        buff_desc.ByteWidth = size;
+        buff_desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+        buff_desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+        buff_desc.MiscFlags = 0;
+
+        r = GraphicsEngine()->GetDevice()->CreateBuffer(&buff_desc, NULL, &m_pVertexBuffer);
+
+        if (FAILED(r))
+        {
+            D3G_CORE_ERROR("D3D vertebuffer failed to create!!!!");
+        }
+
+
 
     }
 
@@ -124,7 +142,21 @@ namespace D3G
 
     void D3G::D3DVertexBuffer::SetData(const void *data, uint32_t size)
     {
-         
+        HRESULT hr = S_OK;
+        D3D11_MAPPED_SUBRESOURCE vtxResource;
+
+        hr = GraphicsEngine()->GetContext()->Map(m_pVertexBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &vtxResource);
+
+        if (FAILED(hr))
+        {
+            D3G_CORE_ERROR("Vertex buffer failed to map");
+        }
+
+        memcpy(vtxResource.pData, data, size);
+
+        GraphicsEngine()->GetContext()->Unmap(m_pVertexBuffer, 0);
+
+
     }
 
     const BufferLayout& D3G::D3DVertexBuffer::GetBufferLayout() const

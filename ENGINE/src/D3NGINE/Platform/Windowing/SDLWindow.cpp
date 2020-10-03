@@ -13,6 +13,7 @@ namespace D3G
 	{
 		SDL_PollEvent(&m_Event);
 		context->SwapBuffers();
+		SDL_GL_SwapWindow(m_Window);
 	}
 
 	unsigned int SDLWindow::GetWidth() const

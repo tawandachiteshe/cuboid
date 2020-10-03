@@ -34,6 +34,9 @@ namespace D3G
 			{
 				return m_RendererID == ((OpenGLTexture2D&)other).m_RendererID;
 			}
+
+			// Inherited via Texture2D
+			virtual void* GetTextureID() override;
 	};
 
 }

@@ -16,6 +16,7 @@ namespace D3G
     void D3DVertexArray::Bind() const
     {
 
+        m_vtxBuffer->Bind();
         m_IdxBuffer->Bind();
 
     }
@@ -32,12 +33,13 @@ namespace D3G
 
     void D3DVertexArray::AddVertexBuffer(const Ref <VertexBuffer>& vtxBuffer) const
     {
-        
+        vtxBuffer->Bind();
     }
 
     void D3DVertexArray::AddVertexBuffer(const D3G::Ref<D3G::VertexBuffer> &vtxBuffer)
     {
-        vtxBuffer->Bind();
+        m_vtxBuffer =  vtxBuffer;
+        m_vtxBuffer->Bind();
     }
 
     void D3DVertexArray::SetIndexBuffer(const Ref <IndexBuffer>& idxBuffer)

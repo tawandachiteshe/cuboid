@@ -33,11 +33,16 @@ namespace D3G
 		RenderCommand::SetViewport(0, 0, width, height);
 	}
 
+	void Renderer::ShutDown()
+	{
+		Renderer2D::ShutDown();
+	}
+
 	void Renderer::Init()
 	{
 		RenderCommand::Init();
 		//TODO: Uncomment Renderer2d and make it flexible
-		//Renderer2D::Init();
+		Renderer2D::Init();
 	}
 
 }

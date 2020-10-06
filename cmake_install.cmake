@@ -1,8 +1,8 @@
-# Install script for directory: F:/Developer Crib/GameEngineWorkspace/D3NGINE
+# Install script for directory: F:/Developer Crib/GameEngineWorkspace/Cuboid
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/D3NGINE")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Cuboid")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,12 +34,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/glad/cmake_install.cmake")
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/luac/cmake_install.cmake")
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/cmake_install.cmake")
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/spdlog/cmake_install.cmake")
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/ENGINE/cmake_install.cmake")
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/Sandbox/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/glad/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/luac/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/spdlog/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/ENGINE/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/Sandbox/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/Cuboid-Editor/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/Developer Crib/GameEngineWorkspace/D3NGINE/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/Developer Crib/GameEngineWorkspace/Cuboid/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

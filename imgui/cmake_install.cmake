@@ -1,8 +1,8 @@
-# Install script for directory: F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui
+# Install script for directory: F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/D3NGINE")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Cuboid")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

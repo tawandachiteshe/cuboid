@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(Cuboid-Editor)
+
+SET(SANDBOX_SRC
+        src/CuboidEditorApp.cpp
+        src/CuboidEditor.cpp src/CuboidEditor.h)
+
+
+add_executable(Cuboid-Editor ${SANDBOX_SRC} ${SANDBOX_RES})
+add_compile_definitions(CUBOID_BUILD_DEBUG)
+target_link_libraries(Cuboid-Editor PUBLIC ENGINE)
+target_include_directories(Cuboid-Editor PUBLIC ${Assimp_SOURCE_DIR}/include ${ENGINE_SOURCE_DIR}/src ../vendor/glm ..vendor/SDL2/include ${imgui_SOURCE_DIR}/src ${SPDLOG_SOURCE_DIR}/include)
+target_include_directories(Cuboid-Editor PUBLIC ${luac_SOURCE_DIR}/include ../vendor/sol2/include)
+
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "src" FILES ${SANDBOX_SRC})
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "res" FILES ${SANDBOX_RES})
+
+
+set_target_properties(Cuboid-Editor PROPERTIES
+        CXX_STANDARD 17
+        CXX_STANDARD_REQUIRED YES
+        CXX_EXTENSIONS NO
+        )

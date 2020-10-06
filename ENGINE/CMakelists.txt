@@ -3,129 +3,134 @@ cmake_minimum_required(VERSION 3.10)
 project(ENGINE)
 
 set(D3_SOURCE_FILES
-        src/D3NGINE/ImGui/ImGuiDock.cpp
-        src/D3NGINE/ImGui/ImGuiLayer.cpp
-        #src/D3NGINE/Input/D3GINPUT.cpp
-        #    src/D3NGINE/Nodes/Camera2D.cpp
+        src/Cuboid/ImGui/ImGuiDock.cpp
+        src/Cuboid/ImGui/ImGuiLayer.cpp
+        #src/Cuboid/Input/CuboidINPUT.cpp
+        #    src/Cuboid/Nodes/Camera2D.cpp
 
-        src/D3NGINE/Platform/OpenGL/common.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLShader.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLVertexArray.cpp
-        src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.cpp
-        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.cpp
-        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.cpp
+        src/Cuboid/Platform/OpenGL/common.cpp
+        src/Cuboid/Platform/OpenGL/OpenGLIndexBuffer.cpp
+        src/Cuboid/Platform/OpenGL/OpenGLShader.cpp
+        src/Cuboid/Platform/OpenGL/OpenGLTexture2D.cpp
+        src/Cuboid/Platform/OpenGL/OpenGLVertexArray.cpp
+        src/Cuboid/Platform/OpenGL/OpenGLVertexBuffer.cpp
+        src/Cuboid/Platform/OpenGL/Renderer/OpenGLRendererAPI.cpp
+        src/Cuboid/Platform/OpenGL/Renderer/OpenGLGraphicsContext.cpp
 
-        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexArray.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBuffer.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DIndexBuffer.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DShader.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture2DArray.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBufferLayout.cpp
-        src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.cpp
-        src/D3NGINE/Platform/Windowing/WindowsWindow.cpp
-        src/D3NGINE/Platform/Windowing/SDLWindow.cpp
-        src/D3NGINE/Platform/SystemInput/WindowsInput.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DRendererAPI.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexArray.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBuffer.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DIndexBuffer.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DShader.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DTexture.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DTexture2DArray.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DFramebuffers.cpp
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBufferLayout.cpp
+        src/Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.cpp
+        src/Cuboid/Platform/Windowing/WindowsWindow.cpp
+        src/Cuboid/Platform/Windowing/SDLWindow.cpp
+        src/Cuboid/Platform/SystemInput/WindowsInput.cpp
 
 
-        src/D3NGINE/Renderer/Buffer.cpp
-        src/D3NGINE/Renderer/Renderer.cpp
-        src/D3NGINE/Renderer/RendererAPI.cpp
-        src/D3NGINE/Renderer/RendererCommand.cpp
-        src/D3NGINE/Renderer/VertexArray.cpp
-        src/D3NGINE/Renderer/Shader.cpp
-        src/D3NGINE/Renderer/Texture.cpp
-        src/D3NGINE/Renderer/Camera2D.cpp
-        src/D3NGINE/Renderer/Camera2DController.cpp
-        src/D3NGINE/Renderer/GraphicsContext.cpp
-        src/D3NGINE/Renderer/Renderer2D.cpp
-        src/D3NGINE/Renderer/VertexBufferLayout.cpp
-        src/D3NGINE/Renderer/Texture2DArray.cpp
+        src/Cuboid/Renderer/Buffer.cpp
+        src/Cuboid/Renderer/Renderer.cpp
+        src/Cuboid/Renderer/RendererAPI.cpp
+        src/Cuboid/Renderer/RendererCommand.cpp
+        src/Cuboid/Renderer/VertexArray.cpp
+        src/Cuboid/Renderer/Shader.cpp
+        src/Cuboid/Renderer/Texture.cpp
+        src/Cuboid/Renderer/Camera2D.cpp
+        src/Cuboid/Renderer/Camera2DController.cpp
+        src/Cuboid/Renderer/GraphicsContext.cpp
+        src/Cuboid/Renderer/Renderer2D.cpp
+        src/Cuboid/Renderer/VertexBufferLayout.cpp
+        src/Cuboid/Renderer/Texture2DArray.cpp
+        src/Cuboid/Renderer/FrameBuffer.cpp
 
-        src/D3NGINE/Core/Window.cpp
-        src/D3NGINE/utils/stb_image/std_image.cpp
-        src/D3NGINE/utils/Logger.cpp
-        src/D3NGINE/utils/IO/FileSystem.cpp
+        src/Cuboid/Core/Window.cpp
+        src/Cuboid/utils/stb_image/std_image.cpp
+        src/Cuboid/utils/Logger.cpp
+        src/Cuboid/utils/IO/FileSystem.cpp
 
-        src/D3NGINE/Core/Application.cpp
-        src/D3NGINE/Core/Layer.cpp
-        src/D3NGINE/Core/LayerStack.cpp
-        src/D3NGINE/Core/Input.cpp
+        src/Cuboid/Core/Application.cpp
+        src/Cuboid/Core/Layer.cpp
+        src/Cuboid/Core/LayerStack.cpp
+        src/Cuboid/Core/Input.cpp
 
-        src/D3NGINE/Events/Event.cpp
+        src/Cuboid/Events/Event.cpp
         )
 
 set(D3_HEADER_FILES
-        src/D3NGINE/ImGui/ImGuiDock.h
-        src/D3NGINE/ImGui/ImGuiLayer.h
-        #src/D3NGINE/Input/D3GINPUT.h
-        #src/D3NGINE/Input/Input.h
-        #    src/D3NGINE/Nodes/Camera2D.h
+        src/Cuboid/ImGui/ImGuiDock.h
+        src/Cuboid/ImGui/ImGuiLayer.h
+        #src/Cuboid/Input/CuboidINPUT.h
+        #src/Cuboid/Input/Input.h
+        #    src/Cuboid/Nodes/Camera2D.h
 
-        src/D3NGINE/Platform/OpenGL/common.h
-        src/D3NGINE/Platform/OpenGL/OpenGLIndexBuffer.h
-        src/D3NGINE/Platform/OpenGL/OpenGLShader.h
-        src/D3NGINE/Platform/OpenGL/OpenGLTexture2D.h
-        src/D3NGINE/Platform/OpenGL/OpenGLVertexArray.h
-        src/D3NGINE/Platform/OpenGL/OpenGLVertexBuffer.h
-        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLRendererAPI.h
-        src/D3NGINE/Platform/OpenGL/Renderer/OpenGLGraphicsContext.h
+        src/Cuboid/Platform/OpenGL/common.h
+        src/Cuboid/Platform/OpenGL/OpenGLIndexBuffer.h
+        src/Cuboid/Platform/OpenGL/OpenGLShader.h
+        src/Cuboid/Platform/OpenGL/OpenGLTexture2D.h
+        src/Cuboid/Platform/OpenGL/OpenGLVertexArray.h
+        src/Cuboid/Platform/OpenGL/OpenGLVertexBuffer.h
+        src/Cuboid/Platform/OpenGL/Renderer/OpenGLRendererAPI.h
+        src/Cuboid/Platform/OpenGL/Renderer/OpenGLGraphicsContext.h
 
-        src/D3NGINE/Platform/DirectX/Renderer/D3DGraphicsContext.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DRendererAPI.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexArray.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBuffer.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DIndexBuffer.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DShader.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DTexture2DArray.h
-        src/D3NGINE/Platform/DirectX/Renderer/D3DVertexBufferLayout.h
-        src/D3NGINE/Platform/DirectX/Renderer/DxHelper.h
-        src/D3NGINE/Platform/DirectX/Renderer/InitializeD3Devices.h
-        src/D3NGINE/Platform/Windowing/WindowsWindow.h
-        src/D3NGINE/Platform/Windowing/SDLWindow.h
-        src/D3NGINE/Platform/SystemInput/WindowsInput.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DRendererAPI.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexArray.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBuffer.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DIndexBuffer.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DShader.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DTexture.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DTexture2DArray.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DFramebuffers.h
+        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBufferLayout.h
+        src/Cuboid/Platform/DirectX/Renderer/DxHelper.h
+        src/Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.h
+        src/Cuboid/Platform/Windowing/WindowsWindow.h
+        src/Cuboid/Platform/Windowing/SDLWindow.h
+        src/Cuboid/Platform/SystemInput/WindowsInput.h
 
-        src/D3NGINE/Renderer/Buffer.h
-        src/D3NGINE/Renderer/Renderer.h
-        src/D3NGINE/Renderer/RendererAPI.h
-        src/D3NGINE/Renderer/RendererCommand.h
-        src/D3NGINE/Renderer/VertexArray.h
-        src/D3NGINE/Renderer/Shader.h
-        src/D3NGINE/Renderer/Texture.h
-        src/D3NGINE/Renderer/Camera2D.h
-        src/D3NGINE/Renderer/Camera2DController.h
-        src/D3NGINE/Renderer/GraphicsContext.h
-        src/D3NGINE/Renderer/Renderer2D.h
-        src/D3NGINE/Renderer/VertexBufferLayout.h
-        src/D3NGINE/Renderer/Texture2DArray.h
+        src/Cuboid/Renderer/Buffer.h
+        src/Cuboid/Renderer/Renderer.h
+        src/Cuboid/Renderer/RendererAPI.h
+        src/Cuboid/Renderer/RendererCommand.h
+        src/Cuboid/Renderer/VertexArray.h
+        src/Cuboid/Renderer/Shader.h
+        src/Cuboid/Renderer/Texture.h
+        src/Cuboid/Renderer/Camera2D.h
+        src/Cuboid/Renderer/Camera2DController.h
+        src/Cuboid/Renderer/GraphicsContext.h
+        src/Cuboid/Renderer/Renderer2D.h
+        src/Cuboid/Renderer/VertexBufferLayout.h
+        src/Cuboid/Renderer/Texture2DArray.h
+        src/Cuboid/Renderer/FrameBuffer.h
 
-        src/D3NGINE/Core/Window.h
-        src/D3NGINE/utils/stb_image/stb_image.h
-        src/D3NGINE/utils/Logger.cpp
-        src/D3NGINE/utils/IO/FileSystem.h
+        src/Cuboid/Core/Window.h
+        src/Cuboid/utils/stb_image/stb_image.h
+        src/Cuboid/utils/Logger.cpp
+        src/Cuboid/utils/IO/FileSystem.h
 
-        src/D3NGINE/Core/Application.h
-        src/D3NGINE/Core/Layer.h
-        src/D3NGINE/Core/LayerStack.h
-        src/D3NGINE/Core/Core.h
-        src/D3NGINE/Core/D3G.h
-        src/D3NGINE/Core/EntryPoint.h
-        src/D3NGINE/Core/Input.h
-        src/D3NGINE/Core/KeyCode.h
+        src/Cuboid/Core/Application.h
+        src/Cuboid/Core/Layer.h
+        src/Cuboid/Core/LayerStack.h
+        src/Cuboid/Core/Core.h
+        src/Cuboid/Core/Cuboid.h
+        src/Cuboid/Core/EntryPoint.h
+        src/Cuboid/Core/Input.h
+        src/Cuboid/Core/KeyCode.h
+        src/Cuboid/Core/MouseCodes.h
 
 
-        src/D3NGINE/Events/Event.h
-        src/D3NGINE/Events/KeyEvent.h
-        src/D3NGINE/Events/MouseEvent.h
-        src/D3NGINE/Events/ApplicationEvent.h)
+        src/Cuboid/Events/Event.h
+        src/Cuboid/Events/KeyEvent.h
+        src/Cuboid/Events/MouseEvent.h
+        src/Cuboid/Events/ApplicationEvent.h)
 
 add_library(ENGINE STATIC ${D3_SOURCE_FILES} ${D3_HEADER_FILES})
-target_precompile_headers(ENGINE PUBLIC src/d3gpch.h)
+target_precompile_headers(ENGINE PUBLIC src/Cuboidpch.h)
 target_link_directories(ENGINE PUBLIC ../vendor/SDL2/lib/x64 ../vendor/SDL2/lib/x64)
 
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${glad_SOURCE_DIR}/include ${Assimp_SOURCE_DIR}/include)

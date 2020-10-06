@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lua.c">
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\luac\src\lua.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\src\lua.h">
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\luac\src\lua.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\luac\lua\CMakeLists.txt" />
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\luac\lua\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{313C0D49-2764-3F8D-94B0-80D88E5C6CC3}</UniqueIdentifier>
+      <UniqueIdentifier>{72744B43-C28B-3A0F-890A-BCEBB460D345}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+      <UniqueIdentifier>{08F4B342-2FB2-3428-9F47-017DE56C0694}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,55 @@
+#pragma once
+#include <string>
+#include <Cuboid/Core/Cuboid.h>
+
+
+namespace Cuboid
+{
+
+    class CuboidEditor : public Cuboid::Layer
+    {
+    public:
+        CuboidEditor(const std::string& name);
+
+        void OnAttach() override;
+
+        void OnDetach() override;
+
+        void OnUpdate(float dt) override;
+
+        void OnImGuiRender() override;
+
+        void OnEvent(Cuboid::Event& event) override;
+
+        bool OnWindowResized(WindowResizeEvent& e);
+
+        ~CuboidEditor() override;
+
+    private:
+
+        struct Vertex
+        {
+            glm::vec3 pos;
+            uint8_t color[4];
+            glm::vec2 uv;
+            int textureID;
+        };
+
+        Ref<VertexArray> m_Va;
+        Ref<VertexBuffer> m_vb;
+        Ref<IndexBuffer> m_ib;
+        Ref<Shader> m_Shader;
+        Ref<VertexBufferLayout> m_Layout;
+        Ref<Texture2D> m_Texture;
+        Ref<Texture2D> m_Texture2;
+        Camera2DController m_CameraController;
+        Ref<Texture2DArray> m_TextureArray;
+
+        Ref<FrameBuffer> m_FrameBuffer;
+
+        glm::vec2 m_vcViewPortSize = {0.0f, 0.0f};
+
+        glm::vec2 m_vcWindowSize = { 1280.0f, 720.0f };
+    };
+
+}

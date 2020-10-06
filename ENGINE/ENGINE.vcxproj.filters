@@ -1,360 +1,375 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.cxx">
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiDock.cpp">
-      <Filter>D3NGINE\ImGui</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\ImGui\ImGuiDock.cpp">
+      <Filter>Cuboid\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiLayer.cpp">
-      <Filter>D3NGINE\ImGui</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\ImGui\ImGuiLayer.cpp">
+      <Filter>Cuboid\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\common.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\common.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLIndexBuffer.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLIndexBuffer.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLTexture2D.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexBuffer.cpp">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLVertexBuffer.cpp">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLRendererAPI.cpp">
-      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\Renderer\OpenGLRendererAPI.cpp">
+      <Filter>Cuboid\Platform\OpenGL\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLGraphicsContext.cpp">
-      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\Renderer\OpenGLGraphicsContext.cpp">
+      <Filter>Cuboid\Platform\OpenGL\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DGraphicsContext.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DGraphicsContext.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DRendererAPI.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DRendererAPI.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexArray.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexArray.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBuffer.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexBuffer.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DIndexBuffer.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DIndexBuffer.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DShader.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DShader.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DTexture.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture2DArray.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DTexture2DArray.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DFramebuffers.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\InitializeD3Devices.cpp">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexBufferLayout.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\WindowsWindow.cpp">
-      <Filter>D3NGINE\Platform\Windowing</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\InitializeD3Devices.cpp">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.cpp">
-      <Filter>D3NGINE\Platform\Windowing</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\Windowing\WindowsWindow.cpp">
+      <Filter>Cuboid\Platform\Windowing</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\SystemInput\WindowsInput.cpp">
-      <Filter>D3NGINE\Platform\SystemInput</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\Windowing\SDLWindow.cpp">
+      <Filter>Cuboid\Platform\Windowing</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\SystemInput\WindowsInput.cpp">
+      <Filter>Cuboid\Platform\SystemInput</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Buffer.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererAPI.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Renderer.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererCommand.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\RendererAPI.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexArray.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\RendererCommand.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Shader.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\VertexArray.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Shader.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2D.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2DController.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera2D.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\GraphicsContext.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera2DController.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer2D.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\GraphicsContext.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Renderer2D.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture2DArray.cpp">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\VertexBufferLayout.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.cpp">
-      <Filter>D3NGINE\Core</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture2DArray.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\stb_image\std_image.cpp">
-      <Filter>D3NGINE\utils\stb_image</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\FrameBuffer.cpp">
+      <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\Logger.cpp">
-      <Filter>D3NGINE\utils</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.cpp">
+      <Filter>Cuboid\Core</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\IO\FileSystem.cpp">
-      <Filter>D3NGINE\utils\IO</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\stb_image\std_image.cpp">
+      <Filter>Cuboid\utils\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Application.cpp">
-      <Filter>D3NGINE\Core</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\Logger.cpp">
+      <Filter>Cuboid\utils</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Layer.cpp">
-      <Filter>D3NGINE\Core</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\FileSystem.cpp">
+      <Filter>Cuboid\utils\IO</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\LayerStack.cpp">
-      <Filter>D3NGINE\Core</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Application.cpp">
+      <Filter>Cuboid\Core</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Input.cpp">
-      <Filter>D3NGINE\Core</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Layer.cpp">
+      <Filter>Cuboid\Core</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\Event.cpp">
-      <Filter>D3NGINE\Events</Filter>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\LayerStack.cpp">
+      <Filter>Cuboid\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Input.cpp">
+      <Filter>Cuboid\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\Event.cpp">
+      <Filter>Cuboid\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiDock.h">
-      <Filter>D3NGINE\ImGui</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\ImGui\ImGuiDock.h">
+      <Filter>Cuboid\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\ImGui\ImGuiLayer.h">
-      <Filter>D3NGINE\ImGui</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\ImGui\ImGuiLayer.h">
+      <Filter>Cuboid\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\common.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\common.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLIndexBuffer.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLIndexBuffer.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLShader.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLShader.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLTexture2D.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLTexture2D.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\OpenGLVertexBuffer.h">
-      <Filter>D3NGINE\Platform\OpenGL</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\OpenGLVertexBuffer.h">
+      <Filter>Cuboid\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLRendererAPI.h">
-      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\Renderer\OpenGLRendererAPI.h">
+      <Filter>Cuboid\Platform\OpenGL\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\OpenGL\Renderer\OpenGLGraphicsContext.h">
-      <Filter>D3NGINE\Platform\OpenGL\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\OpenGL\Renderer\OpenGLGraphicsContext.h">
+      <Filter>Cuboid\Platform\OpenGL\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DGraphicsContext.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DGraphicsContext.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DRendererAPI.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DRendererAPI.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexArray.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexArray.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBuffer.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexBuffer.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DIndexBuffer.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DIndexBuffer.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DShader.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DShader.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DTexture.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DTexture2DArray.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DTexture2DArray.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\D3DVertexBufferLayout.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DFramebuffers.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\DxHelper.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\D3DVertexBufferLayout.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\DirectX\Renderer\InitializeD3Devices.h">
-      <Filter>D3NGINE\Platform\DirectX\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\DxHelper.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\WindowsWindow.h">
-      <Filter>D3NGINE\Platform\Windowing</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\Renderer\InitializeD3Devices.h">
+      <Filter>Cuboid\Platform\DirectX\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\Windowing\SDLWindow.h">
-      <Filter>D3NGINE\Platform\Windowing</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\Windowing\WindowsWindow.h">
+      <Filter>Cuboid\Platform\Windowing</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Platform\SystemInput\WindowsInput.h">
-      <Filter>D3NGINE\Platform\SystemInput</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\Windowing\SDLWindow.h">
+      <Filter>Cuboid\Platform\Windowing</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Buffer.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\SystemInput\WindowsInput.h">
+      <Filter>Cuboid\Platform\SystemInput</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Buffer.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererAPI.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Renderer.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\RendererCommand.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\RendererAPI.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexArray.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\RendererCommand.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Shader.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\VertexArray.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Shader.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2D.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Camera2DController.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera2D.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\GraphicsContext.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera2DController.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Renderer2D.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\GraphicsContext.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\VertexBufferLayout.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Renderer2D.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Renderer\Texture2DArray.h">
-      <Filter>D3NGINE\Renderer</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\VertexBufferLayout.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Window.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture2DArray.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\stb_image\stb_image.h">
-      <Filter>D3NGINE\utils\stb_image</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\FrameBuffer.h">
+      <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\utils\IO\FileSystem.h">
-      <Filter>D3NGINE\utils\IO</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Application.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\stb_image\stb_image.h">
+      <Filter>Cuboid\utils\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Layer.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\FileSystem.h">
+      <Filter>Cuboid\utils\IO</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\LayerStack.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Application.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Core.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Layer.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\D3G.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\LayerStack.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\EntryPoint.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Core.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\Input.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Cuboid.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Core\KeyCode.h">
-      <Filter>D3NGINE\Core</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\EntryPoint.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\Event.h">
-      <Filter>D3NGINE\Events</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Input.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\KeyEvent.h">
-      <Filter>D3NGINE\Events</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\KeyCode.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\MouseEvent.h">
-      <Filter>D3NGINE\Events</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\MouseCodes.h">
+      <Filter>Cuboid\Core</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\src\D3NGINE\Events\ApplicationEvent.h">
-      <Filter>D3NGINE\Events</Filter>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\Event.h">
+      <Filter>Cuboid\Events</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.hxx">
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\KeyEvent.h">
+      <Filter>Cuboid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\MouseEvent.h">
+      <Filter>Cuboid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\ApplicationEvent.h">
+      <Filter>Cuboid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ENGINE\CMakelists.txt" />
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\CMakelists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="D3NGINE">
-      <UniqueIdentifier>{034AB251-56CC-315D-BA8C-5B144FC37614}</UniqueIdentifier>
+    <Filter Include="Cuboid">
+      <UniqueIdentifier>{E42A8F4D-9FF6-36BA-8BEF-9D26A95BEAFB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Core">
-      <UniqueIdentifier>{77912454-3B98-336A-A5B3-EFDB55C2DE76}</UniqueIdentifier>
+    <Filter Include="Cuboid\Core">
+      <UniqueIdentifier>{336DB2CE-1E13-36B2-B1C5-DCA275ED14D5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Events">
-      <UniqueIdentifier>{CE4EACD9-F5F7-3F2B-BA82-F3C8FACF9426}</UniqueIdentifier>
+    <Filter Include="Cuboid\Events">
+      <UniqueIdentifier>{00FD9933-519C-36D8-88AA-41EC508DF2F6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\ImGui">
-      <UniqueIdentifier>{0944FD53-1A6A-3972-B033-4E2D0CAF2CE5}</UniqueIdentifier>
+    <Filter Include="Cuboid\ImGui">
+      <UniqueIdentifier>{51DD9800-13AA-35AB-9B0E-496BBE966F5A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform">
-      <UniqueIdentifier>{5040DEDA-A7F1-32DB-BBB7-29FDAF4EAA39}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform">
+      <UniqueIdentifier>{147F7CF7-C913-3433-9225-4CE592769066}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\DirectX">
-      <UniqueIdentifier>{EF37F23C-46B7-3A3E-A7C3-78A86EE7D8A1}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\DirectX">
+      <UniqueIdentifier>{5C786BD8-5310-312A-97C0-F370A0459188}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\DirectX\Renderer">
-      <UniqueIdentifier>{E1755F52-1DE2-3291-8560-3E20FFBB4FBA}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\DirectX\Renderer">
+      <UniqueIdentifier>{D4F650AC-CC9E-38C7-B2CB-FA54C75520DC}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\OpenGL">
-      <UniqueIdentifier>{1CDB4CF4-C597-3636-9070-BA778B07725E}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\OpenGL">
+      <UniqueIdentifier>{6DEC3C0E-9B65-353B-A055-022F87F0D7E5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\OpenGL\Renderer">
-      <UniqueIdentifier>{97EA380E-6315-397B-9A07-7AAA8E1B8F1F}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\OpenGL\Renderer">
+      <UniqueIdentifier>{091DFF4F-36DD-37E9-AB79-D0D55CF1E326}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\SystemInput">
-      <UniqueIdentifier>{0C0E94F4-C352-3F12-A7E8-03A413BB89CE}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\SystemInput">
+      <UniqueIdentifier>{5AA5095D-12BB-3A02-A0D4-DBE319606FD4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Platform\Windowing">
-      <UniqueIdentifier>{04548870-CC4D-3E70-B917-31F5E0804421}</UniqueIdentifier>
+    <Filter Include="Cuboid\Platform\Windowing">
+      <UniqueIdentifier>{0DFD8821-F59E-3727-AC58-A9912BF372D0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\Renderer">
-      <UniqueIdentifier>{B4252DAD-A4D3-3177-AE30-8F537B7EB24D}</UniqueIdentifier>
+    <Filter Include="Cuboid\Renderer">
+      <UniqueIdentifier>{AE568648-701F-3140-BB75-E4C313AA2B25}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\utils">
-      <UniqueIdentifier>{B8D4DFB3-1D89-394A-85A5-93742DABBA0D}</UniqueIdentifier>
+    <Filter Include="Cuboid\utils">
+      <UniqueIdentifier>{56D2A602-5DE8-3A38-BF8D-70AC1F9329CA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\utils\IO">
-      <UniqueIdentifier>{E4127D3D-7AAE-3555-A2EA-542ECFCA609B}</UniqueIdentifier>
+    <Filter Include="Cuboid\utils\IO">
+      <UniqueIdentifier>{0328AB7E-FFDE-3AB8-81E4-80571D67658C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="D3NGINE\utils\stb_image">
-      <UniqueIdentifier>{FA5ACCB0-7635-376A-8FE2-92FE836B3525}</UniqueIdentifier>
+    <Filter Include="Cuboid\utils\stb_image">
+      <UniqueIdentifier>{FD1C3E2E-0B3D-376E-BB56-7B735A47FB2D}</UniqueIdentifier>
     </Filter>
     <Filter Include="Precompile Header File">
-      <UniqueIdentifier>{B204F35F-ADB4-3C80-AF11-1B2BD18F7CEF}</UniqueIdentifier>
+      <UniqueIdentifier>{BE627E74-04A3-3287-91D5-992E56726B50}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+      <UniqueIdentifier>{08F4B342-2FB2-3428-9F47-017DE56C0694}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

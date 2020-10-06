@@ -12,7 +12,7 @@ SET(SANDBOX_SRC
 
 
 add_executable(Sandbox ${SANDBOX_SRC} ${SANDBOX_RES})
-add_compile_definitions(D3G_BUILD_DEBUG)
+add_compile_definitions(CUBOID_BUILD_DEBUG)
 target_link_libraries(Sandbox PUBLIC ENGINE)
 target_include_directories(Sandbox PUBLIC ${Assimp_SOURCE_DIR}/include ${ENGINE_SOURCE_DIR}/src ../vendor/glm ..vendor/SDL2/include ${imgui_SOURCE_DIR}/src ${SPDLOG_SOURCE_DIR}/include)
 target_include_directories(Sandbox PUBLIC ${luac_SOURCE_DIR}/include ../vendor/sol2/include)

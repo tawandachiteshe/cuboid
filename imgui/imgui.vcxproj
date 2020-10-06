@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FB852263-218D-3966-A7C9-60944B67E85F}</ProjectGuid>
+    <ProjectGuid>{25F7905A-83C3-3ACE-BE10-C25878EB0426}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\bin\Windows-AMD64\Release\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\bin\Windows-AMD64\Release\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\bin\Windows-AMD64\Release\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\bin\Windows-AMD64\Release\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\bin\Windows-AMD64\Release\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\bin\Windows-AMD64\Release\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\bin\Windows-AMD64\Release\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\bin\Windows-AMD64\Release\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">imgui</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -96,10 +96,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -112,7 +112,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -130,10 +130,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -146,7 +146,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -164,10 +164,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -197,10 +197,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui;F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\D3NGINE\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui;F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\..\vendor\SDL2\include;F:\Developer Crib\GameEngineWorkspace\Cuboid\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -212,10 +212,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\CMakelists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakelists.txt</Message>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\CMakelists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakelists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/D3NGINE" "-BF:/Developer Crib/GameEngineWorkspace/D3NGINE" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/Cuboid" "-BF:/Developer Crib/GameEngineWorkspace/Cuboid" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -223,12 +223,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\D3NGINE\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\Cuboid\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakelists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakelists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/D3NGINE" "-BF:/Developer Crib/GameEngineWorkspace/D3NGINE" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/Cuboid" "-BF:/Developer Crib/GameEngineWorkspace/Cuboid" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -236,12 +236,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\D3NGINE\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\Cuboid\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakelists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakelists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/D3NGINE" "-BF:/Developer Crib/GameEngineWorkspace/D3NGINE" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/Cuboid" "-BF:/Developer Crib/GameEngineWorkspace/Cuboid" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -249,12 +249,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\D3NGINE\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\Cuboid\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakelists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakelists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/D3NGINE" "-BF:/Developer Crib/GameEngineWorkspace/D3NGINE" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/D3NGINE/imgui/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" "-SF:/Developer Crib/GameEngineWorkspace/Cuboid" "-BF:/Developer Crib/GameEngineWorkspace/Cuboid" --check-stamp-file "F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -262,32 +262,32 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\D3NGINE\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake;F:\Developer Crib\GameEngineWorkspace\Cuboid\CMakeFiles\3.16.0-rc3\CMakeCCompiler.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_opengl3.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_sdl.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx10.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx11.h" />
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imconfig.h" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_demo.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_draw.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_sdl.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx10.cpp" />
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\imgui\imgui_impl_dx11.cpp" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_sdl.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_dx10.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imconfig.h" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_demo.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_draw.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_sdl.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_dx10.cpp" />
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\imgui\imgui_impl_dx11.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\ZERO_CHECK.vcxproj">
-      <Project>{5DEC39BE-BAA5-3E45-AF23-9BC23DE6CB36}</Project>
+    <ProjectReference Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ZERO_CHECK.vcxproj">
+      <Project>{B45FE221-DE88-30B1-A959-4F3DCD645637}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

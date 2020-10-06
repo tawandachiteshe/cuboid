@@ -1,22 +1,22 @@
-#include <D3NGINE/Core/D3G.h>
-#include <D3NGINE/Core/EntryPoint.h>
+#include <Cuboid/Core/Cuboid.h>
+#include <Cuboid/Core/EntryPoint.h>
 #include "SandBox2D.h"
 
-using namespace D3G;
+using namespace Cuboid;
 
-class App: public D3G::Application
+class App: public Cuboid::Application
 {
 	public:
 
 		App()
 	{
-			D3G_CORE_INFO("APP iniT");
+			CUBOID_CORE_INFO("APP iniT");
 			PushLayer(new SandBox2D("Sandbox2D Layer"));
 	}
 
 };
 
-D3G::Application* D3G::CreateApplication()
+Cuboid::Application* Cuboid::CreateApplication()
 {
 	return new App();
 }

@@ -1,8 +1,8 @@
-# Install script for directory: F:/Developer Crib/GameEngineWorkspace/D3NGINE/luac
+# Install script for directory: F:/Developer Crib/GameEngineWorkspace/Cuboid/luac
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/D3NGINE")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Cuboid")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("F:/Developer Crib/GameEngineWorkspace/D3NGINE/luac/lua/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/luac/lua/cmake_install.cmake")
 
 endif()
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(D3NGINE LANGUAGES CXX)
+project(Cuboid LANGUAGES CXX)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}/${CMAKE_BUILD_TYPE}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}/${CMAKE_BUILD_TYPE}")
@@ -13,5 +13,6 @@ add_subdirectory(imgui)
 add_subdirectory(spdlog)
 add_subdirectory(ENGINE)
 add_subdirectory(Sandbox)
+add_subdirectory(Cuboid-Editor)
 
 

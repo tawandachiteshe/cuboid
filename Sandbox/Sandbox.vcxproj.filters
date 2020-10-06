@@ -1,53 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\CMakeFiles\Sandbox.dir\cmake_pch.cxx">
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\CMakeFiles\Sandbox.dir\cmake_pch.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\src\App.cpp">
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\src\App.cpp">
       <Filter>src\src</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\src\SandBox2D.cpp">
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\src\SandBox2D.cpp">
       <Filter>src\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\src\SandBox2D.h">
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\src\SandBox2D.h">
       <Filter>src\src</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\CMakeFiles\Sandbox.dir\cmake_pch.hxx">
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\CMakeFiles\Sandbox.dir\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\CMakelists.txt" />
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\CMakelists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\Sandbox\res\images\logo.ico">
+    <None Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Sandbox\res\images\logo.ico">
       <Filter>res\res\images</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Precompile Header File">
-      <UniqueIdentifier>{B204F35F-ADB4-3C80-AF11-1B2BD18F7CEF}</UniqueIdentifier>
+      <UniqueIdentifier>{BE627E74-04A3-3287-91D5-992E56726B50}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+      <UniqueIdentifier>{08F4B342-2FB2-3428-9F47-017DE56C0694}</UniqueIdentifier>
     </Filter>
     <Filter Include="res">
-      <UniqueIdentifier>{BAB7E2E7-066A-385F-894E-5DA6DDAD4D58}</UniqueIdentifier>
+      <UniqueIdentifier>{0E6609D2-2A0C-3453-8F0D-BF31C698DCAA}</UniqueIdentifier>
     </Filter>
     <Filter Include="res\res">
-      <UniqueIdentifier>{908FD313-87F6-3D43-8426-CFABF85CBBBB}</UniqueIdentifier>
+      <UniqueIdentifier>{C3DE017B-E52A-3443-A1E7-0DB63347801C}</UniqueIdentifier>
     </Filter>
     <Filter Include="res\res\images">
-      <UniqueIdentifier>{1B7510D7-A4A2-32A3-B634-66107440B5A4}</UniqueIdentifier>
+      <UniqueIdentifier>{26E22626-0C36-311E-9D15-BF4C16273F8E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src">
-      <UniqueIdentifier>{0A811F80-3F0D-3B72-97D2-C362D0955CBE}</UniqueIdentifier>
+      <UniqueIdentifier>{2706B6AB-7F22-3CF2-AB4F-B50FC55DE4B1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\src">
-      <UniqueIdentifier>{11767AE1-A8DC-355C-BF66-16054588C8A0}</UniqueIdentifier>
+      <UniqueIdentifier>{29DA3D33-CC6A-3462-959A-FF243AB5F5CB}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

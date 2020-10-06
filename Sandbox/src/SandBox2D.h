@@ -2,13 +2,13 @@
 // Created by Jerry on 29/5/2020.
 //
 
-#ifndef D3NGINE_SANDBOX2D_H
-#define D3NGINE_SANDBOX2D_H
+#ifndef CUBOID_SANDBOX2D_H
+#define CUBOID_SANDBOX2D_H
 
 #include <string>
-#include <D3NGINE/Core/D3G.h>
+#include <Cuboid/Core/Cuboid.h>
 #include <sol/sol.hpp>
-class SandBox2D : public D3G::Layer
+class SandBox2D : public Cuboid::Layer
 {
     public:
     SandBox2D(const std::string &name);
@@ -21,7 +21,7 @@ class SandBox2D : public D3G::Layer
 
     void OnImGuiRender() override;
 
-    void OnEvent(D3G::Event& event) override;
+    void OnEvent(Cuboid::Event& event) override;
 
     ~SandBox2D() override;
 
@@ -30,20 +30,22 @@ class SandBox2D : public D3G::Layer
         struct Vertex
         {
             glm::vec3 pos;
-            glm::vec4 color;
+            uint8_t color[4];
             glm::vec2 uv;
             int textureID;
         };
 
-    D3G::Ref<D3G::VertexArray> m_Va;
-    D3G::Ref<D3G::VertexBuffer> m_vb;
-    D3G::Ref<D3G::IndexBuffer> m_ib;
-    D3G::Ref<D3G::Shader> m_Shader;
-    D3G::Ref<D3G::VertexBufferLayout> m_Layout;
-    D3G::Ref<D3G::Texture2D> m_Texture;
-    D3G::Ref<D3G::Texture2D> m_Texture2;
-    D3G::Camera2DController m_CameraController;
-    D3G::Ref<D3G::Texture2DArray> m_TextureArray;
+    Cuboid::Ref<Cuboid::VertexArray> m_Va;
+    Cuboid::Ref<Cuboid::VertexBuffer> m_vb;
+    Cuboid::Ref<Cuboid::IndexBuffer> m_ib;
+    Cuboid::Ref<Cuboid::Shader> m_Shader;
+    Cuboid::Ref<Cuboid::VertexBufferLayout> m_Layout;
+    Cuboid::Ref<Cuboid::Texture2D> m_Texture;
+    Cuboid::Ref<Cuboid::Texture2D> m_Texture2;
+    Cuboid::Camera2DController m_CameraController;
+    Cuboid::Ref<Cuboid::Texture2DArray> m_TextureArray;
+
+    Cuboid::Ref<Cuboid::FrameBuffer> m_FrameBuffer;
 };
 
-#endif //D3NGINE_SANDBOX2D_H
+#endif //CUBOID_SANDBOX2D_H

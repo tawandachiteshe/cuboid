@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\CMakeFiles\D3G-Editor.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\src\D3GEditorApp.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\src\D3GEditor.cpp">
+      <Filter>src\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\src\D3GEditor.h">
+      <Filter>src\src</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\CMakeFiles\D3G-Editor.dir\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\D3NGINE\D3G-Editor\CMakelists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{B204F35F-ADB4-3C80-AF11-1B2BD18F7CEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{19D4C9DA-26AA-30E8-BF0A-E213AD805197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{0A811F80-3F0D-3B72-97D2-C362D0955CBE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\src">
+      <UniqueIdentifier>{11767AE1-A8DC-355C-BF66-16054588C8A0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

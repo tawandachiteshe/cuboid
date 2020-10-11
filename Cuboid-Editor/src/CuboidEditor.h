@@ -50,6 +50,8 @@ namespace Cuboid
         glm::vec2 m_vcViewPortSize = {0.0f, 0.0f};
 
         glm::vec2 m_vcWindowSize = { 1280.0f, 720.0f };
+
+        bool m_bIsViewPortFocused, m_bIsViewPortHovered = false;
     };
 
 }

@@ -24,6 +24,9 @@ namespace Cuboid
 		void Name();
 		Window& GetWindow() { return *m_Window; }
 		static Application& Get() { return *m_Instance; }
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
+
+		void Close();
 
 	private:
 		Scope<Window> m_Window;

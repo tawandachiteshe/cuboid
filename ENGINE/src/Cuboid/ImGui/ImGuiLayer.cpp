@@ -145,17 +145,17 @@ namespace Cuboid
 	{
 		
 
-		ImGui::Begin("dasd");
-
-		ImGui::End();
-		//ImGui::ShowDemoWindow(&show);
-
 	}
 
 
 	void ImGuiLayer::OnEvent(Event& event)
-	{
-
+	{		
+		if (m_bBlockImGuiEvents)
+		{
+			ImGuiIO& io = ImGui::GetIO();
+			event.Handled |= event.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+			event.Handled |= event.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+		}
 	}
 
 }

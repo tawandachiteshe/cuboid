@@ -1,5 +1,6 @@
 #include <Cuboid/ImGui/ImGuiDock.h>
 #include <imgui.h>
+#include "Cuboid/Core/Application.h"
 
 namespace Cuboid {
 
@@ -54,10 +55,15 @@ namespace Cuboid {
 		}
 
 		if (ImGui::BeginMenuBar()) {
-			if (ImGui::BeginMenu("File")) {
-				// Disabling fullscreen would allow the window to be moved to the front of other windows,
-				// which we can't undo at the moment without finer window depth/z control.
-				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
+			if (ImGui::BeginMenu("File"))
+			{
+
+				if (ImGui::MenuItem("Exit"))
+				{
+					Application::Get().Close();
+				}
+
+				ImGui::EndMenu();
 			}
 			ImGui::EndMenuBar();
 		}

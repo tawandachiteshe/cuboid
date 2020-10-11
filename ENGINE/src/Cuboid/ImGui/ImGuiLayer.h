@@ -14,6 +14,8 @@ namespace Cuboid
 	
 	class ImGuiLayer : public Layer
 	{
+	private:
+		bool m_bBlockImGuiEvents = true;
 	public:
 		ImGuiLayer();
 		~ImGuiLayer() override;
@@ -23,6 +25,8 @@ namespace Cuboid
 		void OnDetach() override;
 		void Begin();
 		void End();
+
+		void BlockEvents(bool block) { m_bBlockImGuiEvents = block; }
 	};
 
 }

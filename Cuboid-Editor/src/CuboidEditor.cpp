@@ -9,6 +9,8 @@ static float rot = 0.0f;
 
 static float xscale, yscale = 1.0f;
 
+static glm::vec4 SquareColor = { 0.54f, 0.96f, 0.43f, 1.0f };
+
 
 namespace Cuboid
 {
@@ -92,8 +94,11 @@ namespace Cuboid
 
         // Cuboid::RenderCommand::Clear();
 
-        m_CameraController.OnUpdate(dt);
-        m_CameraController.SetZoomLevel(zoomLevel);
+        if (m_bIsViewPortFocused || m_bIsViewPortHovered)
+        {
+            m_CameraController.OnUpdate(dt);
+        }
+            
 
         m_FrameBuffer->Bind();
         Cuboid::RenderCommand::SetViewport(0, 0, (uint32_t)m_vcViewPortSize.x, (uint32_t)m_vcViewPortSize.y);
@@ -110,7 +115,7 @@ namespace Cuboid
 
         Cuboid::Renderer2D::DrawQuad({ -1.5f, -1.5f }, { 2.0f, 2.0f }, { 1.0f, 0.0f, 0.0f, 1.0f });
 
-        Cuboid::Renderer2D::DrawQuad({ 0.5f, 0.5f }, { 2.0f, 2.0f }, { 0.0f, 1.0f, 0.0f, 1.0f });
+        Cuboid::Renderer2D::DrawQuad({ 0.5f, 0.5f }, { 2.0f, 2.0f }, { 1.0f, 0.0f, 1.0f, 1.0f });
 
         Cuboid::Renderer2D::DrawQuad({ 0.75f, 0.75f }, { 2.0f, 2.0f }, { 0.0f, 0.0f, 1.0f, 1.0f });
 
@@ -118,7 +123,7 @@ namespace Cuboid
 
         rot += dt * 45.f;
 
-        Cuboid::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f }, { 4.0f, 4.0f }, rot, { 0.54f, 0.96f, 0.43f, 1.0f });
+        Cuboid::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f }, { 4.0f, 4.0f }, rot, SquareColor);
 
         Cuboid::Renderer2D::EndScene();
 
@@ -136,7 +141,7 @@ namespace Cuboid
     {
         auto stats = Cuboid::Renderer2D::GetStats();
 
-        ImGui::Begin("data");
+        ImGui::Begin("Stats");
         ImGui::Text("Draw calls %d", stats.DrawCalls);
         ImGui::Text("Number of indices %d", stats.GetTotalIndexCount());
         ImGui::Text("Number of vertices %d", stats.GetTotalVertexCount());
@@ -148,9 +153,19 @@ namespace Cuboid
         windowflags |= ImGuiWindowFlags_NoScrollbar;
 
 
+        
+        
+
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
 
         ImGui::Begin("Viewport", 0, windowflags);
+
+        m_bIsViewPortFocused = ImGui::IsWindowFocused();
+        m_bIsViewPortHovered = ImGui::IsWindowHovered();
+
+     
+        Application::Get().GetImGuiLayer()->BlockEvents(!m_bIsViewPortFocused || !m_bIsViewPortHovered);
+
 
         ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
 
@@ -169,6 +184,13 @@ namespace Cuboid
         ImGui::End();
 
         ImGui::PopStyleVar();
+
+
+        ImGui::Begin("Properties");
+
+        ImGui::ColorEdit4("Rotated square color ", &SquareColor[0]);
+
+        ImGui::End();
 
         Cuboid::Renderer2D::ResetStats();
 

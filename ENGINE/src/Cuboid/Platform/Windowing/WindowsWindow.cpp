@@ -100,9 +100,6 @@ namespace Cuboid
 	}
 
 
-	static float mouseWheelNumber = 0.0f;
-
-	
 
 	LRESULT WINAPI WindowsWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
@@ -152,7 +149,7 @@ namespace Cuboid
 
 		case WM_MOUSEWHEEL:
 		{
-			mouseWheelNumber += (float)GET_WHEEL_DELTA_WPARAM(wParam) / (float)WHEEL_DELTA;
+			float mouseWheelNumber = (float)GET_WHEEL_DELTA_WPARAM(wParam) / (float)WHEEL_DELTA;
 			MouseScrolledEvent mouseScrolledEvent(mouseWheelNumber, mouseWheelNumber);
 			auto& windowData = WindowsWindow::GetWindowData();
 			windowData->EventCallback(mouseScrolledEvent);

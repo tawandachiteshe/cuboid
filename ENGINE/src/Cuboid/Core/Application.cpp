@@ -77,6 +77,8 @@ namespace Cuboid
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
+			if (e.Handled)
+				break;
 			(*--it)->OnEvent(e);
 		}
 
@@ -102,6 +104,11 @@ namespace Cuboid
 		m_LayerStack.PushOverLay(layer);
 		layer->OnAttach();
 
+	}
+
+	void Application::Close()
+	{
+		m_Running = false;
 	}
 
 }

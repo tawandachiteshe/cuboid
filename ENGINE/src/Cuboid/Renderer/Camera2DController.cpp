@@ -52,7 +52,6 @@ namespace Cuboid {
 		}
 
 		m_Camera.SetPosition(m_CameraPosition);
-
 		m_CameraTranslationSpeed = m_ZoomLevel;
 	}
 
@@ -76,10 +75,8 @@ namespace Cuboid {
 
 	bool Camera2DController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
-		CUBOID_CORE_DEBUG((e.GetYOffset()) * 0.1f);
-
-		m_ZoomLevel -= (e.GetYOffset()) * 0.2f;
-		m_ZoomLevel = std::max(m_ZoomLevel, 0.2f);
+		m_ZoomLevel -= (e.GetYOffset()) * 0.25f;
+		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;
 	}

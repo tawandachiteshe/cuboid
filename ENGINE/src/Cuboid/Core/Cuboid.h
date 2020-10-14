@@ -28,6 +28,9 @@
 
 
 #include <Cuboid/Events/Event.h>
+#include "Cuboid/Scene/Scene.h"
+#include "Cuboid/Scene/Components.h"
+#include "Cuboid/Scene/Entity.h"
 
 
 #endif

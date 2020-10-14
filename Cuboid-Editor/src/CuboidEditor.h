@@ -52,6 +52,11 @@ namespace Cuboid
         glm::vec2 m_vcWindowSize = { 1280.0f, 720.0f };
 
         bool m_bIsViewPortFocused, m_bIsViewPortHovered = false;
+
+        Ref<Scene> m_scActiveScene;
+
+        Entity squareEntity = {};
+        Entity CameraEntity = {};
     };
 
 }

@@ -12,6 +12,7 @@ add_compile_definitions(CUBOID_BUILD_DEBUG)
 target_link_libraries(Cuboid-Editor PUBLIC ENGINE)
 target_include_directories(Cuboid-Editor PUBLIC ${Assimp_SOURCE_DIR}/include ${ENGINE_SOURCE_DIR}/src ../vendor/glm ..vendor/SDL2/include ${imgui_SOURCE_DIR}/src ${SPDLOG_SOURCE_DIR}/include)
 target_include_directories(Cuboid-Editor PUBLIC ${luac_SOURCE_DIR}/include ../vendor/sol2/include)
+target_include_directories(Cuboid-Editor PUBLIC ../vendor/entt/include)
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "src" FILES ${SANDBOX_SRC})
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" PREFIX "res" FILES ${SANDBOX_RES})

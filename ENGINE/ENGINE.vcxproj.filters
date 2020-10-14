@@ -118,6 +118,12 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\FrameBuffer.cpp">
       <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Scene.cpp">
+      <Filter>Cuboid\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Entity.cpp">
+      <Filter>Cuboid\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.cpp">
       <Filter>Cuboid\Core</Filter>
     </ClCompile>
@@ -264,6 +270,18 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\FrameBuffer.h">
       <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera.h">
+      <Filter>Cuboid\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Scene.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Entity.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Components.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.h">
       <Filter>Cuboid\Core</Filter>
     </ClInclude>
@@ -355,6 +373,9 @@
     </Filter>
     <Filter Include="Cuboid\Renderer">
       <UniqueIdentifier>{AE568648-701F-3140-BB75-E4C313AA2B25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cuboid\Scene">
+      <UniqueIdentifier>{40A30243-3FA1-3530-9F50-8DFCC20449E4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Cuboid\utils">
       <UniqueIdentifier>{56D2A602-5DE8-3A38-BF8D-70AC1F9329CA}</UniqueIdentifier>

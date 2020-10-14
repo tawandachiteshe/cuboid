@@ -47,6 +47,8 @@ set(D3_SOURCE_FILES
         src/Cuboid/Renderer/VertexBufferLayout.cpp
         src/Cuboid/Renderer/Texture2DArray.cpp
         src/Cuboid/Renderer/FrameBuffer.cpp
+        src/Cuboid/Scene/Scene.cpp
+        src/Cuboid/Scene/Entity.cpp
 
         src/Cuboid/Core/Window.cpp
         src/Cuboid/utils/stb_image/std_image.cpp
@@ -107,6 +109,10 @@ set(D3_HEADER_FILES
         src/Cuboid/Renderer/VertexBufferLayout.h
         src/Cuboid/Renderer/Texture2DArray.h
         src/Cuboid/Renderer/FrameBuffer.h
+        src/Cuboid/Renderer/Camera.h
+        src/Cuboid/Scene/Scene.h
+        src/Cuboid/Scene/Entity.h
+        src/Cuboid/Scene/Components.h
 
         src/Cuboid/Core/Window.h
         src/Cuboid/utils/stb_image/stb_image.h
@@ -136,6 +142,7 @@ target_link_directories(ENGINE PUBLIC ../vendor/SDL2/lib/x64 ../vendor/SDL2/lib/
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${glad_SOURCE_DIR}/include ${Assimp_SOURCE_DIR}/include)
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/glm ${luac_SOURCE_DIR}/include ${luac_SOURCE_DIR}/src)
 target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/SDL2/include ${imgui_SOURCE_DIR} ${spdlog_SOURCE_DIR}/include)
+target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/entt/include)
 #TODO link assimp
 
 target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d11.lib d3dcompiler.lib dxgi.lib)

@@ -32,55 +32,20 @@ namespace Cuboid
 
         m_FrameBuffer = Cuboid::FrameBuffer::Create(fbSpec);
 
+        m_scActiveScene = CreateRef<Scene>();
 
-#if 1
-        m_Va = Cuboid::VertexArray::Create();
+        squareEntity = m_scActiveScene->CreateEntity("Yellow Square");
+        squareEntity.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
 
-        m_Texture = Cuboid::Texture2D::Create(1, 1);
+        auto squareEntity1 = m_scActiveScene->CreateEntity("Yellow Square");
+        squareEntity1.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
-        m_Texture2 = Cuboid::Texture2D::Create(1, 1);
+        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(2.0f, 2.0f, 0.0f));
+        auto& square1Tranform = squareEntity1.GetComponent<TransformComponent>();
+        square1Tranform = scale;
 
-
-
-        uint32_t textureData[] = { 0xFF00FF00u, 0xFF0000FFu, 0xFF00FF00u, 0xFF0000FFu };
-
-        uint32_t textureData2 = 0xFF0000FFu;
-
-        m_Texture->SetData(textureData, sizeof(textureData));
-        m_Texture2->SetData(&textureData2, sizeof(textureData));
-
-        m_TextureArray = Cuboid::Texture2DArray::Create(2);
-
-        m_TextureArray->AddTexture(m_Texture);
-        m_TextureArray->AddTexture(m_Texture2);
-
-        Vertex vertices[] =
-        {
-            { {-1.5f, -1.5f, 0.0f }, { 255, 0, 0, 255 }, { 0.0f, 0.0f }, 1 },
-            { { 1.5f, -1.5f, 0.0f  }, { 0, 0, 255, 255 }, { 0.0f, 1.0f }, 0 },
-            { { 1.5f, 1.5f, 0.0f }, { 0, 255, 0, 255 },  { 1.0f, 0.0f }, 1 },
-            { {-1.5f, 1.5f, 0.0f }, { 0 , 255, 255, 255 },  { 1.0f, 1.0f }, 0 }
-        };
-
-        m_vb = Cuboid::VertexBuffer::Create(sizeof(vertices));
-        m_vb->SetData(vertices, sizeof(vertices));
-        m_Shader = Cuboid::Shader::FromShaderSourceFiles("res/Shaders/FlatColorPixelShader.hlsl", "res/Shaders/FlatColorVertexShader.hlsl");
-
-        m_vb->SetShader(m_Shader);
-
-        m_TextureArray->Bind(0);
-
-        m_vb->SetLayout({ { Cuboid::ShaderDataType::Float3, "a_Position" }, { Cuboid::ShaderDataType::Byte4, "a_Color" }, { Cuboid::ShaderDataType::Float2, "a_Texcoord" }, { Cuboid::ShaderDataType::Int, "a_textureidx" } });
-
-        m_Va->AddVertexBuffer(m_vb);
-
-        m_vb->Bind();
-        uint32_t indices[] = { 0, 1, 2, 0, 2, 3 };
-        m_ib = Cuboid::IndexBuffer::Create(indices, 6);
-
-        m_Va->SetIndexBuffer(m_ib);
-
-#endif
+        CameraEntity = m_scActiveScene->CreateEntity("Camera");
+        CameraEntity.AddComponent<CameraComponent>(glm::ortho(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f);
 
     }
 
@@ -101,36 +66,14 @@ namespace Cuboid
             
 
         m_FrameBuffer->Bind();
-        Cuboid::RenderCommand::SetViewport(0, 0, (uint32_t)m_vcViewPortSize.x, (uint32_t)m_vcViewPortSize.y);
+        RenderCommand::SetViewport(0, 0, (uint32_t)m_vcViewPortSize.x, (uint32_t)m_vcViewPortSize.y);
 
-        const auto& scale = glm::scale(glm::mat4(1.0f), glm::vec3(xscale, yscale, 1.0f));
+         m_scActiveScene->OnUpdate(dt);
 
-        Cuboid::Renderer::BeginScene(m_CameraController.GetCamera());
+         m_FrameBuffer->UnBind();
 
-        Cuboid::Renderer::Submit(m_Va, m_Shader);
-
-        Cuboid::Renderer::EndScene();
-
-        Cuboid::Renderer2D::BeginScene(m_CameraController.GetCamera());
-
-        Cuboid::Renderer2D::DrawQuad({ -1.5f, -1.5f }, { 2.0f, 2.0f }, { 1.0f, 0.0f, 0.0f, 1.0f });
-
-        Cuboid::Renderer2D::DrawQuad({ 0.5f, 0.5f }, { 2.0f, 2.0f }, { 1.0f, 0.0f, 1.0f, 1.0f });
-
-        Cuboid::Renderer2D::DrawQuad({ 0.75f, 0.75f }, { 2.0f, 2.0f }, { 0.0f, 0.0f, 1.0f, 1.0f });
-
-        Cuboid::Renderer2D::DrawQuad({ 1.0f, 0.0f }, { 2.0f, 2.0f });
-
-        rot += dt * 45.f;
-
-        Cuboid::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f }, { 4.0f, 4.0f }, rot, SquareColor);
-
-        Cuboid::Renderer2D::EndScene();
-
-        m_FrameBuffer->UnBind();
-
-        Cuboid::RenderCommand::SetClearColor({ 0.23f, 0.23f, 0.23f, 1.0f });
-        Cuboid::RenderCommand::SetViewport(0, 0, (uint32_t)m_vcWindowSize.x, (uint32_t)m_vcWindowSize.y);
+         RenderCommand::SetClearColor({ 0.23f, 0.23f, 0.23f, 1.0f });
+         RenderCommand::SetViewport(0, 0, (uint32_t)m_vcWindowSize.x, (uint32_t)m_vcWindowSize.y);
 
 
 
@@ -188,8 +131,19 @@ namespace Cuboid
 
         ImGui::Begin("Properties");
 
-        ImGui::ColorEdit4("Rotated square color ", &SquareColor[0]);
+        if (squareEntity)
+        {
+            ImGui::Separator();
 
+            auto& tag = squareEntity.GetComponent<TagComponent>().Tag;
+
+            ImGui::Text("%s", tag.c_str());
+
+            auto& color = squareEntity.GetComponent<SpriteRendererComponent>().Color;
+            ImGui::ColorEdit4("Color ", &color[0]);
+
+            ImGui::Separator();
+        }
         ImGui::End();
 
         Cuboid::Renderer2D::ResetStats();

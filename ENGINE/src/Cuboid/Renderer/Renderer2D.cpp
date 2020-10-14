@@ -345,6 +345,30 @@ namespace Cuboid
         s_Storage.TextureSlotIndex = 1;
     }
 
+
+    void Renderer2D::BeginScene(const Camera& camera, const glm::mat4& transform)
+    {
+        s_Storage.TextureShader->Bind();
+
+        auto viewProj = camera.GetProjection() * glm::inverse(transform);
+
+        s_Storage.TextureShader->SetMat4("u_ProjectionViewMatrix", viewProj);
+
+        s_Storage.QuadIndexCount = 0;
+        s_Storage.QuadVertexBufferPtr = s_Storage.QuadVertexBufferBase;
+
+        s_Storage.TriangleIndexCount = 0;
+        s_Storage.TriangleVertexBufferPtr = s_Storage.TriangleVertexBufferBase;
+
+        s_Storage.PointIndexCount = 0;
+        s_Storage.PointVertexBufferPtr = s_Storage.PointVertexBufferBase;
+
+        s_Storage.LineIndexCount = 0;
+        s_Storage.LineVertexBufferPtr = s_Storage.LineVertexBufferBase;
+
+        s_Storage.TextureSlotIndex = 1;
+    }
+
     void Renderer2D::EndScene()
     {
 
@@ -535,35 +559,10 @@ namespace Cuboid
     {
 
 
-        Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
-        constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
+        glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
+        DrawQuad(transform, color);
+  
 
-        const float textureIndex = 0.0f; // White Texture
-        constexpr glm::vec2 textureCoords[] = {{0.0f, 0.0f},
-                                               {1.0f, 0.0f},
-                                               {1.0f, 1.0f},
-                                               {0.0f, 1.0f}};
-        const float tilingFactor = 1.0f;
-        const float pointsize = 1.0f;
-        const float radius = 0.0f;
-        if (s_Storage.QuadIndexCount >= Renderer2DStorage::MaxQuadsIndices)
-            FlushAndReset();
-        glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
-                              * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
-        for (size_t i = 0; i < quadVertexCount; i++) {
-            s_Storage.QuadVertexBufferPtr->Positions = transform * s_Storage.QuadVertexPositions[i];
-            s_Storage.QuadVertexBufferPtr->Color = color;
-            s_Storage.QuadVertexBufferPtr->TextureCoordinates = textureCoords[i];
-            s_Storage.QuadVertexBufferPtr->TextureIdx = textureIndex;
-            s_Storage.QuadVertexBufferPtr->TillingFactor = tilingFactor;
-            s_Storage.QuadVertexBufferPtr->PointSize = pointsize;
-            s_Storage.QuadVertexBufferPtr->Radius = radius;
-            s_Storage.QuadVertexBufferPtr++;
-        }
-
-        s_Storage.QuadIndexCount += 6;
-
-        s_Storage.Stats.QuadCount++;
     }
 
     void Renderer2D::DrawQuad(const glm::vec2 &position, const glm::vec2 &size, const Ref<Texture2D> &texture,
@@ -843,6 +842,47 @@ namespace Cuboid
             s_Storage.QuadIndexCount += 6;
             s_Storage.Stats.QuadCount++;
         }
+
+    void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color)
+    {
+
+        Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
+        constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
+
+        const float textureIndex = 0.0f; // White Texture
+        constexpr glm::vec2 textureCoords[] = { {0.0f, 0.0f},
+                                               {1.0f, 0.0f},
+                                               {1.0f, 1.0f},
+                                               {0.0f, 1.0f} };
+        const float tilingFactor = 1.0f;
+        const float pointsize = 1.0f;
+        const float radius = 0.0f;
+
+        if (s_Storage.QuadIndexCount >= Renderer2DStorage::MaxQuadsIndices)
+            FlushAndReset();
+
+        for (size_t i = 0; i < quadVertexCount; i++) {
+            s_Storage.QuadVertexBufferPtr->Positions = transform * s_Storage.QuadVertexPositions[i];
+            s_Storage.QuadVertexBufferPtr->Color = color;
+            s_Storage.QuadVertexBufferPtr->TextureCoordinates = textureCoords[i];
+            s_Storage.QuadVertexBufferPtr->TextureIdx = textureIndex;
+            s_Storage.QuadVertexBufferPtr->TillingFactor = tilingFactor;
+            s_Storage.QuadVertexBufferPtr->PointSize = pointsize;
+            s_Storage.QuadVertexBufferPtr->Radius = radius;
+            s_Storage.QuadVertexBufferPtr++;
+        }
+
+        s_Storage.QuadIndexCount += 6;
+
+        s_Storage.Stats.QuadCount++;
+
+    }
+
+    void Renderer2D::DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor, const glm::vec4& tintColor)
+    {
+
+        //TODO implements textures
+    }
 
     Ref<Shader> &Renderer2D::GetShader()
     {

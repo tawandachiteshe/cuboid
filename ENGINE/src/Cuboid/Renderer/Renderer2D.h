@@ -7,6 +7,7 @@
 #include "Texture.h"
 #include "Cuboid/utils/IO/FileSystem.h"
 #include "Camera2D.h"
+#include "Camera.h"
 
 namespace Cuboid
 {
@@ -20,6 +21,8 @@ namespace Cuboid
         static void ShutDown();
 
         static void BeginScene(const Camera2D& camera);
+
+        static void BeginScene(const Camera& camera, const glm::mat4& transform);
 
         static void EndScene();
 
@@ -62,6 +65,10 @@ namespace Cuboid
         static void DrawRotatedQuad(const glm::vec2& position, const glm::vec2& size, float rotation, const Ref<Texture2D>& texture, float tilingFactor = 1.0f, const glm::vec4& tintColor = glm::vec4(1.0f));
 
         static void DrawRotatedQuad(const glm::vec3& position, const glm::vec2& size, float rotation, const Ref<Texture2D>& texture, float tilingFactor = 1.0f, const glm::vec4& tintColor = glm::vec4(1.0f));
+
+        static void DrawQuad(const glm::mat4& transform, const glm::vec4& color = { 1.0f, 1.0f, 1.0f, 1.0f });
+
+        static void DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor = 1.0f, const glm::vec4& tintColor = glm::vec4(1.0f));
 
         struct Statistics
         {

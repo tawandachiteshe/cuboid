@@ -53,10 +53,13 @@ namespace Cuboid
 			{
 				auto [transform, camera] = view.get<TransformComponent, CameraComponent>(entity);
 
+				
+
 				if (camera.Primary)
 				{
 					mainCamera = &camera.Camera;
 					mainCameraTranform = &transform.Transform;
+					
 					break;
 				}
 

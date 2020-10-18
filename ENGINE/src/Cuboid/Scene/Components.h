@@ -1,6 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "Cuboid/Renderer/Camera.h"
+#include "SceneCamera.h"
+#include "ScriptableEntity.h"
 
 namespace Cuboid
 {
@@ -47,13 +48,31 @@ namespace Cuboid
 
 	struct CameraComponent
 	{
-		Camera Camera;
+		SceneCamera Camera;
 
 		bool Primary = true;
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const glm::mat4& projection) : Camera(projection) {}
+
+	};
+
+
+	struct NativeScriptComponent
+	{
+
+		ScriptableEntity* Instance = nullptr;
+
+		ScriptableEntity*(*InstantiateScript)();
+		void(*DestroyScript)(NativeScriptComponent*);
+
+		template<typename T>
+		void Bind()
+		{
+			DestroyScript = [](NativeScriptComponent* nsc) { delete nsc->Instance; };
+			InstantiateScript = []() { return (ScriptableEntity*)new T(); };
+		}
 
 	};
 }

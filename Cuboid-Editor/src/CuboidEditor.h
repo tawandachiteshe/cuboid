@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <Cuboid/Core/Cuboid.h>
+#include "Panels/SceneHieracyPanel.h"
 
 
 namespace Cuboid
@@ -57,6 +58,8 @@ namespace Cuboid
 
         Entity squareEntity = {};
         Entity CameraEntity = {};
+
+        SceneHieracyPanel m_SceneHieracyPanel;
     };
 
 }

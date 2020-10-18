@@ -86,11 +86,11 @@ namespace Cuboid
 
 	bool Application::OnApplicationClose(Event& event)
 	{
-		CUBOID_CORE_INFO("Window closed");
+		
 		m_Running = false;
 		Renderer::ShutDown();
 
-		return true;
+		return false;
 	}
 
 	void Application::PushLayer(Layer* layer)

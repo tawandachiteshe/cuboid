@@ -181,7 +181,7 @@ namespace Cuboid
 			return 0;
 
 		case WM_SIZE:
-			if (GraphicsEngine()->GetDevice() != NULL && wParam != SIZE_MINIMIZED)
+			if ((GraphicsEngine()->GetDevice() != NULL && wParam != SIZE_MINIMIZED) || GraphicsEngine()->GetDevice() != NULL && wParam == SIZE_MAXIMIZED)
 			{
 
 				GraphicsEngine()->CleanupRenderTarget();
@@ -208,6 +208,7 @@ namespace Cuboid
 			windowData->EventCallback(windowClosedEvent);
 		}
 
+		
 			::PostQuitMessage(0);
 			return 0;
 

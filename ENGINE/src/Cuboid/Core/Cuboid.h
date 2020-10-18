@@ -31,6 +31,7 @@
 #include "Cuboid/Scene/Scene.h"
 #include "Cuboid/Scene/Components.h"
 #include "Cuboid/Scene/Entity.h"
+#include "Cuboid/Scene/ScriptableEntity.h"
 
 
 #endif

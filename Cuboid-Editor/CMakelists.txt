@@ -4,6 +4,8 @@ project(Cuboid-Editor)
 
 SET(SANDBOX_SRC
         src/CuboidEditorApp.cpp
+        src/Panels/SceneHieracyPanel.cpp
+        src/Panels/SceneHieracyPanel.h
         src/CuboidEditor.cpp src/CuboidEditor.h)
 
 

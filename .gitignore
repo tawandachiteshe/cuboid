@@ -16,4 +16,7 @@
 /Cuboid-Editor/Cuboid-Editor.dir
 /spdlog/CMakeFiles
 /spdlog/ENGINE.dir
+/luac/CMakeFiles
+/luac/lua
+/luac/luac.dir
 /x64

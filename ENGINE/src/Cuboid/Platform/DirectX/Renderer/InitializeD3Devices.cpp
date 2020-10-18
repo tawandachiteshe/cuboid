@@ -23,7 +23,7 @@ void InitializeD3Devices::DestroyAll()
 		SafeRelease(m_pMessageQueue);
 
 	SafeRelease(m_pRenderTargetView);
-	SafeRelease(m_pBackBuffer);
+	
 	SafeRelease(m_pSwapChain);
 	SafeRelease(m_pDevice);
 
@@ -107,6 +107,8 @@ void InitializeD3Devices::CreateRenderTarget()
 	{
 		CUBOID_CORE_CRITICAL("Could not create render target view");
 	}
+
+	SafeRelease(m_pBackBuffer);
 }
 
 

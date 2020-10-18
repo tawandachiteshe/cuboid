@@ -49,6 +49,8 @@ set(D3_SOURCE_FILES
         src/Cuboid/Renderer/FrameBuffer.cpp
         src/Cuboid/Scene/Scene.cpp
         src/Cuboid/Scene/Entity.cpp
+        src/Cuboid/Scene/SceneCamera.cpp
+        
 
         src/Cuboid/Core/Window.cpp
         src/Cuboid/utils/stb_image/std_image.cpp
@@ -66,9 +68,6 @@ set(D3_SOURCE_FILES
 set(D3_HEADER_FILES
         src/Cuboid/ImGui/ImGuiDock.h
         src/Cuboid/ImGui/ImGuiLayer.h
-        #src/Cuboid/Input/CuboidINPUT.h
-        #src/Cuboid/Input/Input.h
-        #    src/Cuboid/Nodes/Camera2D.h
 
         src/Cuboid/Platform/OpenGL/common.h
         src/Cuboid/Platform/OpenGL/OpenGLIndexBuffer.h
@@ -113,6 +112,8 @@ set(D3_HEADER_FILES
         src/Cuboid/Scene/Scene.h
         src/Cuboid/Scene/Entity.h
         src/Cuboid/Scene/Components.h
+        src/Cuboid/Scene/SceneCamera.h
+        src/Cuboid/Scene/ScriptableEntity.h
 
         src/Cuboid/Core/Window.h
         src/Cuboid/utils/stb_image/stb_image.h

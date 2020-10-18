@@ -2,7 +2,6 @@
 
 #include <entt\entt.hpp>
 #include "Scene.h"
-#include <limits.h>
 
 namespace Cuboid
 {
@@ -45,6 +44,14 @@ namespace Cuboid
 			return m_entEntityHandle != entt::null;
 		}
 
+		operator uint32_t() const
+		{
+			return (uint32_t)m_entEntityHandle;
+		}
+
+		bool operator==(const Entity& other) const { return m_entEntityHandle == other.m_entEntityHandle && m_pScene == other.m_pScene; }
+
+		bool operator!=(const Entity& other) const { return !operator==(other); }
 
 	private:
 

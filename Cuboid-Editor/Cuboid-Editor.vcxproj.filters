@@ -10,6 +10,7 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\CuboidEditor.cpp">
       <Filter>src\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Panels\SceneHieracyPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\CuboidEditor.h">
@@ -18,6 +19,7 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\CMakeFiles\Cuboid-Editor.dir\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
+    <ClInclude Include="src\Panels\SceneHieracyPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\CMakelists.txt" />

@@ -37,7 +37,7 @@ namespace Cuboid
         squareEntity = m_scActiveScene->CreateEntity("Yellow Square");
         squareEntity.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
 
-        auto squareEntity1 = m_scActiveScene->CreateEntity("Yellow Square");
+        auto squareEntity1 = m_scActiveScene->CreateEntity("Bigger Square");
         squareEntity1.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
         glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(2.0f, 2.0f, 0.0f));
@@ -45,8 +45,58 @@ namespace Cuboid
         square1Tranform = scale;
 
         CameraEntity = m_scActiveScene->CreateEntity("Camera");
-        CameraEntity.AddComponent<CameraComponent>(glm::ortho(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f);
+        CameraEntity.AddComponent<CameraComponent>();
 
+
+        class CameraController : ScriptableEntity
+        {
+        public:
+
+            void OnCreate()
+            {
+          
+                CUBOID_DEBUG("Script init");
+
+            }
+
+            void OnDestroy()
+            {
+
+            }
+
+            void OnUpdate(float ts)
+            {
+
+                auto& transform = GetComponent<TransformComponent>().Transform;
+                float speed = 5.0f;
+
+                if (Input::IsKeyPressed(Key::A))
+                {
+                    transform[3][0] -= speed * ts;
+                }
+                else if (Input::IsKeyPressed(Key::D))
+                {
+                    transform[3][0] += speed * ts;
+                }
+                else if (Input::IsKeyPressed(Key::W))
+                {
+                    transform[3][1] += speed * ts;
+                }
+                else if (Input::IsKeyPressed(Key::S))
+                {
+                    transform[3][1] -= speed * ts;
+                }
+       
+            }
+
+
+        };
+
+
+        CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
+        squareEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
+
+        m_SceneHieracyPanel.SetContext(m_scActiveScene);
     }
 
     void CuboidEditor::OnDetach()
@@ -57,22 +107,20 @@ namespace Cuboid
     void CuboidEditor::OnUpdate(float dt)
     {
 
-        // Cuboid::RenderCommand::Clear();
-
-        if (m_bIsViewPortFocused || m_bIsViewPortHovered)
-        {
-            m_CameraController.OnUpdate(dt);
-        }
-            
 
         m_FrameBuffer->Bind();
         RenderCommand::SetViewport(0, 0, (uint32_t)m_vcViewPortSize.x, (uint32_t)m_vcViewPortSize.y);
 
-         m_scActiveScene->OnUpdate(dt);
+        if (m_bIsViewPortFocused || m_bIsViewPortHovered)
+        {
+            
+        }
+        m_scActiveScene->OnUpdate(dt);
 
          m_FrameBuffer->UnBind();
 
          RenderCommand::SetClearColor({ 0.23f, 0.23f, 0.23f, 1.0f });
+
          RenderCommand::SetViewport(0, 0, (uint32_t)m_vcWindowSize.x, (uint32_t)m_vcWindowSize.y);
 
 
@@ -118,6 +166,8 @@ namespace Cuboid
             m_FrameBuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
 
             m_CameraController.OnResize(viewportPanelSize.x, viewportPanelSize.y);
+
+            m_scActiveScene->OnViewportResize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
             
         }
 
@@ -129,22 +179,7 @@ namespace Cuboid
         ImGui::PopStyleVar();
 
 
-        ImGui::Begin("Properties");
-
-        if (squareEntity)
-        {
-            ImGui::Separator();
-
-            auto& tag = squareEntity.GetComponent<TagComponent>().Tag;
-
-            ImGui::Text("%s", tag.c_str());
-
-            auto& color = squareEntity.GetComponent<SpriteRendererComponent>().Color;
-            ImGui::ColorEdit4("Color ", &color[0]);
-
-            ImGui::Separator();
-        }
-        ImGui::End();
+        m_SceneHieracyPanel.OnImGuiRender();
 
         Cuboid::Renderer2D::ResetStats();
 

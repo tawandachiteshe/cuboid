@@ -124,6 +124,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Entity.cpp">
       <Filter>Cuboid\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\SceneCamera.cpp">
+      <Filter>Cuboid\Scene</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.cpp">
       <Filter>Cuboid\Core</Filter>
     </ClCompile>
@@ -280,6 +283,12 @@
       <Filter>Cuboid\Scene</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\Components.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\SceneCamera.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\ScriptableEntity.h">
       <Filter>Cuboid\Scene</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.h">

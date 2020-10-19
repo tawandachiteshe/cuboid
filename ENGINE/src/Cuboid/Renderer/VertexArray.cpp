@@ -2,7 +2,7 @@
 #include <Cuboid/Renderer/RendererAPI.h>
 #include <Cuboid/Platform/OpenGL/OpenGLVertexArray.h>
 #include <Cuboid/Renderer/VertexArray.h>
-#include <Cuboid/Platform/DirectX/Renderer/D3DVertexArray.h>
+#include <Cuboid/Platform/DirectX/D3DVertexArray.h>
 
 
 namespace Cuboid

@@ -9,7 +9,7 @@
 #include <Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.h>
 #include <SDL.h>
 #include <imgui_impl_win32.h>
-#include "Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.h"
+#include "Cuboid/Platform/DirectX/InitializeD3Devices.h"
 #include "ImGuiDock.h"
 
 
@@ -66,7 +66,7 @@ namespace Cuboid
 		{
 			ImGui_ImplWin32_EnableDpiAwareness();
 			ImGui_ImplWin32_Init(std::any_cast<HWND>(app.GetWindow().GetNativeWindow()));
-			ImGui_ImplDX11_Init(GraphicsEngine()->GetDevice(), GraphicsEngine()->GetContext());
+			ImGui_ImplDX11_Init(GraphicsEngine()->GetDevice().Get(), GraphicsEngine()->GetContext().Get());
 
 		}
 

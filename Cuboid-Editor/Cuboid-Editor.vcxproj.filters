@@ -7,19 +7,23 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\CuboidEditorApp.cpp">
       <Filter>src\src</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\Panels\SceneHieracyPanel.cpp">
+      <Filter>src\src\Panels</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\CuboidEditor.cpp">
       <Filter>src\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Panels\SceneHieracyPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\Panels\SceneHieracyPanel.h">
+      <Filter>src\src\Panels</Filter>
+    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\src\CuboidEditor.h">
       <Filter>src\src</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\CMakeFiles\Cuboid-Editor.dir\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
     </ClInclude>
-    <ClInclude Include="src\Panels\SceneHieracyPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\Cuboid-Editor\CMakelists.txt" />
@@ -36,6 +40,9 @@
     </Filter>
     <Filter Include="src\src">
       <UniqueIdentifier>{29DA3D33-CC6A-3462-959A-FF243AB5F5CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\src\Panels">
+      <UniqueIdentifier>{E0E23147-3BC6-358E-AC8E-DCF9408E9FF6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

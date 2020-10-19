@@ -1,6 +1,6 @@
 #include "Cuboidpch.h"
 #include "Texture2DArray.h"
-#include "Cuboid/Platform/DirectX/Renderer/D3DTexture2DArray.h"
+#include "Cuboid/Platform/DirectX/D3DTexture2DArray.h"
 
 namespace Cuboid
 {

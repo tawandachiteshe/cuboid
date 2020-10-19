@@ -5,7 +5,7 @@
 #ifndef CUBOID_D3DRENDERERAPI_H
 #define CUBOID_D3DRENDERERAPI_H
 #include <Cuboid/Renderer/RendererAPI.h>
-#include "InitializeD3Devices.h"
+#include "Cuboid/Platform/DirectX/InitializeD3Devices.h"
 
 typedef interface ID3D11RenderTargetView ID3D11RenderTargetView;
 namespace Cuboid

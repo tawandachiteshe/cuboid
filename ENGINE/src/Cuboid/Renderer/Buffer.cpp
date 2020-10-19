@@ -5,8 +5,8 @@
 #include <Cuboid/Platform/OpenGL/OpenGLIndexBuffer.h>
 #include <Cuboid/Platform/OpenGL/OpenGLVertexBuffer.h>
 
-#include <Cuboid/Platform/DirectX/Renderer/D3DIndexBuffer.h>
-#include <Cuboid/Platform/DirectX/Renderer/D3DVertexBuffer.h>
+#include <Cuboid/Platform/DirectX/D3DIndexBuffer.h>
+#include <Cuboid/Platform/DirectX/D3DVertexBuffer.h>
 
 namespace Cuboid
 {

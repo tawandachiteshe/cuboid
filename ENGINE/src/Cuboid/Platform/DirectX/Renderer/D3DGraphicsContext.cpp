@@ -3,10 +3,8 @@
 //
 
 #include <Cuboidpch.h>
-#include <SDL_syswm.h>
 #include "D3DGraphicsContext.h"
-#include <SDL_video.h>
-#include "InitializeD3Devices.h"
+#include "Cuboid/Platform/DirectX/InitializeD3Devices.h"
 #include "Cuboid/Core/Application.h"
 
 namespace Cuboid

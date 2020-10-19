@@ -19,15 +19,15 @@ set(D3_SOURCE_FILES
 
         src/Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.cpp
         src/Cuboid/Platform/DirectX/Renderer/D3DRendererAPI.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexArray.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBuffer.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DIndexBuffer.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DShader.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DTexture.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DTexture2DArray.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DFramebuffers.cpp
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBufferLayout.cpp
-        src/Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.cpp
+        src/Cuboid/Platform/DirectX/D3DVertexArray.cpp
+        src/Cuboid/Platform/DirectX/D3DVertexBuffer.cpp
+        src/Cuboid/Platform/DirectX/D3DIndexBuffer.cpp
+        src/Cuboid/Platform/DirectX/D3DShader.cpp
+        src/Cuboid/Platform/DirectX/D3DTexture.cpp
+        src/Cuboid/Platform/DirectX/D3DTexture2DArray.cpp
+        src/Cuboid/Platform/DirectX/D3DFramebuffers.cpp
+        src/Cuboid/Platform/DirectX/D3DVertexBufferLayout.cpp
+        src/Cuboid/Platform/DirectX/InitializeD3Devices.cpp
         src/Cuboid/Platform/Windowing/WindowsWindow.cpp
         src/Cuboid/Platform/Windowing/SDLWindow.cpp
         src/Cuboid/Platform/SystemInput/WindowsInput.cpp
@@ -80,16 +80,16 @@ set(D3_HEADER_FILES
 
         src/Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.h
         src/Cuboid/Platform/DirectX/Renderer/D3DRendererAPI.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexArray.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBuffer.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DIndexBuffer.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DShader.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DTexture.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DTexture2DArray.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DFramebuffers.h
-        src/Cuboid/Platform/DirectX/Renderer/D3DVertexBufferLayout.h
-        src/Cuboid/Platform/DirectX/Renderer/DxHelper.h
-        src/Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.h
+        src/Cuboid/Platform/DirectX/D3DVertexArray.h
+        src/Cuboid/Platform/DirectX/D3DVertexBuffer.h
+        src/Cuboid/Platform/DirectX/D3DIndexBuffer.h
+        src/Cuboid/Platform/DirectX/D3DShader.h
+        src/Cuboid/Platform/DirectX/D3DTexture.h
+        src/Cuboid/Platform/DirectX/D3DTexture2DArray.h
+        src/Cuboid/Platform/DirectX/D3DFramebuffers.h
+        src/Cuboid/Platform/DirectX/D3DVertexBufferLayout.h
+        src/Cuboid/Platform/DirectX/DxHelper.h
+        src/Cuboid/Platform/DirectX/InitializeD3Devices.h
         src/Cuboid/Platform/Windowing/WindowsWindow.h
         src/Cuboid/Platform/Windowing/SDLWindow.h
         src/Cuboid/Platform/SystemInput/WindowsInput.h

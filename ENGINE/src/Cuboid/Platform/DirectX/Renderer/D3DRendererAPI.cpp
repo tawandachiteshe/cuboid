@@ -5,7 +5,7 @@
 #include <Cuboidpch.h>
 #include "D3DRendererAPI.h"
 #include "D3DGraphicsContext.h"
-#include "InitializeD3Devices.h"
+#include "Cuboid/Platform/DirectX/InitializeD3Devices.h"
 
 namespace Cuboid
 {

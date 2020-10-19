@@ -2,7 +2,7 @@
 #include <Cuboid/Renderer/RendererAPI.h>
 #include <Cuboid/Renderer/Texture.h>
 #include <Cuboid/Platform/OpenGL/OpenGLTexture2D.h>
-#include <Cuboid/Platform/DirectX/Renderer/D3DTexture.h>
+#include <Cuboid/Platform/DirectX/D3DTexture.h>
 
 namespace Cuboid
 {

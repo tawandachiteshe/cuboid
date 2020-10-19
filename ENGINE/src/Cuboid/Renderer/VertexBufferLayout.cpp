@@ -3,7 +3,7 @@
 //
 
 #include <Cuboidpch.h>
-#include <Cuboid/Platform/DirectX/Renderer/D3DVertexBufferLayout.h>
+#include <Cuboid/Platform/DirectX/D3DVertexBufferLayout.h>
 #include "VertexBufferLayout.h"
 #include "RendererAPI.h"
 

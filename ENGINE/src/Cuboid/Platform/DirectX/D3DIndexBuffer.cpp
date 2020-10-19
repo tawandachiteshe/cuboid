@@ -3,7 +3,7 @@
 //
 
 #include "D3DIndexBuffer.h"
-#include "D3DGraphicsContext.h"
+#include "Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.h"
 #include "InitializeD3Devices.h" 
 
 namespace Cuboid

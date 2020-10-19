@@ -4,7 +4,7 @@
 #include <Cuboidpch.h>
 #include <cstdint>
 #include "D3DVertexBuffer.h"
-#include "D3DGraphicsContext.h"
+#include "Cuboid/Platform/DirectX/Renderer/D3DGraphicsContext.h"
 #include "D3DShader.h"
 #include "InitializeD3Devices.h"
 

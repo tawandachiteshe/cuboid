@@ -1,6 +1,6 @@
 #include "WindowsWindow.h"
 #include <tchar.h>
-#include "Cuboid/Platform/DirectX/Renderer/InitializeD3Devices.h"
+#include "Cuboid/Platform/DirectX/InitializeD3Devices.h"
 #include <imgui_impl_win32.h>
 
 #include "Cuboid/Events/ApplicationEvent.h"

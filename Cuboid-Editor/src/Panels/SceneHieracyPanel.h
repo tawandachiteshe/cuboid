@@ -24,6 +24,9 @@ namespace Cuboid
 
 		void DrawComponents(Entity& entity);
 
+		template<typename T>
+		void DrawComponentUI(const std::string& componentName, Entity& entity,const std::function<void()>& DrawImGuiFunc);
+
 	private:
 
 		Ref<Scene> m_Context;
@@ -31,5 +34,6 @@ namespace Cuboid
 		Entity m_EntitySelection;
 
 	};
+
 }
 

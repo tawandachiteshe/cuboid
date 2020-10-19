@@ -1,7 +1,7 @@
 #include "Shader.h"
 #include <Cuboid/Renderer/RendererAPI.h>
 #include <Cuboid/Platform/OpenGL/OpenGLShader.h>
-#include <Cuboid/Platform/DirectX/Renderer/D3DShader.h>
+#include <Cuboid/Platform/DirectX/D3DShader.h>
 #include <Cuboid/utils/IO/FileSystem.h>
 
 namespace Cuboid

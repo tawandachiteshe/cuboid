@@ -16,7 +16,12 @@ namespace Cuboid
 		T& AddComponent(Args&&... args)
 		{
 			CUBOID_ASSERT(!HasComponent<T>(), "Already has component");
-			return m_pScene->m_Registry.emplace<T>(m_entEntityHandle, std::forward<Args>(args)...);
+
+			T& component = m_pScene->m_Registry.emplace<T>(m_entEntityHandle, std::forward<Args>(args)...);
+
+			m_pScene->OnComponentAdded<T>(*this, component);
+
+			return component;
 		}
 
 		template<typename T>
@@ -47,6 +52,11 @@ namespace Cuboid
 		operator uint32_t() const
 		{
 			return (uint32_t)m_entEntityHandle;
+		}
+
+		operator entt::entity() const
+		{
+			return m_entEntityHandle;
 		}
 
 		bool operator==(const Entity& other) const { return m_entEntityHandle == other.m_entEntityHandle && m_pScene == other.m_pScene; }

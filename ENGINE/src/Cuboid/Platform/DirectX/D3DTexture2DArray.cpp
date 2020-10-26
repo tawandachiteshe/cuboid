@@ -38,8 +38,7 @@ namespace Cuboid
 		}
 	}
 
-	D3DTexture2DArray::D3DTexture2DArray(const std::initializer_list<Ref<Texture2D>>& textures) :
-		m_vcTextures(textures.size()),m_vcTexture2D(textures)
+	D3DTexture2DArray::D3DTexture2DArray(const std::initializer_list<Ref<Texture2D>>& textures) 
 	{
 		HRESULT hr = S_OK;
 		if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
@@ -71,7 +70,7 @@ namespace Cuboid
 				for (auto it = textures.begin(); it != textures.end(); it++)
 				{
 
-					m_vcTextures[i] = (ID3D11ShaderResourceView*)std::dynamic_pointer_cast<D3DTexture>(*it)->GetTextureID();
+					m_Textures[i] = (ID3D11ShaderResourceView*)std::dynamic_pointer_cast<D3DTexture>(*it)->GetTextureID();
 					++i;
 
 
@@ -84,24 +83,11 @@ namespace Cuboid
 
 	void D3DTexture2DArray::AddTexture(const Ref<Texture2D>& texture)
 	{
-		HRESULT hr = S_OK;
-
-		m_vcTexture2D.push_back(texture);
-
-		if(RendererAPI::GetAPI() == RendererAPI::API::DirectX)
-			m_vcTextures.push_back((ID3D11ShaderResourceView*)std::dynamic_pointer_cast<D3DTexture>(texture)->GetTextureID());
-
+		
+		TextureMap.emplace(0,std::dynamic_pointer_cast<D3DTexture>(texture)->GetTextureID());
+		
 	}
 
-	void D3DTexture2DArray::RemoveTexture(size_t index)
-	{
-	}
-
-	Ref<Texture2D>& D3DTexture2DArray::GetTexture(size_t index)
-	{
-		// TODO: insert return statement here
-		return m_vcTexture2D[index];
-	}
 
 	D3DTexture2DArray::~D3DTexture2DArray()
 	{
@@ -113,23 +99,8 @@ namespace Cuboid
 		if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
 			GraphicsEngine()->GetContext()->PSSetSamplers(0, 1, &m_pTextureSampler);
-			GraphicsEngine()->GetContext()->PSSetShaderResources(0, m_vcTextures.size(), &m_vcTextures[0]);
+			GraphicsEngine()->GetContext()->PSSetShaderResources(0, m_Textures.size(), &m_Textures[0]);
 		}
-	}
-
-	std::vector<Ref<Texture2D>>::iterator D3DTexture2DArray::Begin()
-	{
-		return m_vcTexture2D.begin();
-	}
-
-	std::vector<Ref<Texture2D>>::iterator D3DTexture2DArray::End()
-	{
-		return m_vcTexture2D.begin();
-	}
-
-	std::vector<Ref<Texture2D>> D3DTexture2DArray::GetTextures()
-	{
-		return m_vcTexture2D;
 	}
 
 }

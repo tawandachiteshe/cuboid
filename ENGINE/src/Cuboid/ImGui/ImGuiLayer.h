@@ -14,6 +14,10 @@ namespace Cuboid
 	
 	class ImGuiLayer : public Layer
 	{
+	public:
+
+		void SetDarkThemeColors();
+
 	private:
 		bool m_bBlockImGuiEvents = true;
 	public:

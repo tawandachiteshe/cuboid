@@ -20,6 +20,8 @@ namespace Cuboid
 
 			virtual void SetIntArray(const std::string& name, int* values, uint32_t count) = 0;
 
+			virtual void SetPointerArray(const std::string& name, void* values, uint32_t count) {}
+
 			virtual void SetFloat(const std::string& name, float value) = 0;
 
 			virtual void SetFloat2(const std::string& name, const glm::vec2& value) = 0;

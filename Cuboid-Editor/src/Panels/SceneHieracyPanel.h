@@ -24,8 +24,8 @@ namespace Cuboid
 
 		void DrawComponents(Entity& entity);
 
-		template<typename T>
-		void DrawComponentUI(const std::string& componentName, Entity& entity,const std::function<void()>& DrawImGuiFunc);
+		template<typename T, typename UIFunction>
+		void DrawComponentUI(const std::string& componentName, Entity entity,const UIFunction& DrawImGuiFunc);
 
 	private:
 

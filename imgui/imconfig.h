@@ -100,12 +100,12 @@
 //#define IMGUI_DEBUG_PARANOID
 
 //---- Tip: You can add extra functions within the ImGui:: namespace, here or in your own headers files.
-/*
+
 namespace ImGui
 {
-    void MyFunction(const char* name, const MyMatrix44& v);
+    bool DragFloat3(const char* label, float v1, float v2, float v3, float v_speed = 1.0f, float v_min = 0.0f, float v_max = 0.0f, const char* format = "%.3f", float power = 1.0f);
 }
-*/
+
 
 #define IMGUI_IMPL_OPENGL_LOADER_GLAD
 #define GL_MAJOR_VERSION 2

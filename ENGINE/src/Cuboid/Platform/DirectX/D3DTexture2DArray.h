@@ -15,8 +15,6 @@ namespace Cuboid
 
 		// Inherited via Texture2DArray
 		virtual void AddTexture(const Ref<Texture2D>& texture) override;
-		virtual void RemoveTexture(size_t index) override;
-		virtual Ref<Texture2D>& GetTexture(size_t index) override;
 
 		~D3DTexture2DArray();
 
@@ -24,32 +22,19 @@ namespace Cuboid
 
 	private:
 
-		std::vector<ID3D11ShaderResourceView*> m_vcTextures;
+		std::unordered_map<uint32_t, ID3D11ShaderResourceView*> TextureMap;
 
-		std::vector<Ref<Texture2D>> m_vcTexture2D;
+		std::array<ID3D11ShaderResourceView*, 16> m_Textures;
 
 		ID3D11ShaderResourceView* m_srvTexArray = 0;
 
 		ID3D11Texture2D* texArray = 0;
 
 		ID3D11SamplerState* m_pTextureSampler = NULL;
+		uint32_t textureIndex = 0;
 
 
 
-
-		// Inherited via Texture2DArray
-		
-
-	public:
-
-		// Inherited via Texture2DArray
-		virtual std::vector<Ref<Texture2D>>::iterator Begin() override;
-
-		virtual std::vector<Ref<Texture2D>>::iterator End() override;
-
-
-		// Inherited via Texture2DArray
-		virtual std::vector<Ref<Texture2D>> GetTextures() override;
 
 	};
 

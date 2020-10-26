@@ -55,13 +55,7 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DTexture.cpp">
       <Filter>Cuboid\Platform\DirectX</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DTexture2DArray.cpp">
-      <Filter>Cuboid\Platform\DirectX</Filter>
-    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DFramebuffers.cpp">
-      <Filter>Cuboid\Platform\DirectX</Filter>
-    </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DVertexBufferLayout.cpp">
       <Filter>Cuboid\Platform\DirectX</Filter>
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\InitializeD3Devices.cpp">
@@ -109,9 +103,6 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Renderer2D.cpp">
       <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\VertexBufferLayout.cpp">
-      <Filter>Cuboid\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture2DArray.cpp">
       <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
@@ -125,6 +116,9 @@
       <Filter>Cuboid\Scene</Filter>
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\SceneCamera.cpp">
+      <Filter>Cuboid\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\SceneSerializer.cpp">
       <Filter>Cuboid\Scene</Filter>
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.cpp">
@@ -207,13 +201,7 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DTexture.h">
       <Filter>Cuboid\Platform\DirectX</Filter>
     </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DTexture2DArray.h">
-      <Filter>Cuboid\Platform\DirectX</Filter>
-    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DFramebuffers.h">
-      <Filter>Cuboid\Platform\DirectX</Filter>
-    </ClInclude>
-    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\D3DVertexBufferLayout.h">
       <Filter>Cuboid\Platform\DirectX</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Platform\DirectX\DxHelper.h">
@@ -289,6 +277,9 @@
       <Filter>Cuboid\Scene</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\ScriptableEntity.h">
+      <Filter>Cuboid\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Scene\SceneSerializer.h">
       <Filter>Cuboid\Scene</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Window.h">

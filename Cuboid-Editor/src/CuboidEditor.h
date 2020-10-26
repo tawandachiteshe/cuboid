@@ -44,7 +44,6 @@ namespace Cuboid
         Ref<Texture2D> m_Texture;
         Ref<Texture2D> m_Texture2;
         Camera2DController m_CameraController;
-        Ref<Texture2DArray> m_TextureArray;
 
         Ref<FrameBuffer> m_FrameBuffer;
 

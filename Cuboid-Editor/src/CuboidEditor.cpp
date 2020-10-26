@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <Cuboid/Scene/SceneSerializer.h>
 
 static float zoomLevel = 1.0f;
 static float fps = 0.0f;
@@ -31,18 +32,18 @@ namespace Cuboid
         fbSpec.Height = 720;
 
         m_FrameBuffer = Cuboid::FrameBuffer::Create(fbSpec);
-
         m_scActiveScene = CreateRef<Scene>();
 
+
+#if 1
         squareEntity = m_scActiveScene->CreateEntity("Yellow Square");
         squareEntity.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 1.0f, 0.0f, 1.0f));
 
         auto squareEntity1 = m_scActiveScene->CreateEntity("Bigger Square");
         squareEntity1.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 0.0f, 0.0f, 1.0f));
 
-        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(2.0f, 2.0f, 0.0f));
         auto& square1Tranform = squareEntity1.GetComponent<TransformComponent>();
-        square1Tranform = scale;
+        square1Tranform.Scale = glm::vec3(2.0f, 2.0f, 1.0f);
 
         CameraEntity = m_scActiveScene->CreateEntity("Camera");
         CameraEntity.AddComponent<CameraComponent>();
@@ -67,24 +68,24 @@ namespace Cuboid
             void OnUpdate(float ts)
             {
 
-                auto& transform = GetComponent<TransformComponent>().Transform;
+                auto& transform = GetComponent<TransformComponent>();
                 float speed = 5.0f;
 
                 if (Input::IsKeyPressed(Key::A))
                 {
-                    transform[3][0] -= speed * ts;
+                    transform.Translation.x -= speed * ts;
                 }
                 else if (Input::IsKeyPressed(Key::D))
                 {
-                    transform[3][0] += speed * ts;
+                    transform.Translation.x += speed * ts;
                 }
                 else if (Input::IsKeyPressed(Key::W))
                 {
-                    transform[3][1] += speed * ts;
+                    transform.Translation.y += speed * ts;
                 }
                 else if (Input::IsKeyPressed(Key::S))
                 {
-                    transform[3][1] -= speed * ts;
+                    transform.Translation.y -= speed * ts;
                 }
        
             }
@@ -96,7 +97,10 @@ namespace Cuboid
         CameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
         squareEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
 
+#endif
         m_SceneHieracyPanel.SetContext(m_scActiveScene);
+        //SceneSerializer serializer(m_scActiveScene);
+       // serializer.DeserializeRuntime("res/scenes/DefaultScene.buboid");
     }
 
     void CuboidEditor::OnDetach()
@@ -115,6 +119,7 @@ namespace Cuboid
         {
             
         }
+
         m_scActiveScene->OnUpdate(dt);
 
          m_FrameBuffer->UnBind();
@@ -205,10 +210,7 @@ namespace Cuboid
     bool CuboidEditor::OnWindowResized(WindowResizeEvent& e)
     {
         m_vcWindowSize = { (float)e.GetWidth(), (float)e.GetHeight() };
-        CUBOID_INFO(e.GetHeight());
-        CUBOID_INFO(e.GetWidth());
-
-        return true;
+        return false;
     }
 
 }

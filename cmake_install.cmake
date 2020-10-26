@@ -40,6 +40,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("F:/Developer Crib/GameEngineWorkspace/Cuboid/spdlog/cmake_install.cmake")
   include("F:/Developer Crib/GameEngineWorkspace/Cuboid/ENGINE/cmake_install.cmake")
   include("F:/Developer Crib/GameEngineWorkspace/Cuboid/Sandbox/cmake_install.cmake")
+  include("F:/Developer Crib/GameEngineWorkspace/Cuboid/yaml-cpp/cmake_install.cmake")
   include("F:/Developer Crib/GameEngineWorkspace/Cuboid/Cuboid-Editor/cmake_install.cmake")
 
 endif()

@@ -1,0 +1,38 @@
+Scene: Untitled
+Entities:
+  - Entity: 127189218913
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 1
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1000
+      Primary: true
+      FixedAspect: false
+  - Entity: 127189218913
+    TagComponent:
+      Tag: Bigger Square
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [2, 2, 1]
+    SpriteRendererComponent:
+      Color: [1, 0, 0, 1]
+  - Entity: 127189218913
+    TagComponent:
+      Tag: Yellow Square
+    TransformComponent:
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 1, 0, 1]

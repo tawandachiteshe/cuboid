@@ -22,7 +22,6 @@
 #include <Cuboid/Renderer/Renderer2D.h>
 #include <Cuboid/Renderer/Camera2DController.h>
 #include <Cuboid/Renderer/VertexBufferLayout.h>
-#include <Cuboid/Renderer/Texture2DArray.h>
 #include <Cuboid/Renderer/FrameBuffer.h>
 #include "Input.h"
 

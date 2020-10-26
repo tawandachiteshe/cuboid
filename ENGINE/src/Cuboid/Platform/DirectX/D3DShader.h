@@ -35,6 +35,8 @@ namespace Cuboid
 
         void SetMat4(const std::string &name, const glm::mat4 &value) override;
 
+        void SetPointerArray(const std::string& name, void* values, uint32_t count) override;
+
         ID3DBlob * GetVertexShaderBuffer() const;
 
         ID3DBlob * GetPixelShaderBuffer() const;

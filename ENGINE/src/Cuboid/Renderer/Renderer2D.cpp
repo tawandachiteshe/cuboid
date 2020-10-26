@@ -91,7 +91,6 @@ namespace Cuboid
 
      
         Renderer2D::Statistics Stats;
-        Ref<Texture2DArray> TextureArray;
     };
 
 
@@ -261,8 +260,6 @@ namespace Cuboid
     {
         //glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, (int*)&Renderer2DStorage::MaxTextureSlots);
 
-        s_Storage.TextureArray = Texture2DArray::Create(s_Storage.MaxTextureSlots);
-
         std::string FragSrc, VertSrc = "";
 
         if (RendererAPI::GetAPI() == RendererAPI::API::Opengl)
@@ -283,15 +280,8 @@ namespace Cuboid
         //Initialise primitives here or it wont work dick ... Reason we need vertexAttribs in a shader
 
         s_Storage.WhiteTexture = Texture2D::Create(1, 1);
-
-
         uint32_t whiteTextureData = 0xFFFFFFFF;
-      
-
         s_Storage.WhiteTexture->SetData(&whiteTextureData, sizeof(whiteTextureData));
-
-        s_Storage.TextureArray->AddTexture(s_Storage.WhiteTexture);
-        s_Storage.TextureArray->Bind(0);
 
         InitQuads();
         InitTriangles();
@@ -303,6 +293,9 @@ namespace Cuboid
         int32_t samplers[Renderer2DStorage::MaxTextureSlots];
         for (uint32_t i = 0; i < Renderer2DStorage::MaxTextureSlots; i++)
             samplers[i] = i;
+
+        for (uint32_t i = 0; i < Renderer2DStorage::MaxTextureSlots; i++)
+            s_Storage.TextureSlots[i] = s_Storage.WhiteTexture;
 
         
 
@@ -395,7 +388,6 @@ namespace Cuboid
 
         if (s_Storage.QuadIndexCount != 0)
         {
-            s_Storage.TextureArray->Bind(0);
             RenderCommand::DrawIndexed(s_Storage.QuadVertexArray, s_Storage.QuadIndexCount);
 
         }
@@ -428,7 +420,7 @@ namespace Cuboid
         s_Storage.LineIndexCount = 0;
         s_Storage.LineVertexBufferPtr = s_Storage.LineVertexBufferBase;
         
-        s_Storage.TextureSlotIndex = 1;
+        s_Storage.TextureSlotIndex = 1.0f;
     }
 
     void Renderer2D::Fill(const glm::vec4 &color)
@@ -574,24 +566,7 @@ namespace Cuboid
     void Renderer2D::DrawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<Texture2D> &texture,
                               float tilingFactor, const glm::vec4 &tintColor)
     {
-#if 0
-    
-        CUBOID_CORE_INFO("{0} {1}", s_Storage.TextureArray->GetTextures().size(), (void *)texture.get());
 
-        
-        for (size_t i = 0; i < s_Storage.TextureArray->GetTextures().size(); i++)
-        {
-
-            if (!(*s_Storage.TextureArray->GetTextures()[i].get() == *texture.get()))
-            {
-                CUBOID_CORE_INFO("FOr texture pointer {0}", (void*)s_Storage.TextureArray->GetTextures()[i].get());
-                s_Storage.TextureArray->AddTexture(texture);
-            }
-         
-
-        }
-
-#endif
         Renderer2DStorage::PrimRenderState = PRIMITIVES::QUADS;
         constexpr size_t quadVertexCount = (size_t)PRIMITIVES::QUADS;
 
@@ -632,7 +607,7 @@ namespace Cuboid
             s_Storage.QuadVertexBufferPtr->Positions = transform * s_Storage.QuadVertexPositions[i];
             s_Storage.QuadVertexBufferPtr->Color = color;
             s_Storage.QuadVertexBufferPtr->TextureCoordinates = textureCoords[i];
-            s_Storage.QuadVertexBufferPtr->TextureIdx = textureIndex;
+            s_Storage.QuadVertexBufferPtr->TextureIdx = 1.0f;//textureIndex;
             s_Storage.QuadVertexBufferPtr->TillingFactor = tilingFactor;
             s_Storage.QuadVertexBufferPtr->PointSize = pointsize;
             s_Storage.QuadVertexBufferPtr->Radius = radius;
@@ -865,7 +840,7 @@ namespace Cuboid
             s_Storage.QuadVertexBufferPtr->Positions = transform * s_Storage.QuadVertexPositions[i];
             s_Storage.QuadVertexBufferPtr->Color = color;
             s_Storage.QuadVertexBufferPtr->TextureCoordinates = textureCoords[i];
-            s_Storage.QuadVertexBufferPtr->TextureIdx = textureIndex;
+            s_Storage.QuadVertexBufferPtr->TextureIdx = 1.0f;
             s_Storage.QuadVertexBufferPtr->TillingFactor = tilingFactor;
             s_Storage.QuadVertexBufferPtr->PointSize = pointsize;
             s_Storage.QuadVertexBufferPtr->Radius = radius;

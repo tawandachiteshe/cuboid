@@ -84,6 +84,23 @@ namespace Cuboid
 
     }
 
+    void D3DShader::SetPointerArray(const std::string& name, void* values, uint32_t count)
+    {
+        ID3D11ShaderResourceView* resource0 = (ID3D11ShaderResourceView*)values;
+        ID3D11ShaderResourceView* resource1 = (ID3D11ShaderResourceView*)values + 1;
+        ID3D11ShaderResourceView* resource2 = (ID3D11ShaderResourceView*)values + 2;
+        ID3D11ShaderResourceView* resource3 = (ID3D11ShaderResourceView*)values + 3;
+
+        ID3D11ShaderResourceView* resource4 = (ID3D11ShaderResourceView*)values + 4;
+        ID3D11ShaderResourceView* resource5 = (ID3D11ShaderResourceView*)values + 5;
+        ID3D11ShaderResourceView* resource6 = (ID3D11ShaderResourceView*)values + 6;
+        ID3D11ShaderResourceView* resource7 = (ID3D11ShaderResourceView*)values + 7;
+
+        ID3D11ShaderResourceView* resources[8] = { resource0, resource1, resource2, resource3, resource4, resource5, resource6, resource7 };
+        GraphicsEngine()->GetContext()->PSSetShaderResources(0, count, &resources[0]);
+      
+    }
+
     D3DShader::D3DShader(const std::string &pixelShaderSrc, const std::string &vertexShaderSrc)
     {
         {

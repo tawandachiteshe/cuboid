@@ -20,3 +20,8 @@
 /luac/lua
 /luac/luac.dir
 /x64
+/yaml-cpp/CMakeF
+/yaml-cpp/yaml-cpp.dir
+/yaml-cpp/docs
+/yaml-cpp/test
+/yaml-cpp/Testing

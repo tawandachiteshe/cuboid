@@ -27,6 +27,8 @@
 /Sandbox/Sandbox.dir
 /Cuboid-Editor/CMakeFiles
 /Cuboid-Editor/Cuboid-Editor.dir
+/Cuboid-Editor/assimp-vc142-mtd.dll
+
 /vendor/spdlog/CMakeFiles
 /vendor/spdlog/ENGINE.dir
 /vendor/luac/CMakeFiles

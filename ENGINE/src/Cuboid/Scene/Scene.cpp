@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include "Entity.h"
 #include "Cuboid/Renderer/Renderer2D.h"
+#include "Cuboid/Renderer/Renderer.h"
 #include "Components.h"
 
 namespace Cuboid
@@ -82,6 +83,26 @@ namespace Cuboid
 			Renderer2D::EndScene();
 
 		}
+
+		if (mainCamera)
+		{
+#if 1
+			Renderer::BeginScene(*mainCamera, mainCameraTranform);
+			auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
+
+
+			for (auto entity : view)
+			{
+				auto [transform, mesh] = view.get<TransformComponent, MeshRendererComponent>(entity);
+				Renderer::Submit(mesh.mesh.GetVertexArray(), mesh.shader, transform.GetTransform());
+				Renderer::EndScene();
+
+			}
+
+#endif
+
+		}
+
 	}
 
 	void Scene::OnViewportResize(uint32_t width, uint32_t height)
@@ -156,6 +177,10 @@ namespace Cuboid
 	{
 	}
 
+	template<>
+	void Scene::OnComponentAdded<MeshRendererComponent>(Entity entity, MeshRendererComponent& component)
+	{
+	}
 
 	template<>
 	void Scene::OnComponentAdded<CameraComponent>(Entity entity, CameraComponent& component)

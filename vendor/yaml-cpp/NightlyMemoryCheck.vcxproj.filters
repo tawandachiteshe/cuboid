@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\CMakeFiles\57c5c0b7ee3b7defa1fe394876887d03\NightlyMemoryCheck.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\vendor\yaml-cpp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\vendor\yaml-cpp\CMakeFiles\NightlyMemoryCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8C13E194-426E-33F1-9D79-99986B68BC5C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

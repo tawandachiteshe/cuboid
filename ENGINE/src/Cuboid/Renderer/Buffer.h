@@ -1,13 +1,14 @@
-
-#include <string>
-#include <vector>
-#include "Shader.h"
-
 #ifndef CUBOID_RENDERER_BUFFER_H
 #define CUBOID_RENDERER_BUFFER_H
 
+#include <string>
+#include <vector>
+
+#include "Cuboid/Core/Core.h"
+
 namespace Cuboid
 {
+	class Shader;
 
 
 	enum class ShaderDataType
@@ -16,8 +17,6 @@ namespace Cuboid
 		None = 0, Float1, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool, Byte4
 	
 	};
-
-
 
 	static uint32_t ShaderDataTypeSize(ShaderDataType type)
 	{
@@ -98,7 +97,7 @@ namespace Cuboid
 		private:
 		void CalculateOffsetsAndStride()
 		{
-			UINT offset = 0;
+			uint32_t offset = 0;
 			m_Stride = 0;
 			for (auto& element : m_Elements)
 			{
@@ -127,6 +126,7 @@ namespace Cuboid
 		virtual ~IndexBuffer() = default;
 	};
 
+
 	class VertexBuffer
 	{
 		public:
@@ -149,7 +149,6 @@ namespace Cuboid
 			virtual ~VertexBuffer() = default;
 
 	};
-
 
 }
 

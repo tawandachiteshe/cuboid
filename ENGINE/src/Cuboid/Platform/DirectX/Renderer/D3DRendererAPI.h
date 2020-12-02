@@ -29,6 +29,10 @@ namespace Cuboid
         static ID3D11BlendState* m_pBlendState;
         static ID3D11RasterizerState* m_pRasterizerState;
 
+
+        // Inherited via RendererAPI
+        virtual void Draw(const Ref<VertexArray>& vertexArray, uint32_t vertexCount, uint32_t startVertex) override;
+
     };
 
 }

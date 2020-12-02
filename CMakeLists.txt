@@ -8,15 +8,21 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAM
 set(CMAKE_BINARY_DIR "${PROJECT_SOURCE_DIR}/bin-int/${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}/${CMAKE_BUILD_TYPE}")
 set(CMAKE_INSTALL_DATADIR "${PROJECT_SOURCE_DIR}/bin-int/${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}/${CMAKE_BUILD_TYPE}")
 
-#add_subdirectory(assimp)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
+
+
+add_subdirectory(vendor/assimp)
 #add_subdirectory(entt)
-add_subdirectory(glad)
-add_subdirectory(luac)
-add_subdirectory(imgui)
-add_subdirectory(spdlog)
+add_subdirectory(vendor/glad)
+add_subdirectory(vendor/luac)
+add_subdirectory(vendor/imgui)
+add_subdirectory(vendor/spdlog)
 add_subdirectory(ENGINE)
 add_subdirectory(Sandbox)
-add_subdirectory(yaml-cpp)
+add_subdirectory(vendor/yaml-cpp)
 add_subdirectory(Cuboid-Editor)
+
+set_target_properties(assimp assimp_cmd glad luac imgui spdlog yaml-cpp zlib zlibstatic unit uninstall IrrXML lua UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES FOLDER HiddenTargets)
 
 

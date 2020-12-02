@@ -1,0 +1,15 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.16/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.16/Modules/WriteBasicConfigVersionFile.cmake
+F:/Developer Crib/GameEngineWorkspace/Cuboid/CMakeFiles/cmake.verify_globs
+F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/yaml-cpp/CMakeLists.txt
+F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/yaml-cpp/yaml-cpp-config.cmake.in
+F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/yaml-cpp/yaml-cpp.pc.in

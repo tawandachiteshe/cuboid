@@ -1,5 +1,6 @@
 #include "RendererCommand.h"
 #include <Cuboid/Renderer/Camera2D.h>
+#include <Cuboid/Renderer/Camera.h>
 #include <Cuboid/Renderer/Shader.h>
 #include <Cuboid/Renderer/VertexArray.h>
 #include <glm/glm.hpp>
@@ -18,6 +19,7 @@ namespace Cuboid
 			virtual ~Renderer();
 			static void Init();
 			static void BeginScene(const Camera2D& camera);
+			static void BeginScene(const Camera& camera, const glm::mat4& transform);
 			static void EndScene();
 			static void Submit(const Ref<VertexArray>& vtxArray,const Ref<Shader>& shader,  const glm::mat4& transform = glm::mat4(1.0f));
 			static void OnWindowResize(uint32_t width, uint32_t height);

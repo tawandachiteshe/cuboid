@@ -30,12 +30,21 @@ namespace Cuboid
             desc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
             desc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
 
+            desc.RenderTarget[1].BlendEnable = true;
+            desc.RenderTarget[1].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+            desc.RenderTarget[1].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+            desc.RenderTarget[1].BlendOp = D3D11_BLEND_OP_ADD;
+            desc.RenderTarget[1].SrcBlendAlpha = D3D11_BLEND_INV_SRC_ALPHA;
+            desc.RenderTarget[1].DestBlendAlpha = D3D11_BLEND_ZERO;
+            desc.RenderTarget[1].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+            desc.RenderTarget[1].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+
             GraphicsEngine()->GetDevice()->CreateBlendState(&desc, &m_pBlendState);
 
-            const float blend_factor[4] = { 0.f, 0.f, 0.f, 0.f };
+            
 
             //TODO make blend state flexible...
-            //GraphicsEngine()->GetContext()->OMSetBlendState(m_pBlendState, blend_factor, 0xffffffff);
+            
            
         }
 
@@ -43,7 +52,7 @@ namespace Cuboid
             D3D11_RASTERIZER_DESC desc;
             ZeroMemory(&desc, sizeof(desc));
             desc.FillMode = D3D11_FILL_SOLID;
-            desc.CullMode = D3D11_CULL_NONE;
+            desc.CullMode = D3D11_CULL_BACK;
             desc.ScissorEnable = false;
             desc.DepthClipEnable = false;
             desc.FrontCounterClockwise = true;
@@ -63,6 +72,10 @@ namespace Cuboid
         vp.MaxDepth = 1.0f;
         vp.TopLeftX = 0.0f;
         vp.TopLeftY = 0.0f;
+
+
+        //const float blend_factor[4] = { 0.f, 0.f, 0.f, 0.f };
+        //GraphicsEngine()->GetContext()->OMSetBlendState(m_pBlendState, blend_factor, 0xffffffff);
 
         GraphicsEngine()->GetContext()->RSSetViewports(1, &vp);
     }
@@ -90,6 +103,10 @@ namespace Cuboid
         GraphicsEngine()->GetContext()->RSSetState(m_pRasterizerState);
         GraphicsEngine()->GetContext()->DrawIndexed(count, 0, 0);
 
+    }
+
+    void D3DRendererAPI::Draw(const Ref<VertexArray>& vertexArray, uint32_t vertexCount, uint32_t startVertex)
+    {
     }
 
 

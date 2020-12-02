@@ -13,18 +13,48 @@ namespace Cuboid
 		m_SceneData->m_ProjectionViewMatrix = camera.GetViewProjectionMatrix();
 	}
 
+	void Renderer::BeginScene(const Camera& camera, const glm::mat4& transform)
+	{
+		m_SceneData->m_ProjectionViewMatrix = camera.GetProjection() * glm::inverse(transform);
+	}
+
 	void Renderer::EndScene()
 	{
 	}
+
+	struct MVP
+	{
+		glm::mat4 transform;
+		glm::mat4 projectionview;
+		glm::mat4 inverseTranposeTransform;
+
+	};
 
 	void Renderer::Submit(const Ref<VertexArray> &vtxArray, const Ref<Shader>& shader, const glm::mat4& transform)
 	{
 
 		shader->Bind();
 		vtxArray->Bind();
-		shader->SetMat4("u_Transform", transform);
 
-		shader->SetMat4("u_ProjectionViewMatrix", m_SceneData->m_ProjectionViewMatrix);
+		if (RendererAPI::GetAPI() == RendererAPI::API::Opengl)
+		{
+			shader->SetMat4("u_ProjectionViewMatrix", m_SceneData->m_ProjectionViewMatrix);
+			shader->SetMat4("u_Transform", transform);
+		}
+		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
+		{
+
+			shader->GetConstantBuffer()->SetConstantBufferData<MVP>("MVP", [&](MVP* mvp)
+				{
+					glm::mat in = glm::mat4(1.0f);
+					mvp->transform = transform;
+					mvp->projectionview = m_SceneData->m_ProjectionViewMatrix;
+					mvp->inverseTranposeTransform = glm::inverse(glm::transpose(transform));
+
+				});
+
+		}
+		
 		RenderCommand::DrawIndexed(vtxArray);
 	}
 

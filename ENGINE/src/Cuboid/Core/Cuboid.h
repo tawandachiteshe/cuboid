@@ -32,5 +32,7 @@
 #include "Cuboid/Scene/Entity.h"
 #include "Cuboid/Scene/ScriptableEntity.h"
 
+#include "Cuboid/Renderer/Lights.h"
+#include "Cuboid/Platform/DirectX/ConstantBuffer.h"
 
 #endif

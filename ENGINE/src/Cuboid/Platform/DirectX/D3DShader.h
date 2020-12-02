@@ -7,12 +7,15 @@
 
 #include <Cuboid/Renderer/Shader.h>
 #include <d3d11.h>
+#include <unordered_map>
+#include <DirectXMath.h>
 
 namespace Cuboid
 {
 
     class D3DShader : public Shader
     {
+
         public:
 
         D3DShader(const std::string& pixelShaderSrc, const std::string& vertexShaderSrc);
@@ -37,16 +40,21 @@ namespace Cuboid
 
         void SetPointerArray(const std::string& name, void* values, uint32_t count) override;
 
+        void SetConstantBuffer(const Ref<ConstantBuffer>& buffer) override 
+        {
+            m_Buffer = buffer;
+            m_PixelConstantBuffers = buffer->GetPixelConstantBuffers();
+            m_VertexConstantBuffers = buffer->GetVertexConstantBuffers();
+
+            m_VertexConstantBuffers.insert(m_VertexConstantBuffers.begin(), m_pVertexShaderConstantBuffer);
+        
+        }
+
+        Ref<ConstantBuffer>& GetConstantBuffer() override { return m_Buffer; }
+
         ID3DBlob * GetVertexShaderBuffer() const;
 
         ID3DBlob * GetPixelShaderBuffer() const;
-
-        private:
-
-            struct VERTEX_CONSTANT_BUFFER
-            {
-                glm::mat4 mvp;
-            };
 
         ID3DBlob* m_pVertexShaderBuffer;
 
@@ -64,14 +72,23 @@ namespace Cuboid
         void CreateVertexShader();
         void CreatePixelShader();
 
+
+
         ID3D11VertexShader* m_VertexShader;
 
         ID3D11PixelShader* m_PixelShader;
 
-        ID3D11Buffer* m_pShaderConstantBuffer;
+        ID3D11Buffer* m_pVertexShaderConstantBuffer;
+
+        ID3D11Buffer* m_pPixelShaderConstantBuffer;
+
+        std::vector<ID3D11Buffer*> m_VertexConstantBuffers;
+
+        std::vector<ID3D11Buffer*> m_PixelConstantBuffers;
+
+        Ref<ConstantBuffer> m_Buffer;
+
     };
-
-
 
 }
 #endif //CUBOID_D3DSHADER_H

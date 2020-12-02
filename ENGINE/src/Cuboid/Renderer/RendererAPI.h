@@ -28,6 +28,8 @@ namespace Cuboid
 		static Scope<RendererAPI> Create();
 		virtual ~RendererAPI() = default;
 
+		virtual void Draw(const Ref<VertexArray>& vertexArray, uint32_t vertexCount, uint32_t startVertex) = 0;
+
 	private:
 		static API d_API;
 	};

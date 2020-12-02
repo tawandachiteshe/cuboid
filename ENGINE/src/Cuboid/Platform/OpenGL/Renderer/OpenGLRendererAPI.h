@@ -16,6 +16,9 @@ namespace Cuboid
 		//note 0x0004 is equal to GL_TRIANGLES
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0, uint32_t mode = 0x0004) override;
 		virtual ~OpenGLRendererAPI();
+
+		// Inherited via RendererAPI
+		virtual void Draw(const Ref<VertexArray>& vertexArray, uint32_t vertexCount, uint32_t startVertex) override;
 	};
 
 }

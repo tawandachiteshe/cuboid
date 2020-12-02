@@ -88,6 +88,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Shader.cpp">
       <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Mesh.cpp">
+      <Filter>Cuboid\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture.cpp">
       <Filter>Cuboid\Renderer</Filter>
     </ClCompile>
@@ -133,6 +136,9 @@
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\FileSystem.cpp">
       <Filter>Cuboid\utils\IO</Filter>
     </ClCompile>
+    <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\MeshLoader.cpp">
+      <Filter>Cuboid\utils\IO</Filter>
+    </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Application.cpp">
       <Filter>Cuboid\Core</Filter>
     </ClCompile>
@@ -147,6 +153,9 @@
     </ClCompile>
     <ClCompile Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Events\Event.cpp">
       <Filter>Cuboid\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cuboid\Platform\DirectX\ConstantBuffer.cpp">
+      <Filter>Cuboid\Platform\DirectX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +246,9 @@
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Shader.h">
       <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Mesh.h">
+      <Filter>Cuboid\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Texture.h">
       <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
@@ -259,6 +271,9 @@
       <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\FrameBuffer.h">
+      <Filter>Cuboid\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Lights.h">
       <Filter>Cuboid\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Renderer\Camera.h">
@@ -289,6 +304,9 @@
       <Filter>Cuboid\utils\stb_image</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\FileSystem.h">
+      <Filter>Cuboid\utils\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\utils\IO\MeshLoader.h">
       <Filter>Cuboid\utils\IO</Filter>
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\src\Cuboid\Core\Application.h">
@@ -332,6 +350,9 @@
     </ClInclude>
     <ClInclude Include="F:\Developer Crib\GameEngineWorkspace\Cuboid\ENGINE\CMakeFiles\ENGINE.dir\cmake_pch.hxx">
       <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cuboid\Platform\DirectX\ConstantBuffer.h">
+      <Filter>Cuboid\Platform\DirectX</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

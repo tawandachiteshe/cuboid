@@ -40,6 +40,7 @@ namespace Cuboid
         Ref<VertexBuffer> m_vb;
         Ref<IndexBuffer> m_ib;
         Ref<Shader> m_Shader;
+        Ref<Shader> m_MeshShader;
         Ref<VertexBufferLayout> m_Layout;
         Ref<Texture2D> m_Texture;
         Ref<Texture2D> m_Texture2;
@@ -57,6 +58,7 @@ namespace Cuboid
 
         Entity squareEntity = {};
         Entity CameraEntity = {};
+        Entity m_CubeEntity = {};
 
         SceneHieracyPanel m_SceneHieracyPanel;
     };

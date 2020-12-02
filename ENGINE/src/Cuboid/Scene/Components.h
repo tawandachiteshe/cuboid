@@ -4,6 +4,7 @@
 
 #include "SceneCamera.h"
 #include "ScriptableEntity.h"
+#include "Cuboid/Renderer/Mesh.h"
 
 namespace Cuboid
 {
@@ -63,6 +64,18 @@ namespace Cuboid
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
 
+	};
+
+
+	struct MeshRendererComponent
+	{
+		//TODO make a material system
+		Mesh mesh;
+		Ref<Shader> shader;
+
+		MeshRendererComponent() = default;
+		MeshRendererComponent(const Mesh& mesh_, const Ref<Shader>& shader_) : mesh(mesh_), shader(shader_){}
+		MeshRendererComponent(const MeshRendererComponent&) = default; 
 	};
 
 

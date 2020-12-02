@@ -7,20 +7,26 @@
 #include <d3dcompiler.h>
 #include <glm/gtc/type_ptr.hpp>
 #include "InitializeD3Devices.h"
+#include "Cuboid\Renderer\Lights.h"
 
 
 namespace Cuboid
 {
-    struct DefaultShaderContantBuffer
+    struct VERTEX_CONSTANT_BUFFER
     {
-
+        glm::mat4 mvp;
     };
-
 
     void D3DShader::Bind()
     {
         GraphicsEngine()->GetContext()->VSSetShader(m_VertexShader, nullptr, 0);
-        GraphicsEngine()->GetContext()->VSSetConstantBuffers(0, 1, &m_pShaderConstantBuffer);
+        GraphicsEngine()->GetContext()->VSSetConstantBuffers(0, (UINT)m_VertexConstantBuffers.size(), &m_VertexConstantBuffers[0]);
+
+        if (m_PixelConstantBuffers.size() != 0)
+        {
+            GraphicsEngine()->GetContext()->PSSetConstantBuffers(0, (UINT)m_PixelConstantBuffers.size(), &m_PixelConstantBuffers[0]);
+        }
+
         GraphicsEngine()->GetContext()->PSSetShader(m_PixelShader, nullptr, 0);
     }
 
@@ -58,8 +64,7 @@ namespace Cuboid
 
     void D3DShader::SetFloat3(const std::string &name, const glm::vec3 &value)
     {
-
-
+        
     }
 
     void D3DShader::SetFloat4(const std::string &name, const glm::vec4 &value)
@@ -73,45 +78,38 @@ namespace Cuboid
 
         D3D11_MAPPED_SUBRESOURCE mapped_resource;
 
-        if (GraphicsEngine()->GetContext()->Map(m_pShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped_resource) != S_OK)
+        if (GraphicsEngine()->GetContext()->Map(m_pVertexShaderConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped_resource) != S_OK)
             CUBOID_CORE_ERROR("FAILED TO MAP VERTEX SHADER CONSTANT BUFFER");
 
         VERTEX_CONSTANT_BUFFER* constant_buffer = (VERTEX_CONSTANT_BUFFER*)mapped_resource.pData;
 
         memcpy(&constant_buffer->mvp, &value, sizeof(value));
 
-        GraphicsEngine()->GetContext()->Unmap(m_pShaderConstantBuffer, 0);
+        GraphicsEngine()->GetContext()->Unmap(m_pVertexShaderConstantBuffer, 0);
 
     }
 
     void D3DShader::SetPointerArray(const std::string& name, void* values, uint32_t count)
     {
-        ID3D11ShaderResourceView* resource0 = (ID3D11ShaderResourceView*)values;
-        ID3D11ShaderResourceView* resource1 = (ID3D11ShaderResourceView*)values + 1;
-        ID3D11ShaderResourceView* resource2 = (ID3D11ShaderResourceView*)values + 2;
-        ID3D11ShaderResourceView* resource3 = (ID3D11ShaderResourceView*)values + 3;
-
-        ID3D11ShaderResourceView* resource4 = (ID3D11ShaderResourceView*)values + 4;
-        ID3D11ShaderResourceView* resource5 = (ID3D11ShaderResourceView*)values + 5;
-        ID3D11ShaderResourceView* resource6 = (ID3D11ShaderResourceView*)values + 6;
-        ID3D11ShaderResourceView* resource7 = (ID3D11ShaderResourceView*)values + 7;
-
-        ID3D11ShaderResourceView* resources[8] = { resource0, resource1, resource2, resource3, resource4, resource5, resource6, resource7 };
-        GraphicsEngine()->GetContext()->PSSetShaderResources(0, count, &resources[0]);
       
     }
 
     D3DShader::D3DShader(const std::string &pixelShaderSrc, const std::string &vertexShaderSrc)
     {
         {
+            HRESULT hr = S_OK;
 
-            D3D11_BUFFER_DESC desc;
-            desc.ByteWidth = sizeof(VERTEX_CONSTANT_BUFFER);
-            desc.Usage = D3D11_USAGE_DYNAMIC;
-            desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-            desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-            desc.MiscFlags = 0;
-            GraphicsEngine()->GetDevice()->CreateBuffer(&desc, NULL, &m_pShaderConstantBuffer);
+            D3D11_BUFFER_DESC vertex_desc;
+            vertex_desc.ByteWidth = sizeof(VERTEX_CONSTANT_BUFFER);
+            vertex_desc.Usage = D3D11_USAGE_DYNAMIC;
+            vertex_desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+            vertex_desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+            vertex_desc.MiscFlags = 0;
+            vertex_desc.StructureByteStride = 0;
+            hr = GraphicsEngine()->GetDevice()->CreateBuffer(&vertex_desc, NULL, &m_pVertexShaderConstantBuffer);
+
+            m_VertexConstantBuffers.push_back(m_pVertexShaderConstantBuffer);
+           
 
         }
         bool is_shader_cool = false;
@@ -181,4 +179,9 @@ namespace Cuboid
         
     }
 
+#if 0
+
+    
+
+#endif 
 }

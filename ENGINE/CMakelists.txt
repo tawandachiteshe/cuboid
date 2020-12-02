@@ -23,6 +23,7 @@ set(D3_SOURCE_FILES
         src/Cuboid/Platform/DirectX/D3DShader.cpp
         src/Cuboid/Platform/DirectX/D3DTexture.cpp
         src/Cuboid/Platform/DirectX/D3DFramebuffers.cpp
+        src/Cuboid/Platform/DirectX/ConstantBuffer.cpp
         src/Cuboid/Platform/DirectX/InitializeD3Devices.cpp
         src/Cuboid/Platform/Windowing/WindowsWindow.cpp
         src/Cuboid/Platform/Windowing/SDLWindow.cpp
@@ -35,6 +36,7 @@ set(D3_SOURCE_FILES
         src/Cuboid/Renderer/RendererCommand.cpp
         src/Cuboid/Renderer/VertexArray.cpp
         src/Cuboid/Renderer/Shader.cpp
+        src/Cuboid/Renderer/Mesh.cpp
         src/Cuboid/Renderer/Texture.cpp
         src/Cuboid/Renderer/Camera2D.cpp
         src/Cuboid/Renderer/Camera2DController.cpp
@@ -51,6 +53,7 @@ set(D3_SOURCE_FILES
         src/Cuboid/utils/stb_image/std_image.cpp
         src/Cuboid/utils/Logger.cpp
         src/Cuboid/utils/IO/FileSystem.cpp
+        src/Cuboid/utils/IO/MeshLoader.cpp
 
         src/Cuboid/Core/Application.cpp
         src/Cuboid/Core/Layer.cpp
@@ -80,6 +83,7 @@ set(D3_HEADER_FILES
         src/Cuboid/Platform/DirectX/D3DIndexBuffer.h
         src/Cuboid/Platform/DirectX/D3DShader.h
         src/Cuboid/Platform/DirectX/D3DTexture.h
+        src/Cuboid/Platform/DirectX/ConstantBuffer.h
         src/Cuboid/Platform/DirectX/D3DFramebuffers.h
         src/Cuboid/Platform/DirectX/DxHelper.h
         src/Cuboid/Platform/DirectX/InitializeD3Devices.h
@@ -93,6 +97,7 @@ set(D3_HEADER_FILES
         src/Cuboid/Renderer/RendererCommand.h
         src/Cuboid/Renderer/VertexArray.h
         src/Cuboid/Renderer/Shader.h
+        src/Cuboid/Renderer/Mesh.h
         src/Cuboid/Renderer/Texture.h
         src/Cuboid/Renderer/Camera2D.h
         src/Cuboid/Renderer/Camera2DController.h
@@ -101,6 +106,7 @@ set(D3_HEADER_FILES
         src/Cuboid/Renderer/VertexBufferLayout.h
         src/Cuboid/Renderer/Texture2DArray.h
         src/Cuboid/Renderer/FrameBuffer.h
+        src/Cuboid/Renderer/Lights.h
         src/Cuboid/Renderer/Camera.h
         src/Cuboid/Scene/Scene.h
         src/Cuboid/Scene/Entity.h
@@ -113,6 +119,7 @@ set(D3_HEADER_FILES
         src/Cuboid/utils/stb_image/stb_image.h
         src/Cuboid/utils/Logger.cpp
         src/Cuboid/utils/IO/FileSystem.h
+        src/Cuboid/utils/IO/MeshLoader.h
 
         src/Cuboid/Core/Application.h
         src/Cuboid/Core/Layer.h
@@ -141,7 +148,7 @@ target_include_directories(ENGINE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../vendor/e
 target_include_directories(ENGINE PUBLIC ${yaml-cpp_SOURCE_DIR}/include)
 #TODO link assimp
 
-target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d11.lib d3dcompiler.lib dxgi.lib yaml-cpp)
+target_link_libraries(ENGINE PUBLIC spdlog::spdlog_header_only glad opengl32 glu32 imgui SDL2main SDL2 luac d3d11.lib d3dcompiler.lib dxgi.lib yaml-cpp assimp)
 
 #target_link_options(ENGINE PUBLIC -Wreturn-local-addr -Wint-to-pointer-cast)
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR}/src FILES ${D3_SOURCE_FILES} ${D3_HEADER_FILES})

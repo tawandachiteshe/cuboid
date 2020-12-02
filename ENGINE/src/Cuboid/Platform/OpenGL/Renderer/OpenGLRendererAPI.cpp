@@ -80,4 +80,8 @@ namespace Cuboid
 	{
 	}
 
+	void OpenGLRendererAPI::Draw(const Ref<VertexArray>& vertexArray, uint32_t vertexCount, uint32_t startVertex)
+	{
+	}
+
 }

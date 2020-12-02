@@ -14,14 +14,109 @@
 # EXTERNAL cache entries
 ########################
 
+//Android JNI IOSystem support is active
+ASSIMP_ANDROID_JNIIOSYSTEM:BOOL=OFF
+
+//Enable AddressSanitizer.
+ASSIMP_ASAN:BOOL=OFF
+
+//Path the tool executables are installed to.
+ASSIMP_BIN_INSTALL_DIR:STRING=bin
+
+//default value of all ASSIMP_BUILD_XXX_EXPORTER values
+ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT:BOOL=ON
+
+//default value of all ASSIMP_BUILD_XXX_IMPORTER values
+ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT:BOOL=ON
+
+//describe the current architecture.
+ASSIMP_BUILD_ARCHITECTURE:STRING=
+
+//If the supplementary tools for Assimp are built in addition to
+// the library.
+ASSIMP_BUILD_ASSIMP_TOOLS:BOOL=ON
+
+//describe the current compiler.
+ASSIMP_BUILD_COMPILER:STRING=
+
+//Build the C4D importer, which relies on the non-free Melange
+// SDK.
+ASSIMP_BUILD_NONFREE_C4D_IMPORTER:BOOL=OFF
+
+//If the official samples are built as well (needs Glut).
+ASSIMP_BUILD_SAMPLES:BOOL=OFF
+
+//If the test suite for Assimp is built in addition to the library.
+ASSIMP_BUILD_TESTS:BOOL=ON
+
+//Build your own zlib
+ASSIMP_BUILD_ZLIB:BOOL=OFF
+
+//Enable this to measure test coverage.
+ASSIMP_COVERALLS:BOOL=OFF
+
+//Set to ON to enable double precision processing
+ASSIMP_DOUBLE_PRECISION:BOOL=OFF
+
+//adds the target headercheck which compiles every header file,
+// default disabled because it adds many targets
+ASSIMP_HEADERCHECK:BOOL=OFF
+
+//Path the header files are installed to.
+ASSIMP_INCLUDE_INSTALL_DIR:STRING=include
+
+//Install MSVC debug files.
+ASSIMP_INSTALL_PDB:BOOL=ON
+
+//Suffix to append to library names
+ASSIMP_LIBRARY_SUFFIX:STRING=
+
+//Path the built library files are installed to.
+ASSIMP_LIB_INSTALL_DIR:STRING=lib
+
+//Disable Assimp's export functionality.
+ASSIMP_NO_EXPORT:BOOL=OFF
+
+//Set to ON to generate CPack configuration files and packaging
+// targets
+ASSIMP_OPT_BUILD_PACKAGES:BOOL=OFF
+
+//the package-specific version used for uploading the sources
+ASSIMP_PACKAGE_VERSION:STRING=0
+
+//Enable Undefined Behavior sanitizer.
+ASSIMP_UBSAN:BOOL=OFF
+
+//Treat warnings as errors.
+ASSIMP_WERROR:BOOL=OFF
+
+//Value Computed by CMake
+Assimp_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/assimp
+
+//Value Computed by CMake
+Assimp_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/assimp
+
+//Build documentation using Doxygen.
+BUILD_DOCS:BOOL=OFF
+
+//Build package as Mac OS X Framework bundle.
+BUILD_FRAMEWORK:BOOL=OFF
+
+//Build package with shared libraries.
+BUILD_SHARED_LIBS:BOOL=OFF
+
 //Build the testing tree.
 BUILD_TESTING:BOOL=OFF
 
 //Path to a program.
 BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
 
+//For backwards compatibility, what version of CMake commands and
+// syntax should this version of CMake try to support.
+CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
+
 //Choose Release or Debug
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Semicolon separated list of supported configuration types, only
 // supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
@@ -64,6 +159,9 @@ CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 //Libraries linked by default with all C applications.
 CMAKE_C_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
+//Debug Postfix for lib, samples and tools
+CMAKE_DEBUG_POSTFIX:STRING=d
+
 //Flags used by the linker during all build types.
 CMAKE_EXE_LINKER_FLAGS:STRING=/machine:x64
 
@@ -83,7 +181,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 CMAKE_INSTALL_BINDIR:PATH=bin
 
 //Read-only architecture-independent data (DATAROOTDIR)
-CMAKE_INSTALL_DATADIR:PATH=
+CMAKE_INSTALL_DATADIR:PATH=F:/Developer Crib/GameEngineWorkspace/Cuboid/bin-int/Windows-AMD64
 
 //Read-only architecture-independent data root (share)
 CMAKE_INSTALL_DATAROOTDIR:PATH=share
@@ -166,13 +264,13 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=Cuboid
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.6.0
+CMAKE_PROJECT_VERSION:STATIC=5.0.0
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=5
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=6
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_PATCH:STATIC=0
@@ -285,20 +383,68 @@ Cuboid_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Path to a library.
+DirectX_D3DCOMPILER_LIBRARY:FILEPATH=DirectX_D3DCOMPILER_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_D3DX9_LIBRARY:FILEPATH=DirectX_D3DX9_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_DXERR_LIBRARY:FILEPATH=DirectX_DXERR_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_DXGI_LIBRARY:FILEPATH=DirectX_DXGI_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_DXGUID_LIBRARY:FILEPATH=DirectX_DXGUID_LIBRARY-NOTFOUND
+
+//x
+DirectX_INCLUDE_DIR:PATH=DirectX_INCLUDE_DIR-NOTFOUND
+
+//x
+DirectX_LIBRARY:FILEPATH=DirectX_LIBRARY-NOTFOUND
+
 //Value Computed by CMake
 ENGINE_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/ENGINE
 
 //Dependencies for the target
-ENGINE_LIB_DEPENDS:STATIC=general;glad;general;opengl32;general;glu32;general;imgui;general;SDL2main;general;SDL2;general;luac;general;d3d11.lib;general;d3dcompiler.lib;general;dxgi.lib;general;yaml-cpp;
+ENGINE_LIB_DEPENDS:STATIC=general;glad;general;opengl32;general;glu32;general;imgui;general;SDL2main;general;SDL2;general;luac;general;d3d11.lib;general;d3dcompiler.lib;general;dxgi.lib;general;yaml-cpp;general;assimp;
 
 //Value Computed by CMake
 ENGINE_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/ENGINE
+
+//Single output directory for building all executables.
+EXECUTABLE_OUTPUT_PATH:PATH=
 
 //Path to a program.
 GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
 //Path to a program.
 HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
+
+//Enable Hunter package manager support
+HUNTER_ENABLED:BOOL=OFF
+
+//Print a lot info
+HUNTER_STATUS_DEBUG:BOOL=OFF
+
+//Print working status
+HUNTER_STATUS_PRINT:BOOL=ON
+
+//Enable/disable TLS certificate checking on downloads
+HUNTER_TLS_VERIFY:BOOL=ON
+
+//Don't call git to get the hash.
+IGNORE_GIT_HASH:BOOL=OFF
+
+//Inject debug postfix in .a/.so/.dll lib names
+INJECT_DEBUG_POSTFIX:BOOL=ON
+
+//Single output directory for building all libraries.
+LIBRARY_OUTPUT_PATH:PATH=
+
+//the suffix for the assimp windows library
+LIBRARY_SUFFIX:STRING=-vc142-mt
 
 //Command to build the project
 MAKECOMMAND:STRING="C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
@@ -311,6 +457,12 @@ MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
 //Path to a program.
 P4COMMAND:FILEPATH=P4COMMAND-NOTFOUND
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
+
+//Path to a library.
+RT_LIBRARY:FILEPATH=RT_LIBRARY-NOTFOUND
 
 //Name of the computer/site where compile is being run
 SITE:STRING=TAWANDA
@@ -391,6 +543,9 @@ SPDLOG_WCHAR_SUPPORT:BOOL=OFF
 //Path to a program.
 SVNCOMMAND:FILEPATH=SVNCOMMAND-NOTFOUND
 
+//Use system installed Irrlicht/IrrXML library.
+SYSTEM_IRRXML:BOOL=OFF
+
 //Value Computed by CMake
 Sandbox_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/Sandbox
 
@@ -401,7 +556,7 @@ Sandbox_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/Sandbox
 YAML_BUILD_SHARED_LIBS:BOOL=OFF
 
 //Value Computed by CMake
-YAML_CPP_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/yaml-cpp
+YAML_CPP_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/yaml-cpp
 
 //Enable yaml-cpp contrib in library
 YAML_CPP_BUILD_CONTRIB:BOOL=OFF
@@ -413,46 +568,72 @@ YAML_CPP_BUILD_TOOLS:BOOL=OFF
 YAML_CPP_CLANG_FORMAT_EXE:FILEPATH=YAML_CPP_CLANG_FORMAT_EXE-NOTFOUND
 
 //Value Computed by CMake
-YAML_CPP_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/yaml-cpp
+YAML_CPP_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/yaml-cpp
 
 //MSVC: Build yaml-cpp with shared runtime libs (/MD)
 YAML_MSVC_SHARED_RT:BOOL=OFF
 
-//Value Computed by CMake
-glad_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/glad
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=ZLIB_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_DBG:FILEPATH=ZLIB_LIBRARY_DBG-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_REL:FILEPATH=ZLIB_LIBRARY_REL-NOTFOUND
+
+//Dependencies for the target
+assimp_LIB_DEPENDS:STATIC=general;zlibstatic;general;IrrXML;
 
 //Value Computed by CMake
-glad_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/glad
+glad_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/glad
 
 //Value Computed by CMake
-imgui_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui
+glad_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/glad
 
 //Value Computed by CMake
-imgui_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/imgui
+imgui_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/imgui
 
 //Value Computed by CMake
-lua_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/luac/lua
+imgui_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/imgui
 
 //Value Computed by CMake
-lua_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/luac/lua
+lua_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/luac/lua
 
 //Value Computed by CMake
-luac_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/luac
+lua_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/luac/lua
 
 //Value Computed by CMake
-luac_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/luac
+luac_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/luac
 
 //Value Computed by CMake
-spdlog_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/spdlog
+luac_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/luac
 
 //Value Computed by CMake
-spdlog_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/spdlog
+spdlog_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/spdlog
+
+//Value Computed by CMake
+spdlog_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/spdlog
+
+//Value Computed by CMake
+zlib_BINARY_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/assimp/contrib/zlib
+
+//Value Computed by CMake
+zlib_SOURCE_DIR:STATIC=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/assimp/contrib/zlib
 
 
 ########################
 # INTERNAL cache entries
 ########################
 
+//Enable building amd64 assembly implementation
+AMD64:INTERNAL=FALSE
+//Enable building i686 assembly implementation
+ASM686:INTERNAL=FALSE
+//ADVANCED property for variable: ASSIMP_BUILD_ARCHITECTURE
+ASSIMP_BUILD_ARCHITECTURE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ASSIMP_BUILD_COMPILER
+ASSIMP_BUILD_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BZRCOMMAND
 BZRCOMMAND-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -567,7 +748,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=18
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -625,20 +806,56 @@ CVSCOMMAND-ADVANCED:INTERNAL=1
 CVS_UPDATE_OPTIONS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3DCOMPILER_LIBRARY
+DirectX_D3DCOMPILER_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3DX9_LIBRARY
+DirectX_D3DX9_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXERR_LIBRARY
+DirectX_DXERR_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXGI_LIBRARY
+DirectX_DXGI_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXGUID_LIBRARY
+DirectX_DXGUID_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_INCLUDE_DIR
+DirectX_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_LIBRARY
+DirectX_LIBRARY-ADVANCED:INTERNAL=1
+//x
+DirectX_PREFIX_PATH_INT_CHECK:INTERNAL=C:/apps_x86/Microsoft DirectX SDK*;C:/Program Files (x86)/Microsoft DirectX SDK*;C:/apps/Microsoft DirectX SDK*;C:/Program Files/Microsoft DirectX SDK*;C:/Program Files (x86)/Windows Kits/8.1;C:\Program Files/Microsoft DirectX SDK*
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GITCOMMAND
 GITCOMMAND-ADVANCED:INTERNAL=1
+//Have function fseeko
+HAVE_FSEEKO:INTERNAL=
+//Result of TRY_COMPILE
+HAVE_OFF64_T:INTERNAL=FALSE
+//Have include stddef.h
+HAVE_STDDEF_H:INTERNAL=1
+//Have include stdint.h
+HAVE_STDINT_H:INTERNAL=1
+//Have include sys/types.h
+HAVE_SYS_TYPES_H:INTERNAL=1
 //ADVANCED property for variable: HGCOMMAND
 HGCOMMAND-ADVANCED:INTERNAL=1
+//IrrXML_Include
+IRRXML_INCLUDE_DIR:INTERNAL=F:/Developer Crib/GameEngineWorkspace/Cuboid/vendor/assimp/contrib/irrXML
+//IrrXML
+IRRXML_LIBRARY:INTERNAL=IrrXML
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
 MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
 MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//CHECK_TYPE_SIZE: off64_t unknown
+OFF64_T:INTERNAL=
 //ADVANCED property for variable: P4COMMAND
 P4COMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: RT_LIBRARY
+RT_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
 SITE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SLURM_SBATCH_COMMAND
@@ -647,6 +864,16 @@ SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
 SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SVNCOMMAND
 SVNCOMMAND-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DBG
+ZLIB_LIBRARY_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_REL
+ZLIB_LIBRARY_REL-ADVANCED:INTERNAL=1
+//x
+ZLIB_PREFIX_PATH_INT_CHECK:INTERNAL=
+//Have include unistd.h
+Z_HAVE_UNISTD_H:INTERNAL=
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Cuboid
 

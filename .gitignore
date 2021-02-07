@@ -41,3 +41,13 @@
 /vendor/yaml-cpp/test
 /vendor/yaml-cpp/Testing
 /lib
+/CMakeFiles
+CMakeFiles
+ENGINE.dir
+ALL_BUILD.*
+*.cmake
+*.vcxproj
+*.filters
+*.user
+/ENGINE/*.sln
+

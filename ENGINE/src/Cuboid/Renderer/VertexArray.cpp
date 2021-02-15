@@ -14,7 +14,9 @@ namespace Cuboid
 		{
 			case RendererAPI::API::None: 	CUBOID_CORE_ERROR("No Render API"); break;
 			case RendererAPI::API::Opengl: return CreateRef<OpenGLVertexArray>();
+#ifdef WIN32
 			case RendererAPI::API::DirectX: return CreateRef<D3DVertexArray>();
+#endif
 		}
 
 		return nullptr;

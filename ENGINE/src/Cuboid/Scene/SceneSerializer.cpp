@@ -1,3 +1,4 @@
+#include "Cuboidpch.h"
 #include "SceneSerializer.h"
 #include <yaml-cpp/yaml.h>
 #include "Entity.h"
@@ -322,7 +323,7 @@ namespace Cuboid
 
                     auto& cc = deserializedEntity.AddComponent<CameraComponent>();
 
-                    auto& cameraProps = cameraComponent["Camera"];
+                    auto cameraProps = cameraComponent["Camera"];
                     cc.Camera.SetCameraProjectionType((SceneCamera::CameraProjectionType) cameraProps["ProjectionType"].as<int>());
                     cc.Camera.SetPerspectiveVerticalFOV(cameraProps["PerspectiveFOV"].as<float>());
                     cc.Camera.SetPerspectiveNearClip(cameraProps["PerspectiveNear"].as<float>());

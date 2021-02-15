@@ -16,13 +16,15 @@ namespace Cuboid {
     }
 
     void OpenGLGraphicsContext::Init() {
+
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
         SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
-        int gladStatus = gladLoadGLLoader((GLADloadproc) SDL_GL_GetProcAddress);
+        bool gladStatus = gladLoadGL();
         CUBOID_ASSERT(gladStatus, "GLAD FAILED TO INIT");
         CUBOID_CORE_DEBUG("GLAD INIT WITH STATUS CODE: " + std::to_string(gladStatus));
 
@@ -40,7 +42,7 @@ namespace Cuboid {
 
     OpenGLGraphicsContext::OpenGLGraphicsContext(SDL_Window* window) {
 
-        CUBOID_CORE_INFO("GRaphics context");
+        CUBOID_CORE_INFO("Graphics context");
         this->m_Window = (window);
         this->m_Context = SDL_GL_CreateContext(m_Window);
         CUBOID_ASSERT(m_Window, "Window no data");
@@ -58,6 +60,7 @@ namespace Cuboid {
 
     void OpenGLGraphicsContext::SwapBuffers() {
         SDL_GL_SwapWindow(m_Window);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     void OpenGLGraphicsContext::ResizeSwapBuffers()

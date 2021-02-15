@@ -86,7 +86,7 @@ namespace Cuboid
 
 		if (mainCamera)
 		{
-#if 1
+#if 0
 			Renderer::BeginScene(*mainCamera, mainCameraTranform);
 			auto view = m_Registry.view<TransformComponent, MeshRendererComponent>();
 
@@ -153,7 +153,7 @@ namespace Cuboid
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{
-		static_assert(false);
+		static_assert(true);
 	}
 
 	template<>

@@ -2,7 +2,8 @@
 #include <imgui.h>
 #include <imgui_internal.h>
 #include "Cuboid/Scene/Components.h"
-#include <glm/gtc/type_ptr.hpp> 
+#include <glm/gtc/type_ptr.hpp>
+#define __STDC_LIB_EXT1__
 
 namespace Cuboid
 {
@@ -227,9 +228,10 @@ namespace Cuboid
 				auto& tag = component.Tag;
 				char buffer[256];
 
+#ifdef WIN32
 				memset(buffer, 0, sizeof(buffer));
 				strcpy_s(buffer, sizeof(buffer), tag.c_str());
-
+#endif
 				if (ImGui::InputText("##Tag", buffer, sizeof(buffer)))
 				{
 					tag = std::string(buffer);

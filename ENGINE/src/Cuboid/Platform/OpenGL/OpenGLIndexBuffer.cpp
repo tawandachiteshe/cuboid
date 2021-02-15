@@ -1,5 +1,5 @@
 #include "OpenGLIndexBuffer.h"
-#include <glad\glad.h>
+#include <glad/glad.h>
 
 namespace Cuboid
 {

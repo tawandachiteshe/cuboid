@@ -1,13 +1,13 @@
 #pragma once
 
-#include <d3d11.h>
 
 #include "Cuboid/Core/Core.h"
-
 #include "DxHelper.h"
+
 
 namespace Cuboid
 {
+#ifdef WIN32
 	class InitializeD3Devices
 	{
 	protected:
@@ -70,5 +70,7 @@ namespace Cuboid
 	{
 		return InitializeD3Devices::GetDevices();
 	}
+
+#endif
 
 }

@@ -25,9 +25,11 @@ namespace Cuboid
 
 	ImGuiLayer::~ImGuiLayer()
 	{
-		//TODO: Create shut down method 
+		//TODO: Create shut down method
+#ifdef WIN32
 		ImGui_ImplDX11_Shutdown();
 		ImGui_ImplWin32_Shutdown();
+#endif
 		ImGui::DestroyContext();
 	}
 
@@ -65,8 +67,9 @@ namespace Cuboid
 
             ImGui_ImplSDL2_InitForOpenGL(std::any_cast<SDL_Window*>(app.GetWindow().GetNativeWindow()),
                                          app.GetWindow().GetGLContext());
-            ImGui_ImplOpenGL3_Init("#version 120");
+            ImGui_ImplOpenGL3_Init("#version 300 es");
         }
+#ifdef WIN32
 		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
 			ImGui_ImplWin32_EnableDpiAwareness();
@@ -74,6 +77,7 @@ namespace Cuboid
 			ImGui_ImplDX11_Init(GraphicsEngine()->GetDevice().Get(), GraphicsEngine()->GetContext().Get());
 
 		}
+#endif
 
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 	}
@@ -94,8 +98,10 @@ namespace Cuboid
 			
 		} else if(RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
+#ifdef WIN32
 			ImGui_ImplDX11_NewFrame();
 			ImGui_ImplWin32_NewFrame();
+#endif
 
 		}
 
@@ -131,8 +137,9 @@ namespace Cuboid
 		}
 		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
-
+#ifdef WIN32
 			ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
+#endif
 
 		}
 
@@ -161,6 +168,17 @@ namespace Cuboid
 			event.Handled |= event.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
 			event.Handled |= event.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
 		}
+
+		//temp
+        SDL_Event sdl_event;
+		SDL_PollEvent(&sdl_event);
+        ImGui_ImplSDL2_ProcessEvent(&sdl_event);
+/*
+        if (sdl_event.type == SDL_QUIT)
+            done = true;
+        if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_CLOSE && event.window.windowID == SDL_GetWindowID(window))
+            done = true;
+*/
 	}
 
 	void ImGuiLayer::SetDarkThemeColors()

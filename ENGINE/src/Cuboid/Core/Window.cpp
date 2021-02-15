@@ -6,8 +6,9 @@
 #include <Cuboid/Renderer/Renderer.h>
 
 #include "Cuboid/Platform/Windowing/SDLWindow.h"
+#ifdef WIN32
 #include "Cuboid/Platform/Windowing/WindowsWindow.h"
-
+#endif
 namespace Cuboid
 {
 	
@@ -20,7 +21,9 @@ namespace Cuboid
 		case RendererAPI::API::Opengl:
 			return CreateScope<SDLWindow>(props);
 		case RendererAPI::API::DirectX:
+#ifdef WIN32
 			return CreateScope<WindowsWindow>(props);
+#endif
 		case RendererAPI::API::None:
 			CUBOID_CORE_ERROR("Platform not yet supported!!!!");
 			return nullptr;

@@ -7,11 +7,20 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+
+#ifdef WIN32
+
 #include <windows.h>
+#include <wrl.h>
+#include <d3dcompiler>
+#include <d3d11.h>
+
+#endif
+
 #include <Cuboid/Core/Core.h>
 #include <cstdint>
 #include <any>
-#include <wrl.h>
+
 
 
 //TODO DO SOME PLATFORM MACROS HERE TAWANDA

@@ -93,7 +93,7 @@ void main()
         v_Color;
     } else {
         gl_FragColor = texture2D(u_Textures[int(v_TextureIdx)], v_TextureCoord * v_TillingFactor) *
-        v_Color * vec4(worleyColor, 1f);
+        v_Color;
     }
 
 

@@ -28,28 +28,6 @@ namespace Cuboid
 
         static void Flush();
 
-        static  void Fill(const glm::vec4& color);
-
-        static void DrawLine(const glm::vec2& positionA, const glm::vec2& positionB ,float lineWidth = 1.0f, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawLine(const glm::vec3& positionA, const glm::vec3& positionB ,float lineWidth = 1.0f, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawCircle(const glm::vec2& position,float radius, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawCircle(const glm::vec3& position,float radius, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawVertex(const glm::vec2& position,float size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawVertex(const glm::vec3& position,float size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawTriangle(const glm::vec2& position,const glm::vec2& size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawTriangle(const glm::vec3& position,const glm::vec2& size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
-
-        static void DrawRotatedTriangle(const glm::vec2& position, const glm::vec2& size, float rotation, const glm::vec4& color);
-
-        static void DrawRotatedTriangle(const glm::vec3& position, const glm::vec2& size, float rotation, const glm::vec4& color);
-
         static void DrawQuad(const glm::vec2& position,const glm::vec2& size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
 
         static void DrawQuad(const glm::vec3& position,const glm::vec2& size, const glm::vec4& color = {1.0f, 1.0f, 1.0f, 1.0f});
@@ -87,9 +65,6 @@ namespace Cuboid
         private:
         static void FlushAndReset();
         static void InitQuads();
-        static void InitTriangles();
-        static void InitLines();
-        static void InitPoints();
         static void DrawDestroy();
     };
 }

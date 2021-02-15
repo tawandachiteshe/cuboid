@@ -12,6 +12,7 @@ namespace Cuboid
 
     class D3DGraphicsContext : public GraphicsContext
     {
+#ifdef WIN32
         public:
         D3DGraphicsContext(HWND window);
 
@@ -26,7 +27,7 @@ namespace Cuboid
         ~D3DGraphicsContext();
 
         void ResizeSwapBuffers() override;
-   
+#endif
     };
 
 }

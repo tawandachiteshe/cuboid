@@ -8,11 +8,12 @@
 #include <Cuboid/Renderer/Buffer.h>
 #include <cstdint>
 
-#include <d3d11.h>
 
 namespace Cuboid
 {
     class Shader;
+
+    class ID3D11InputLayout;
 
     class D3DVertexBuffer : public VertexBuffer
     {

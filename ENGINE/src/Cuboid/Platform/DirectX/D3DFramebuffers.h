@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Cuboid/Renderer/FrameBuffer.h"
-#include <wrl.h>
-#include <d3d11.h>
 
 //TODO dont forget to put macro guards
 

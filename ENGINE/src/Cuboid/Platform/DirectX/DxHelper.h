@@ -10,7 +10,7 @@ namespace Cuboid
 		AutoZero()
 		{
 			memset(this, 0, sizeof(T));
-			dwSize = sizeof(T);
+			uint32_t dwSize = sizeof(T);
 		}
 
 

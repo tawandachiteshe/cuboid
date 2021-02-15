@@ -4,9 +4,11 @@
 
 #include <glm/glm.hpp>
 #include "Cuboid/Platform/DirectX/ConstantBuffer.h"
+#include "Cuboid/Core/Core.h"
 
 namespace Cuboid
 {
+    class ConstantBuffer;
 
 	class Shader
 	{
@@ -36,7 +38,9 @@ namespace Cuboid
 
 			virtual void SetConstantBuffer(const Ref<ConstantBuffer>& buffer) {}
 
-			virtual Ref<ConstantBuffer>& GetConstantBuffer() { return CreateRef<ConstantBuffer>(); }
+#ifdef WIN32
+			virtual Ref<ConstantBuffer>$ GetConstantBuffer() { return CreateRef<ConstantBuffer>(); }
+#endif
 
 			static Ref<Shader> Create(const std::string&  fragShaderSrc, const std::string& vertexShaderSrc);
 

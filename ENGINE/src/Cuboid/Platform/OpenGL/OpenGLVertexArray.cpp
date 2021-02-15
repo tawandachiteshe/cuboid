@@ -109,10 +109,10 @@ namespace Cuboid
         for (int i = 0; i < elements.size(); i++)
         {
             auto& element = elements[i];
-            attrib = (uint32_t)std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
-            CUBOID_CORE_INFO("attrib location {0} attrib name {1} ",attrib, element.Name);
-            glEnableVertexAttribArray(attrib);
-            glVertexAttribPointer(attrib,
+            //attrib = (uint32_t)std::dynamic_pointer_cast<OpenGLShader>(m_Shader)->GetAttributeLocation(element.Name);
+            CUBOID_CORE_INFO("attrib location {0} attrib name {1} ",i, element.Name);
+            glEnableVertexAttribArray(i);
+            glVertexAttribPointer(i,
                                   element.GetComponentCount(),
                                   ShaderDataTypeToOpenGLBaseType(element.Type),
                                   (GLboolean)(element.Normalized ? GL_TRUE : GL_FALSE),

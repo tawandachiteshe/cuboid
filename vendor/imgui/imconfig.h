@@ -108,5 +108,5 @@ namespace ImGui
 
 
 #define IMGUI_IMPL_OPENGL_LOADER_GLAD
-#define GL_MAJOR_VERSION 2
-#define GL_MINOR_VERSION 1
+//#define GL_MAJOR_VERSION 4
+//#define GL_MINOR_VERSION 2

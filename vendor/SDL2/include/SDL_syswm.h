@@ -49,7 +49,9 @@ struct SDL_SysWMinfo;
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
+#ifdef WIN32
 #include <windows.h>
+#endif
 #endif
 
 #if defined(SDL_VIDEO_DRIVER_WINRT)

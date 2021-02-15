@@ -11,11 +11,12 @@ set(CMAKE_INSTALL_DATADIR "${PROJECT_SOURCE_DIR}/bin-int/${CMAKE_SYSTEM_NAME}-${
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 
-
+if(WIN32)
 add_subdirectory(vendor/assimp)
+endif()
+
 #add_subdirectory(entt)
 add_subdirectory(vendor/glad)
-add_subdirectory(vendor/luac)
 add_subdirectory(vendor/imgui)
 add_subdirectory(vendor/spdlog)
 add_subdirectory(ENGINE)
@@ -23,6 +24,7 @@ add_subdirectory(Sandbox)
 add_subdirectory(vendor/yaml-cpp)
 add_subdirectory(Cuboid-Editor)
 
-set_target_properties(assimp assimp_cmd glad luac imgui spdlog yaml-cpp zlib zlibstatic unit uninstall IrrXML lua UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES FOLDER HiddenTargets)
-
+if(WIN32)
+    set_target_properties(assimp assimp_cmd glad luac imgui spdlog yaml-cpp zlib zlibstatic unit uninstall IrrXML lua UpdateAssimpLibsDebugSymbolsAndDLLs PROPERTIES FOLDER HiddenTargets)
+endif(WIN32)
 

@@ -1,7 +1,9 @@
 #include "Shader.h"
 #include <Cuboid/Renderer/RendererAPI.h>
 #include <Cuboid/Platform/OpenGL/OpenGLShader.h>
+#ifdef WIN32
 #include <Cuboid/Platform/DirectX/D3DShader.h>
+#endif
 #include <Cuboid/utils/IO/FileSystem.h>
 
 namespace Cuboid
@@ -14,7 +16,9 @@ namespace Cuboid
 		{
 		case RendererAPI::API::None: CUBOID_CORE_ERROR("None Currently not suppported! "); break;
 		case RendererAPI::API::Opengl: return CreateRef<OpenGLShader>(fragShaderSrc, vertexShaderSrc);
+#ifdef WIN32
 		case RendererAPI::API::DirectX: return CreateRef<D3DShader>(fragShaderSrc, vertexShaderSrc);
+#endif
 		}
 		return nullptr;
 	}

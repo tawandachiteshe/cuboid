@@ -1,3 +1,4 @@
+#include <Cuboidpch.h>
 #include "OpenGLShader.h"
 #include <glad/glad.h>
 #include <glm/glm.hpp>
@@ -71,7 +72,7 @@ namespace Cuboid
 			glGetShaderInfoLog(m_Shaderid, length, &length, message);
 
 			std::stringstream ss;
-			ss << "Failed To Compiled " << (shaderType == GL_VERTEX_SHADER ? "vertex" : "fragment") << " SHADER!" << std::endl
+			ss << "Failed To Compiled " << (shaderType == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl
 					<< message << std::endl;
 
 			CUBOID_CORE_ERROR(ss.str());
@@ -96,8 +97,33 @@ namespace Cuboid
 		glLinkProgram(m_Program);
 		glValidateProgram(m_Program);
 
-		glDetachShader(m_Program, vs);
-		glDetachShader(m_Program, fs);
+        GLint isLinked = 0;
+        glGetProgramiv(m_Program, GL_LINK_STATUS, (int*)&isLinked);
+        if (isLinked == GL_FALSE)
+        {
+            GLint maxLength = 0;
+            glGetProgramiv(m_Program, GL_INFO_LOG_LENGTH, &maxLength);
+
+            // The maxLength includes the NULL character
+            std::vector<GLchar> infoLog(maxLength);
+            glGetProgramInfoLog(m_Program, maxLength, &maxLength, &infoLog[0]);
+
+            // We don't need the program anymore.
+            glDeleteProgram(m_Program);
+
+            glDeleteShader(vs);
+            glDeleteShader(fs);
+
+            CUBOID_CORE_ERROR("{0}", infoLog.data());
+            //CUBOID_CORE_ASSERT(false, "Shader link failure!");
+            return;
+        }
+
+        glDetachShader(m_Program, vs);
+        glDetachShader(m_Program, fs);
+
+        glDeleteShader(vs);
+        glDeleteShader(fs);
 
 	}
 
@@ -130,7 +156,7 @@ namespace Cuboid
 	{
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+		    CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniform1i(loc, value);
 	}
@@ -147,7 +173,7 @@ namespace Cuboid
 	{
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+            CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniform1f(loc, value);
 	}
@@ -157,7 +183,7 @@ namespace Cuboid
 	{
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+            CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniform2f(loc, value.x, value.y);
 	}
@@ -167,7 +193,7 @@ namespace Cuboid
 	{
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+            CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniform3f(loc, value.x, value.y, value.z);
 	}
@@ -177,7 +203,7 @@ namespace Cuboid
 	{
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+            CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniform4f(loc, value.x, value.y, value.z, value.w);
 	}
@@ -188,7 +214,7 @@ namespace Cuboid
 		int loc = glGetUniformLocation(m_Program, name.c_str());
 
 		if (loc == -1)
-			CUBOID_CORE_ERROR("Uniform not found");
+            CUBOID_CORE_ASSERT(false, "Uniform not found");
 
 		glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(value));
 	}

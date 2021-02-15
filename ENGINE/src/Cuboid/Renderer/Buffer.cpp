@@ -16,7 +16,9 @@ namespace Cuboid
 		{
 		case RendererAPI::API::None: CUBOID_CORE_ERROR("None Currently not suppported! "); break;
 		case RendererAPI::API::Opengl: return CreateRef<OpenGLIndexBuffer>(indices, count);
+#ifdef WIN32
 		case RendererAPI::API::DirectX: return CreateRef<D3DIndexBuffer>(indices, count);
+#endif
 		}
 		return nullptr;
 	}
@@ -28,7 +30,9 @@ namespace Cuboid
 		{
 		case RendererAPI::API::None: CUBOID_CORE_ERROR("None Currently not supported! "); break;
 		case RendererAPI::API::Opengl: return  CreateRef<OpenGLVertexBuffer>(vertices, size);
+#ifdef WIN32
 		case RendererAPI::API::DirectX: return  CreateRef<D3DVertexBuffer>(vertices, size);
+#endif
 		}
 		return nullptr;
 	}
@@ -39,8 +43,9 @@ namespace Cuboid
 		{
 		case RendererAPI::API::None: CUBOID_CORE_ERROR("None Currently not supported! "); break;
 		case RendererAPI::API::Opengl: return  CreateRef<OpenGLVertexBuffer>(size);
+#ifdef WIN32
 		case RendererAPI::API::DirectX: return  CreateRef<D3DVertexBuffer>(size);
-
+#endif
 		}
 		return nullptr;
 	}

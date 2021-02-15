@@ -6,9 +6,11 @@
 #define CUBOID_D3DSHADER_H
 
 #include <Cuboid/Renderer/Shader.h>
-#include <d3d11.h>
 #include <unordered_map>
+
+#ifdef WIN32
 #include <DirectXMath.h>
+#endif
 
 namespace Cuboid
 {
@@ -39,6 +41,7 @@ namespace Cuboid
         void SetMat4(const std::string &name, const glm::mat4 &value) override;
 
         void SetPointerArray(const std::string& name, void* values, uint32_t count) override;
+
 
         void SetConstantBuffer(const Ref<ConstantBuffer>& buffer) override 
         {

@@ -38,9 +38,10 @@ namespace Cuboid
 
 		if (RendererAPI::GetAPI() == RendererAPI::API::Opengl)
 		{
-			shader->SetMat4("u_ProjectionViewMatrix", m_SceneData->m_ProjectionViewMatrix);
-			shader->SetMat4("u_Transform", transform);
+			shader->SetMat4("u_ProjectionView", m_SceneData->m_ProjectionViewMatrix);
+			//shader->SetMat4("u_Transform", transform);
 		}
+#ifdef WIN32
 		else if (RendererAPI::GetAPI() == RendererAPI::API::DirectX)
 		{
 
@@ -54,6 +55,7 @@ namespace Cuboid
 				});
 
 		}
+#endif
 		
 		RenderCommand::DrawIndexed(vtxArray);
 	}

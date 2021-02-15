@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Cuboid\Core\Core.h"
+#include "Cuboid/Core/Core.h"
 
 namespace Cuboid
 {

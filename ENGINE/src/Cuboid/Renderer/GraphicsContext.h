@@ -9,6 +9,7 @@
 #define ENGINE_SRC_CUBOID_RENDERER_GRAPHICSCONTEXT_H_
 
 #include <any>
+#include "Cuboid/Core/Core.h"
 
 namespace Cuboid
 {

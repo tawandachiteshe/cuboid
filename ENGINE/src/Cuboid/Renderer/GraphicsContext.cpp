@@ -15,7 +15,9 @@ namespace Cuboid
 		{
 			case RendererAPI::API::None:    CUBOID_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 			case RendererAPI::API::Opengl:  return CreateScope<OpenGLGraphicsContext>(std::any_cast<SDL_Window*>(window));
+#ifdef WIN32
 			case RendererAPI::API::DirectX: return CreateScope<D3DGraphicsContext>(std::any_cast<HWND>(window));
+#endif
 		}
 
 		CUBOID_CORE_ASSERT(false, "Unknown RendererAPI!");

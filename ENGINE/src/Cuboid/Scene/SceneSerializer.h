@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include "Cuboid/Core/Core.h"
 
 namespace Cuboid
 {

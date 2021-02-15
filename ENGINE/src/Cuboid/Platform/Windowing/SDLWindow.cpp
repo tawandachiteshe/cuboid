@@ -13,7 +13,7 @@ namespace Cuboid
 	{
 		SDL_PollEvent(&m_Event);
 		context->SwapBuffers();
-		SDL_GL_SwapWindow(m_Window);
+		CUBOID_CORE_DEBUG("Swapping");
 	}
 
 	unsigned int SDLWindow::GetWidth() const

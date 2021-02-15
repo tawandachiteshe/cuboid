@@ -1,12 +1,9 @@
-
+#pragma once
 
 #include <memory>
 #include <Cuboid/utils/Logger.h>
-
-
-#ifndef CUBOID_CORE_H
-#define CUBOID_CORE_H
-
+#include "Cuboid/Core/Core.h"
+#include "Cuboid/Core/DebugBreak.h"
 
 #define CUBOID_ASSERT(x, ...) { if(!(x)) { CUBOID_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define CUBOID_CORE_ASSERT(x, ...) { if(!(x)) { CUBOID_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -37,4 +34,3 @@ namespace Cuboid
 	}
 
 }
-#endif

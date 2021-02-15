@@ -17,13 +17,13 @@ namespace Cuboid
 	void MeshLoader::ProcessNode(aiNode* node, const aiScene* scene)
 	{
 
-		for (UINT i = 0; i < node->mNumMeshes; i++)
+		for (uint32_t i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 			m_Meshes.push_back(this->ProcessMesh(mesh, scene));
 		}
 
-		for (UINT i = 0; i < node->mNumChildren; i++)
+		for (uint32_t i = 0; i < node->mNumChildren; i++)
 		{
 			this->ProcessNode(node->mChildren[i], scene);
 		}
@@ -34,7 +34,7 @@ namespace Cuboid
 	{
 		// Data to fill
 		std::vector<VERTEX> vertices;
-		std::vector<UINT> indices;
+		std::vector<uint32_t> indices;
 
 		//TODO i will care later
 		/*
@@ -47,7 +47,7 @@ namespace Cuboid
 		*/
 
 		// Walk through each of the mesh's vertices
-		for (UINT i = 0; i < mesh->mNumVertices; i++)
+		for (uint32_t i = 0; i < mesh->mNumVertices; i++)
 		{
 			VERTEX vertex;
 
@@ -73,11 +73,11 @@ namespace Cuboid
 			vertices.push_back(vertex);
 		}
 
-		for (UINT i = 0; i < mesh->mNumFaces; i++)
+		for (uint32_t i = 0; i < mesh->mNumFaces; i++)
 		{
 			aiFace face = mesh->mFaces[i];
 
-			for (UINT j = 0; j < face.mNumIndices; j++)
+			for (uint32_t j = 0; j < face.mNumIndices; j++)
 				indices.push_back(face.mIndices[j]);
 		}
 

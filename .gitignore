@@ -1,5 +1,8 @@
 /.vs
 /.git
+/.idea
+/cmake-build-debug
+/cmake-build-release
 /bin
 /build
 *.vcxproj
@@ -13,6 +16,7 @@
 /ENGINE/*.filters
 /ENGINE/*.user
 /ENGINE/*.sln
+/ENGINE/.vs
 
 /vendor/glad/CMakeFiles
 /vendor/glad/glad.dir
@@ -28,6 +32,7 @@
 /Cuboid-Editor/CMakeFiles
 /Cuboid-Editor/Cuboid-Editor.dir
 /Cuboid-Editor/assimp-vc142-mtd.dll
+/Cuboid-Editor/.vs
 
 /vendor/spdlog/CMakeFiles
 /vendor/spdlog/ENGINE.dir

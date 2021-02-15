@@ -3,7 +3,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <Cuboid/Scene/SceneSerializer.h>
-#include "Cuboid/Utils/IO/MeshLoader.h"
+#include <Cuboid/utils/IO/MeshLoader.h>
+
 
 static float zoomLevel = 1.0f;
 static float fps = 0.0f;
@@ -26,6 +27,8 @@ namespace Cuboid
 
     void CuboidEditor::OnAttach()
     {
+
+#ifdef WIN32
         auto constbuffer = CreateRef<ConstantBuffer>();
 
         struct Spot
@@ -87,6 +90,7 @@ namespace Cuboid
 
         m_MeshShader->SetConstantBuffer(constbuffer);
 
+
         auto vertex_array = VertexArray::Create();
 
         auto mesh = MeshLoader("res/models/torus.fbx").GetMeshes().at(0);
@@ -97,13 +101,17 @@ namespace Cuboid
             { {ShaderDataType::Float3, "a_Position"},
               {ShaderDataType::Float2, "a_TextureCoord"},
               {ShaderDataType::Float3, "a_Normals"}
-            
+
             });
 
-        
+
 
         vertex_array->AddVertexBuffer(mesh.GetVertexBuffer());
         vertex_array->SetIndexBuffer(mesh.GetIndexBuffer());
+
+        m_CubeEntity = m_scActiveScene->CreateEntity("White Cube");
+        m_CubeEntity.AddComponent<MeshRendererComponent>(mesh, m_MeshShader);
+#endif
 
         Cuboid::FrameBufferSpecification fbSpec;
 
@@ -114,10 +122,7 @@ namespace Cuboid
         m_scActiveScene = CreateRef<Scene>();
 
 
-#if 1
-        m_CubeEntity = m_scActiveScene->CreateEntity("White Cube");
-        m_CubeEntity.AddComponent<MeshRendererComponent>(mesh, m_MeshShader);
-
+#if 0
         squareEntity = m_scActiveScene->CreateEntity("Yellow Square");
         squareEntity.AddComponent<SpriteRendererComponent>(glm::vec4(1.0f, 1.0f, 0.0f, 0.65f));
 
@@ -198,7 +203,7 @@ namespace Cuboid
     {
         sdt = dt;
         
-        m_FrameBuffer->Bind();
+        //m_FrameBuffer->Bind();
         RenderCommand::SetViewport(0, 0, (uint32_t)m_vcViewPortSize.x, (uint32_t)m_vcViewPortSize.y);
 
         if (m_bIsViewPortFocused || m_bIsViewPortHovered)
@@ -208,7 +213,7 @@ namespace Cuboid
 
         m_scActiveScene->OnUpdate(dt);
 
-         m_FrameBuffer->UnBind();
+         //m_FrameBuffer->UnBind();
 
          RenderCommand::SetClearColor({ 0.23f, 0.23f, 0.23f, 1.0f });
 
@@ -256,7 +261,7 @@ namespace Cuboid
         if (m_vcViewPortSize != *((glm::vec2*) & viewportPanelSize))
         {
             m_vcViewPortSize = { viewportPanelSize.x, viewportPanelSize.y };
-            m_FrameBuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
+          //  m_FrameBuffer->Resize((uint32_t)viewportPanelSize.x, (uint32_t)viewportPanelSize.y);
 
             m_CameraController.OnResize(viewportPanelSize.x, viewportPanelSize.y);
 
@@ -264,7 +269,7 @@ namespace Cuboid
             
         }
 
-        ImGui::Image(m_FrameBuffer->GetColorAttachmentRenderID(), { m_vcViewPortSize.x,  m_vcViewPortSize.y });
+        //ImGui::Image(m_FrameBuffer->GetColorAttachmentRenderID(), { m_vcViewPortSize.x,  m_vcViewPortSize.y });
    
 
         ImGui::End();

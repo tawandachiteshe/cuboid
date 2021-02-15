@@ -4,7 +4,6 @@
 
 #include <Cuboidpch.h>
 #include "D3DShader.h"
-#include <d3dcompiler.h>
 #include <glm/gtc/type_ptr.hpp>
 #include "InitializeD3Devices.h"
 #include "Cuboid\Renderer\Lights.h"

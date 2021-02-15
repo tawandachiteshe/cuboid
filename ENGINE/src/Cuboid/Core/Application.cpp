@@ -2,8 +2,8 @@
 #include "Application.h"
 #include <Cuboid/Renderer/Renderer.h>
 #include <imgui_impl_sdl.h>
-#include "Cuboid\ImGui\ImGuiDock.h"
-#include "Cuboid\Events\ApplicationEvent.h"
+#include "Cuboid/ImGui/ImGuiDock.h"
+#include "Cuboid/Events/ApplicationEvent.h"
 namespace Cuboid
 {
 

@@ -1,14 +1,15 @@
 #pragma once
 
 #include "Cuboid/Renderer/Buffer.h"
-#include <d3d11.h>
 #include "InitializeD3Devices.h"
+
 
 namespace Cuboid
 {
-
+#ifdef WIN32
 	class ConstantBuffer
 	{
+
 	public:
 		enum class ConstantBufferType
 		{
@@ -79,5 +80,5 @@ namespace Cuboid
         GraphicsEngine()->GetContext()->Unmap(constbuffer, 0);
 
     }
-
+#endif
 }
